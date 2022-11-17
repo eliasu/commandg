@@ -13,9 +13,11 @@
     "@alpinejs/focus": "^3.10.5",
     "@alpinejs/persist": "^3.10.5",
     "alpinejs": "^3.10.5",
-    "focus-visible": "^5.2.0"
+    "focus-visible": "^5.2.0",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
+    "@kamona/tailwindcss-perspective": "^0.1.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
@@ -25,6 +27,8 @@
     "postcss": "^8.4.18",
     "postcss-focus-visible": "^7.1.0",
     "postcss-import": "^15.0.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "resolve-url-loader": "^5.0.0",
     "tailwindcss": "^3.2.1",
     "vite": "^3.2.2"

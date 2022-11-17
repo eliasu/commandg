@@ -2,3 +2,33 @@
 @import "custom";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.scrolling {
+   transform: scale(.7, .7);
+}
+
+:root {
+   --tl_inner: 0px;
+   --tl_outer: calc(var(--tl_inner) * 2);
+ }
+
+/* outer */
+.grid5 > div:nth-child(5n), 
+.grid5 > div:nth-child(5n-4)  {
+   transform: translate3d(0px, var(--tl_outer), 0px);
+   will-change: transform; 
+   /* transition-property: all;
+   transition-timing-function: linear;
+   transition-duration: 50ms; */
+}
+
+/* inner */
+.grid5 > div:nth-child(5n-1), 
+.grid5 > div:nth-child(5n-3)  {
+   transform: translate3d(0px, var(--tl_inner), 0px);
+   will-change: transform; 
+   /* transition-property: all;
+   transition-timing-function: linear;
+   transition-duration: 50ms; */
+
+}

@@ -34,6 +34,10 @@ module.exports = {
     },
   },
   plugins: [
+    // perspective plugin
+    require('@kamona/tailwindcss-perspective'),
+    // scrollbar plugin
+    require('tailwind-scrollbar-hide'),
     // Use Tailwinds aspect-ratio plugin for embedded media: https://github.com/tailwindlabs/tailwindcss-aspect-ratio.
     require('@tailwindcss/aspect-ratio'),
     // Use Tailwinds forms plugin for form styling: https://github.com/tailwindlabs/tailwindcss-forms

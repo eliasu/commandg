@@ -4,9 +4,20 @@
 #}}
 
 <!-- /default.antlers.html -->
-<main class="outer-grid" id="content">
-    {{ page_builder scope="block" }}
-        {{ partial src="page_builder/{type}" }}
-    {{ /page_builder }}
+<main class="w-screen h-screen bg-black">
+    <div id="grid-container" class="fixed top-0 bottom-0 w-[120%] -left-[10%] flex flex-col gap-4 overflow-x-hidden overflow-y-auto scrollbar-hide">
+        <div id="grid" class="grid grid-cols-5 gap-4 grid5"> 
+            {{ collection:cards sort="random" }}
+                <div class="h-56 overflow-hidden transition-transform duration-[50ms] aspect-w-3 aspect-h-4">
+                    <div class="absolute -z-behind">{{index}}</div>
+                    {{ partial:components/picture class="relative" cover="true" :image="image" sizes="(min-width: 768px) 50vw, 90vw" }}
+                </div>
+            {{ /collection:cards }}
+        </div>
+    </div>
+    
+    {{# counter #}}
+    <div class="absolute p-4 text-xl font-bold text-right bg-white rounded-xl bottom-16 right-16" id="speed">0</div>
+
 </main>
 <!-- End: /default.antlers.html -->

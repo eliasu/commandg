@@ -2,3 +2,7 @@ name: Elias
 super: true
 id: f064bbd5-f72f-4685-ac55-fa31af92a19f
 password_hash: $2y$10$t5ezwEnHN5yrseTWDVz3OukZyf87EFjLnU7EOYQX16WJidR17e5B2
+preferences:
+  collections:
+    cards:
+      per_page: 500
