@@ -4,7 +4,6 @@ import persist from '@alpinejs/persist'
 import focus from '@alpinejs/focus'
 import 'focus-visible'
 
-import JScroll from '@twotwentytwo/jscroll'
 
 // Global get CSRF token function (used by forms).
 window.getToken = async () => {
@@ -69,14 +68,28 @@ function initGridLoop () {
 
     let r = document.querySelector(':root');
 
+
+    // setInterval(function () {
+    //     parallaxItems1.forEach( element => {
+    //         element.style.transform = 'translate(0, ' + t_y2 + ' )'
+    //     })
+        
+    //     parallaxItems2.forEach( element => {
+    //         element.style.transform = 'translate(0, ' + t_y + ' )'
+    //     })
+    // }, 10);
+    
+    let t_y;
+    let t_y2;
+
     // scroll loop functions
     function scrollLoop (event) {
         let y = gridContainer.scrollTop - gridContainer.getBoundingClientRect().top
         // let y = gridContainer.scrollTop - gridContainer.firstElementChild.scrollHeight
         
-        let t_y = Math.round(0.2 * y)
+        t_y = Math.round(0.2 * y)
 
-        let t_y2 = `${2*t_y}px`
+        t_y2 = `${2*t_y}px`
         t_y = `${t_y}px`
         // r.style.setProperty('--tl_inner', t_y);
         
@@ -84,13 +97,15 @@ function initGridLoop () {
         // t_y2 = `${t_y2}px`
         // r.style.setProperty('--tl_outer', t_y2);
 
+        
         parallaxItems1.forEach( element => {
-            element.style.transform = 'translate3d(0, ' + t_y2 + ' ,0)'
+            element.style.transform = 'translate(0, ' + t_y2 + ' )'
         })
         
         parallaxItems2.forEach( element => {
-            element.style.transform = 'translate3d(0, ' + t_y + ' ,0)'
+            element.style.transform = 'translate(0, ' + t_y + ' )'
         })
+        
         
         // Looper
         if ( event.target.scrollTop >= this.firstElementChild.scrollHeight) {

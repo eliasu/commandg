@@ -4,8 +4,8 @@
 #}}
 
 <!-- /default.antlers.html -->
-<main class="w-screen h-screen bg-black">
-    <div id="grid-container" class="fixed top-0 bottom-0 w-[120%] -left-[10%] flex flex-col gap-4 overflow-x-hidden overflow-y-auto scrollbar-hide">
+<main class="w-screen overflow-x-hidden bg-black">
+    <div id="grid-container" class="relative w-[120%] -left-[10%] scrollbar-hide">
         <div id="grid" class="grid grid-cols-5 gap-4 grid5"> 
             {{ collection:cards sort="random" }}
                 <div class="h-56 overflow-hidden transition-transform duration-[50ms] aspect-w-3 aspect-h-4">
@@ -17,7 +17,7 @@
     </div>
     
     {{# counter #}}
-    <div class="absolute p-4 text-xl font-bold text-right bg-white rounded-xl bottom-16 right-16" id="speed">0</div>
+    <div class="fixed p-4 text-xl font-bold text-right bg-white rounded-xl bottom-16 right-16" id="speed">0</div>
 
 </main>
 <!-- End: /default.antlers.html -->
