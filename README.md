@@ -90,6 +90,48 @@ map $sent_http_content_type $expires {
 }
 ```
 
+## Deploy script FTP Deploy
+
+```bash
+on: push
+name: 🚀 Deploy command+g website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+        composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+        php artisan cache:clear
+        php artisan config:cache
+        php artisan route:cache
+        php artisan statamic:stache:warm
+        php artisan queue:restart
+        php artisan statamic:search:update --all
+        php artisan statamic:static:clear
+        php artisan statamic:static:warm --queue
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: w01abbc7.kasserver.com
+        username: f0154bf0
+        password: ${{ secrets.ftppass }}
+```
+
+
+
 ## Deploy script Ploi
 
 ```bash

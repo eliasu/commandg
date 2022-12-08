@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy website on push
+name: 🚀 Deploy command+g website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -16,8 +16,16 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install
-        composer install
-        npm run production
+        npm run build
+        composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+        php artisan cache:clear
+        php artisan config:cache
+        php artisan route:cache
+        php artisan statamic:stache:warm
+        php artisan queue:restart
+        php artisan statamic:search:update --all
+        php artisan statamic:static:clear
+        php artisan statamic:static:warm --queue
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
