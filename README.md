@@ -1,6 +1,6 @@
 # site.ext
 
-## Installation instructions
+## installation instructions
 
 1. run `composer install`
 2. run `php please make:user`
