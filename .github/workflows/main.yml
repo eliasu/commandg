@@ -19,6 +19,14 @@ jobs:
       run: |
         npm install
         npm run build
+        composer install
+        php artisan cache:clear
+        php artisan config:cache
+        php artisan route:cache
+        php artisan statamic:stache:warm
+        php artisan queue:restart
+        php artisan statamic:search:update --all
+        php please assets:generate-presets
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -26,3 +34,14 @@ jobs:
         server: w01abbc7.kasserver.com
         username: f0154bf0
         password: ${{ secrets.ftppass }}
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/public/img/**
+          **/public/storage/**
+          **/vendor/**
+          **/node_modules/**
+          **/public/storage/**
+          **/public/vendor/statamic/**
+          **/public/img/**
+          **/public/static/**
