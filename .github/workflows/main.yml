@@ -23,5 +23,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: w01abbc7.kasserver.com
-        username: ssh-w01abbc7
-        password: ${{ secrets.sftp_rsa }}
+        username: f0154bf0
+        password: ${{ secrets.ftppass }}
