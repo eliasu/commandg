@@ -119,6 +119,7 @@ jobs:
         php artisan statamic:stache:warm
         php artisan queue:restart
         php artisan statamic:search:update --all
+        php please assets:generate-presets
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
