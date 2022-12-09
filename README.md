@@ -105,15 +105,15 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install
-        composer install
         npm run build
+        composer install
         php please cache:clear
         php please config:cache
         php please route:cache
         php please stache:warm
         php please queue:restart
         php please search:update --all
-        php please static:warm
+        
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -131,4 +131,5 @@ jobs:
           **/public/vendor/statamic/**
           **/public/img/**
           **/public/static/**
+          **/storage/**
 ```
