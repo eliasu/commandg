@@ -24,4 +24,4 @@ jobs:
         target-server: w01abbc7.kasserver.com
         remote-user: ssh-w01abbc7
         private-ssh-key: ${{ secrets.SSH_KEY }}
-        destination-path: ~/www/htdocs/w01abbc7/dev.command-g.de/
+        destination-path: ~/www/
