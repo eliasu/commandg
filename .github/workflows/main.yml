@@ -42,3 +42,4 @@ jobs:
           **/public/vendor/statamic/**
           **/public/img/**
           **/public/static/**
+          **/storage/**
