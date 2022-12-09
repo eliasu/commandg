@@ -24,4 +24,5 @@ jobs:
         target-server: w01abbc7.kasserver.com
         remote-user: ssh-w01abbc7
         private-ssh-key: ${{ secrets.SSH_KEY }}
+        ssh-port: 22
         destination-path: ~/www/
