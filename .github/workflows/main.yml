@@ -15,7 +15,7 @@ jobs:
         cache: "npm"
     - run: npm ci
       
-    - name: 🔨 Build
+    - name: 🔨 Building
       run: npm run build
     
     - name: 📂 Sync Files
