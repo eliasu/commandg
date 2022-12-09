@@ -16,6 +16,7 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install
+        npm run build
         php please cache:clear
         php please config:cache
         php please route:cache
@@ -23,7 +24,6 @@ jobs:
         php please queue:restart
         php please search:update --all
         composer install
-        npm run build
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
