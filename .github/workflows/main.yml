@@ -15,7 +15,7 @@ jobs:
         cache: "npm"
     - run: npm ci
       
-    - name: 🔨 Building
+    - name: 🔨 Build
       run: npm run build
     
     - name: 📂 Sync Files
@@ -25,14 +25,3 @@ jobs:
         remote-user: ssh-w01abbc7
         private-ssh-key: ${{ secrets.SSH_KEY }}
         destination-path: ~/www/htdocs/w01abbc7/dev.command-g.de/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/public/img/**
-          **/vendor/**
-          **/node_modules/**
-          **/public/storage/**
-          **/public/vendor/statamic/**
-          **/public/img/**
-          **/public/static/**
-          **/storage/**
