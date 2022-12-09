@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "104b4f9d6c83f2313e55398d70b176b9",
+    "content-hash": "2f893d7cfc9337f8505bb2fdfa428967",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -4793,71 +4793,6 @@
             "time": "2022-07-20T18:31:45+00:00"
         },
         {
-            "name": "skylennard/bard-contains",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skylennard/bard-contains.git",
-                "reference": "b69732b983c86a8dd551aac65be3dd0a4dfe58ed"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skylennard/bard-contains/zipball/b69732b983c86a8dd551aac65be3dd0a4dfe58ed",
-                "reference": "b69732b983c86a8dd551aac65be3dd0a4dfe58ed",
-                "shasum": ""
-            },
-            "require": {
-                "statamic/cms": "^3.0"
-            },
-            "type": "statamic-addon",
-            "extra": {
-                "statamic": {
-                    "name": "Bard Contains",
-                    "description": "Adds reliable custom conditions for Bard fields",
-                    "version": "1.0"
-                },
-                "laravel": {
-                    "providers": [
-                        "SkyLennard\\BardContains\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SkyLennard\\BardContains\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nate Johnson",
-                    "email": "bard-contains-author@rackora.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Adds reliable custom conditions for Bard fields",
-            "homepage": "https://github.com/skylennard/bard-contains",
-            "keywords": [
-                "bard",
-                "collection",
-                "collections",
-                "condition",
-                "conditions",
-                "statamic",
-                "taxonomies",
-                "taxonomy"
-            ],
-            "support": {
-                "email": "bard-contains-support@rackora.com",
-                "issues": "https://github.com/skylennard/bard-contains/issues",
-                "source": "https://github.com/skylennard/bard-contains/tree/v1.0.1"
-            },
-            "time": "2021-09-09T01:53:24+00:00"
-        },
-        {
             "name": "spatie/blink",
             "version": "1.2.0",
             "source": {
@@ -7911,51 +7846,6 @@
             "time": "2020-10-28T17:51:34+00:00"
         },
         {
-            "name": "theutz/statamic-ant-design-icons",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/theutz/statamic-ant-design-icons.git",
-                "reference": "ff51c5afc13c2399c261692227f5bef0eedfbf97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/theutz/statamic-ant-design-icons/zipball/ff51c5afc13c2399c261692227f5bef0eedfbf97",
-                "reference": "ff51c5afc13c2399c261692227f5bef0eedfbf97",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "type": "library",
-            "extra": {
-                "statamic": {
-                    "name": "Statamic Ant Design Icons",
-                    "description": "Statamic Ant Design Icons addon"
-                },
-                "laravel": {
-                    "providers": [
-                        "Theutz\\StatamicAntDesignIcons\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Theutz\\StatamicAntDesignIcons\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "An addon for Statamic that let's you use Ant Design icons as inline SVGs.",
-            "support": {
-                "issues": "https://github.com/theutz/statamic-ant-design-icons/issues",
-                "source": "https://github.com/theutz/statamic-ant-design-icons/tree/v1.0.0"
-            },
-            "time": "2021-10-26T19:19:28+00:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.5",
             "source": {
@@ -8331,51 +8221,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "webographen/statamic-admin-log",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webographen/statamic-admin-log.git",
-                "reference": "5b767948101544e35da4bb2f1f8756dcc6779f4e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webographen/statamic-admin-log/zipball/5b767948101544e35da4bb2f1f8756dcc6779f4e",
-                "reference": "5b767948101544e35da4bb2f1f8756dcc6779f4e",
-                "shasum": ""
-            },
-            "require": {
-                "statamic/cms": "^3.0"
-            },
-            "type": "statamic-addon",
-            "extra": {
-                "statamic": {
-                    "name": "Statamic Admin Log",
-                    "description": "Logs all user actions in the control panel"
-                },
-                "laravel": {
-                    "providers": [
-                        "Webographen\\AdminLog\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webographen\\AdminLog\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Logs all user actions in the control panel",
-            "support": {
-                "issues": "https://github.com/webographen/statamic-admin-log/issues",
-                "source": "https://github.com/webographen/statamic-admin-log/tree/v1.0.6"
-            },
-            "time": "2021-11-16T13:18:05+00:00"
         },
         {
             "name": "webonyx/graphql-php",
