@@ -45,4 +45,4 @@ jobs:
 
     - name: 🔨 After Install
       run: |
-        composer install
+        php artisan statamic:install
