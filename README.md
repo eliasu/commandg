@@ -1,4 +1,5 @@
-# site.ext
+[<img alt="Website Deployed for Free with FTP Deploy Action" src="https://img.shields.io/badge/Website deployed for free with-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=297FA9">](https://github.com/SamKirkland/FTP-Deploy-Action)
+
 
 ## installation instructions
 
@@ -113,7 +114,6 @@ jobs:
         php please stache:warm
         php please queue:restart
         php please search:update --all
-        
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -132,4 +132,8 @@ jobs:
           **/public/img/**
           **/public/static/**
           **/storage/**
+
+    - name: 🔨 After Install
+      run: |
+        php artisan statamic:install
 ```
