@@ -15,6 +15,7 @@
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
+        "skylennard/bard-contains": "^1.0",
         "spatie/statamic-responsive-images": "^2.14",
         "statamic/cms": "3.3.60",
         "theutz/statamic-ant-design-icons": "^1.0",

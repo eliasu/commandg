@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "559cce626e8c9252bdaae7c3ac273c60",
+    "content-hash": "104b4f9d6c83f2313e55398d70b176b9",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -4791,6 +4791,71 @@
                 "source": "https://github.com/Seldaek/signal-handler/tree/2.0.1"
             },
             "time": "2022-07-20T18:31:45+00:00"
+        },
+        {
+            "name": "skylennard/bard-contains",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/skylennard/bard-contains.git",
+                "reference": "b69732b983c86a8dd551aac65be3dd0a4dfe58ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/skylennard/bard-contains/zipball/b69732b983c86a8dd551aac65be3dd0a4dfe58ed",
+                "reference": "b69732b983c86a8dd551aac65be3dd0a4dfe58ed",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^3.0"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "statamic": {
+                    "name": "Bard Contains",
+                    "description": "Adds reliable custom conditions for Bard fields",
+                    "version": "1.0"
+                },
+                "laravel": {
+                    "providers": [
+                        "SkyLennard\\BardContains\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SkyLennard\\BardContains\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Johnson",
+                    "email": "bard-contains-author@rackora.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds reliable custom conditions for Bard fields",
+            "homepage": "https://github.com/skylennard/bard-contains",
+            "keywords": [
+                "bard",
+                "collection",
+                "collections",
+                "condition",
+                "conditions",
+                "statamic",
+                "taxonomies",
+                "taxonomy"
+            ],
+            "support": {
+                "email": "bard-contains-support@rackora.com",
+                "issues": "https://github.com/skylennard/bard-contains/issues",
+                "source": "https://github.com/skylennard/bard-contains/tree/v1.0.1"
+            },
+            "time": "2021-09-09T01:53:24+00:00"
         },
         {
             "name": "spatie/blink",
