@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a514a980549c6340682c7ed781b52da",
+    "content-hash": "559cce626e8c9252bdaae7c3ac273c60",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -7844,6 +7844,51 @@
                 "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
             },
             "time": "2020-10-28T17:51:34+00:00"
+        },
+        {
+            "name": "theutz/statamic-ant-design-icons",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/theutz/statamic-ant-design-icons.git",
+                "reference": "ff51c5afc13c2399c261692227f5bef0eedfbf97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/theutz/statamic-ant-design-icons/zipball/ff51c5afc13c2399c261692227f5bef0eedfbf97",
+                "reference": "ff51c5afc13c2399c261692227f5bef0eedfbf97",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "extra": {
+                "statamic": {
+                    "name": "Statamic Ant Design Icons",
+                    "description": "Statamic Ant Design Icons addon"
+                },
+                "laravel": {
+                    "providers": [
+                        "Theutz\\StatamicAntDesignIcons\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Theutz\\StatamicAntDesignIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An addon for Statamic that let's you use Ant Design icons as inline SVGs.",
+            "support": {
+                "issues": "https://github.com/theutz/statamic-ant-design-icons/issues",
+                "source": "https://github.com/theutz/statamic-ant-design-icons/tree/v1.0.0"
+            },
+            "time": "2021-10-26T19:19:28+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
