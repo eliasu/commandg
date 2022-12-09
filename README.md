@@ -1,4 +1,4 @@
-[<img alt="Website Deployed for Free with FTP Deploy Action" src="https://img.shields.io/badge/Website deployed for free with-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=297FA9">](https://github.com/SamKirkland/FTP-Deploy-Action)
+[<img alt="Deployed with web deploy" src="https://img.shields.io/badge/Deployed With-web deploy-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/web-deploy)
 
 
 ## installation instructions
@@ -85,27 +85,28 @@ map $sent_http_content_type $expires {
 }
 ```
 
-## Deploy script FTP Deploy
+## Deploy script WEB Deploy
 
 ```bash
 on: push
 name: 🚀 Deploy command+g website on push
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🚀 Deploy Website Every Commit
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
 
-    - name: Use Node.js 16
-      uses: actions/setup-node@v2
+    - name: 📦 Install Packages
+    - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: 18
+        cache: "npm"
+    - run: npm ci
       
-    - name: 🔨 Build Project
+    - name: 🔨 Build
       run: |
-        npm install
         npm run build
         composer install
         php please cache:clear
@@ -115,12 +116,13 @@ jobs:
         php please queue:restart
         php please search:update --all
     
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
       with:
-        server: w01abbc7.kasserver.com
-        username: f0154bf0
-        password: ${{ secrets.ftppass }}
+        target-server: w01abbc7.kasserver.com
+        remote-user: ssh-w01abbc7
+        private-ssh-key: ${{ secrets.SSH_KEY }}
+        destination-path: ~/www/htdocs/w01abbc7/dev.command-g.de/
         exclude: |
           **/.git*
           **/.git*/**
@@ -132,8 +134,4 @@ jobs:
           **/public/img/**
           **/public/static/**
           **/storage/**
-
-    - name: 🔨 After Install
-      run: |
-        php artisan statamic:install
 ```
