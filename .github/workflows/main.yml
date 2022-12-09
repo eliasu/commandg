@@ -1,5 +1,5 @@
 on: push
-name: 🚀 Deploy command+g website on push
+name: Publish Website
 jobs:
   web-deploy:
     name: 🚀 Deploy Website Every Commit
@@ -24,5 +24,4 @@ jobs:
         target-server: w01abbc7.kasserver.com
         remote-user: ssh-w01abbc7
         private-ssh-key: ${{ secrets.SSH_KEY }}
-        ssh-port: 22
-        destination-path: ~/www/
+        destination-path: /www/
