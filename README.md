@@ -8,12 +8,6 @@
 
 ## Environment file contents
 
-### Development
-
-```env
-Dump your .env values here with sensitive data removed.
-```
-
 ### Production
 
 ```env
@@ -111,15 +105,15 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install
-        npm run build
         composer install
-        php artisan cache:clear
-        php artisan config:cache
-        php artisan route:cache
-        php artisan statamic:stache:warm
-        php artisan queue:restart
-        php artisan statamic:search:update --all
-        php please assets:generate-presets
+        npm run build
+        php please cache:clear
+        php please config:cache
+        php please route:cache
+        php please stache:warm
+        php please queue:restart
+        php please search:update --all
+        php please static:warm
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -127,64 +121,14 @@ jobs:
         server: w01abbc7.kasserver.com
         username: f0154bf0
         password: ${{ secrets.ftppass }}
-```
-
-
-
-## Deploy script Ploi
-
-```bash
-if [[ {COMMIT_MESSAGE} =~ "[BOT]" ]]; then
-    echo "Automatically committed on production. Nothing to deploy."
-    {DO_NOT_NOTIFY}
-    # Uncomment the following line when using zero downtime deployments.
-    # {CLEAR_NEW_RELEASE}
-    exit 0
-fi
-
-cd {SITE_DIRECTORY}
-git pull origin main
-composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-
-npm ci
-npm run build
-{SITE_PHP} artisan cache:clear
-{SITE_PHP} artisan config:cache
-{SITE_PHP} artisan route:cache
-{SITE_PHP} artisan statamic:stache:warm
-{SITE_PHP} artisan queue:restart
-{SITE_PHP} artisan statamic:search:update --all
-{SITE_PHP} artisan statamic:static:clear
-{SITE_PHP} artisan statamic:static:warm --queue
-
-{RELOAD_PHP_FPM}
-
-echo "🚀 Application deployed!"
-```
-
-## Deploy script Forge
-
-```bash
-if [[ $FORGE_DEPLOY_MESSAGE =~ "[BOT]" ]]; then
-    echo "Automatically committed on production. Nothing to deploy."
-    exit 0
-fi
-
-cd $FORGE_SITE_PATH
-git pull origin main
-$FORGE_COMPOSER install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-
-npm ci
-npm run build
-$FORGE_PHP artisan cache:clear
-$FORGE_PHP artisan config:cache
-$FORGE_PHP artisan route:cache
-$FORGE_PHP artisan statamic:stache:warm
-$FORGE_PHP artisan queue:restart
-$FORGE_PHP artisan statamic:search:update --all
-$FORGE_PHP artisan statamic:static:clear
-$FORGE_PHP artisan statamic:static:warm --queue
-
-( flock -w 10 9 || exit 1
-    echo 'Restarting FPM...'; sudo -S service $FORGE_PHP_FPM reload ) 9>/tmp/fpmlock
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/public/img/**
+          **/vendor/**
+          **/node_modules/**
+          **/public/storage/**
+          **/public/vendor/statamic/**
+          **/public/img/**
+          **/public/static/**
 ```
