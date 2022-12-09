@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a514a980549c6340682c7ed781b52da",
+    "content-hash": "54e7f26f1036206015b58fa387605ce3",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -1382,6 +1382,55 @@
                 }
             ],
             "time": "2022-02-20T15:07:15+00:00"
+        },
+        {
+            "name": "gioppy/statamic-aggregate-assets",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gioppy/statamic-aggregate-assets.git",
+                "reference": "94a19f4b12a1b6655d38032ef4ff0ed40f1be81d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gioppy/statamic-aggregate-assets/zipball/94a19f4b12a1b6655d38032ef4ff0ed40f1be81d",
+                "reference": "94a19f4b12a1b6655d38032ef4ff0ed40f1be81d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "statamic/cms": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "statamic": {
+                    "name": "Aggregate assets",
+                    "description": "Aggregate Javascript and CSS files for better performances."
+                },
+                "laravel": {
+                    "providers": [
+                        "Gioppy\\StatamicAggregateAssets\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gioppy\\StatamicAggregateAssets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Giovanni Buffa",
+                    "email": "tech@giovannibuffa.it"
+                }
+            ],
+            "description": "Aggregate Javascript and CSS files for better performances.",
+            "support": {
+                "issues": "https://github.com/gioppy/statamic-aggregate-assets/issues",
+                "source": "https://github.com/gioppy/statamic-aggregate-assets/tree/0.0.3"
+            },
+            "time": "2021-04-27T12:49:02+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -8221,51 +8270,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "webographen/statamic-admin-log",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webographen/statamic-admin-log.git",
-                "reference": "5b767948101544e35da4bb2f1f8756dcc6779f4e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webographen/statamic-admin-log/zipball/5b767948101544e35da4bb2f1f8756dcc6779f4e",
-                "reference": "5b767948101544e35da4bb2f1f8756dcc6779f4e",
-                "shasum": ""
-            },
-            "require": {
-                "statamic/cms": "^3.0"
-            },
-            "type": "statamic-addon",
-            "extra": {
-                "statamic": {
-                    "name": "Statamic Admin Log",
-                    "description": "Logs all user actions in the control panel"
-                },
-                "laravel": {
-                    "providers": [
-                        "Webographen\\AdminLog\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webographen\\AdminLog\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Logs all user actions in the control panel",
-            "support": {
-                "issues": "https://github.com/webographen/statamic-admin-log/issues",
-                "source": "https://github.com/webographen/statamic-admin-log/tree/v1.0.6"
-            },
-            "time": "2021-11-16T13:18:05+00:00"
         },
         {
             "name": "webonyx/graphql-php",
