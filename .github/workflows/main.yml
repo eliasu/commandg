@@ -22,18 +22,15 @@ jobs:
     - name: 🔨 Build
       run: |
         npm run build
-    
-    - name: 📦 Install Composer dependencies
-      uses: php-actions/composer@v6
-      
-    - name: fire commands
-      run: |
         php please cache:clear
         php please config:cache
         php please route:cache
         php please stache:warm
         php please queue:restart
         php please search:update --all
+    
+    - name: 📦 Install Composer dependencies
+      uses: php-actions/composer@v6
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
