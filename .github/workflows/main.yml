@@ -31,4 +31,4 @@ jobs:
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-          EXCLUDE: "/dist/, /node_modules/"
+          EXCLUDE: "/node_modules/"
