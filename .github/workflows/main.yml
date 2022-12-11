@@ -35,7 +35,7 @@ jobs:
         php artisan queue:restart
         php artisan statamic:search:update --all
         php artisan statamic:static:clear
-        php artisan statamic:static:warm --queue
+        php artisan statamic:static:warm
     
     - name: 📦 Install Composer dependencies
       uses: php-actions/composer@v6
