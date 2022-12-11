@@ -14,20 +14,6 @@ jobs:
     - name: 🚚 Get Latest Code
       uses: actions/checkout@v3
 
-    - name: 📦 Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    
-    - name: 📦 Install Packages
-      run: npm install
-    
-    - name: 🔨 Build
-      run: |
-        npm run build
-    
-    - name: 📦 Install Composer dependencies
-      uses: php-actions/composer@v6
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
@@ -37,4 +23,13 @@ jobs:
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
           EXCLUDE: "/node_modules/, /public/img/, /storage/, /vendor/, /public/vendor/statamic/, /public/static/, /public/storage/"
-          script: "php artisan cache:clear && php artisan config:cache && php artisan route:cache && php artisan stache:warm && php artisan queue:restart && php artisan search:update --all"
+          script: "npm install &&
+                  npm run build &&
+                  php artisan cache:clear &&
+                  php artisan config:cache &&
+                  php artisan route:cache &&
+                  php artisan statamic:stache:warm &&
+                  php artisan queue:restart &&
+                  php artisan statamic:search:update --all &&
+                  php artisan statamic:static:clear &&
+                  php artisan statamic:static:warm --queue"
