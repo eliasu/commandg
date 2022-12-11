@@ -25,6 +25,9 @@ jobs:
     - name: 🔨 Build
       run: |
         npm run build
+
+    - name: Prepare Laravel Application
+      run: |
         php artisan cache:clear
         php artisan config:cache
         php artisan route:cache
