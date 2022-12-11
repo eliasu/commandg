@@ -1,4 +1,4 @@
-name: Node CI
+name: 🚀 Deploy Website to All-Inkl
 
 on: [push]
 
@@ -8,16 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Node.js
-      uses: actions/setup-node@v1
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
+    
+    - name: 📦 Install Packages
+    - uses: actions/setup-node@v3
       with:
-        node-version: '10.x'
-    - name: Install npm dependencies
-      run: npm install
-    - name: Run build task
-      run: npm run build --if-present
-    - name: Deploy to Server
+        node-version: 18
+        cache: "npm"
+    - run: npm install
+
+    - name: 🔨 Build
+      run: npm run build
+
+    - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
