@@ -30,7 +30,7 @@ jobs:
         php please queue:restart
         php please search:update --all
         php please package:discover
-        php please statamic:install
+        php please install
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
