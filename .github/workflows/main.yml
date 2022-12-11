@@ -20,7 +20,15 @@ jobs:
       run: npm install
     
     - name: 🔨 Build
-      run: npm run build
+      run: |
+        npm run build
+        composer install
+        php please cache:clear
+        php please config:cache
+        php please route:cache
+        php please stache:warm
+        php please queue:restart
+        php please search:update --all
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
@@ -30,4 +38,4 @@ jobs:
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-          EXCLUDE: "/node_modules/"
+          EXCLUDE: "/node_modules/, /public/img/, /storage/, /public/vendor/statamic/, /vendor/"
