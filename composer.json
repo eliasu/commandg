@@ -11,7 +11,6 @@
     "require": {
         "php": "^8.0",
         "fruitcake/laravel-cors": "^2.0.5",
-        "gioppy/statamic-aggregate-assets": "^0.0.3",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
