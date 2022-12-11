@@ -31,5 +31,4 @@ jobs:
           ARGS: "-rltgoDzvO --delete"
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
-          TARGET: "/dev.command-g.de/"
-          EXCLUDE: "/node_modules/, /public/img/, /storage/"
+          TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
