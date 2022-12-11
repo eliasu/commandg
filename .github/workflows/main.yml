@@ -1,27 +1,29 @@
-on: push
-name: Publish Website
-jobs:
-  web-deploy:
-    name: 🚀 Deploy Website Every Commit
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
+name: Node CI
 
-    - name: 📦 Install Packages
-    - uses: actions/setup-node@v3
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
       with:
-        node-version: 18
-        cache: "npm"
-    - run: npm ci
-      
-    - name: 🔨 Build
-      run: npm run build
-    
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
-      with:
-        target-server: w01abbc7.kasserver.com
-        remote-user: ssh-w01abbc7
-        private-ssh-key: ${{ secrets.SSH_KEY }}
-        destination-path: /
+        node-version: '10.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: w01abbc7.kasserver.com
+          REMOTE_USER: ssh-w01abbc7
+          TARGET: "/home/htdocs/w01abbc7/dev.command-g.de/"
+          EXCLUDE: "/dist/, /node_modules/"
