@@ -28,12 +28,12 @@ jobs:
       
     - name: fire commands
       run: |
-        php artisan cache:clear
-        php artisan config:cache
-        php artisan route:cache
-        php artisan stache:warm
-        php artisan queue:restart
-        php artisan search:update --all
+        php please cache:clear
+        php please config:cache
+        php please route:cache
+        php please stache:warm
+        php please queue:restart
+        php please search:update --all
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
