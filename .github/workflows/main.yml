@@ -22,12 +22,12 @@ jobs:
     - name: 🔨 Build
       run: |
         npm run build
-        php please cache:clear
-        php please config:cache
-        php please route:cache
-        php please stache:warm
-        php please queue:restart
-        php please search:update --all
+        php artisan cache:clear
+        php artisan config:cache
+        php artisan route:cache
+        php artisan stache:warm
+        php artisan queue:restart
+        php artisan search:update --all
     
     - name: 📦 Install Composer dependencies
       uses: php-actions/composer@v6
