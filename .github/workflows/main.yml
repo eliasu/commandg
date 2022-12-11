@@ -29,12 +29,13 @@ jobs:
         php please stache:warm
         php please queue:restart
         php please search:update --all
+        php please package:discover
+        php please statamic:install
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete"
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
