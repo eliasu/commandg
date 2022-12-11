@@ -25,6 +25,7 @@ jobs:
           EXCLUDE: "/node_modules/, /public/img/, /storage/, /vendor/, /public/vendor/statamic/, /public/static/, /public/storage/"
           script: "npm install &&
                   npm run build &&
+                  composer install &&
                   php artisan cache:clear &&
                   php artisan config:cache &&
                   php artisan route:cache &&
