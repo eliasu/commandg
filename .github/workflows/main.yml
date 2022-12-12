@@ -29,6 +29,7 @@ jobs:
           scp_source: README.md
           scp_target: ~/www/htdocs/w01abbc7/dev.command-g.de/
           after_script: |
+            cd www/htdocs/w01abbc7/dev.command-g.de
             npm install
             npm run build
             composer install
