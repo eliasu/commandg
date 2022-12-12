@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Jeah
-        uses: mdallasanta/ssh-scp-deploy@{version}
+        uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: './'                                                  # Local file path - REQUIRED false - DEFAULT ./
           remote: '~/www/htdocs/w01abbc7/dev.command-g.de/'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
