@@ -11,11 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: hengkx/ssh-deploy@v1.0.1
-      env:
-        HOST: w01abbc7.kasserver.com
-        USERNAME: ssh-w01abbc7
-        PASSWORD: ${{ secrets.FTPPASS }}
-        SOURCE: '/'
-        TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-        AFTER_COMMAND: 'npm install && npm run buld && composer install'
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: SSH Server Deploy
+        uses: kostya-ten/ssh-server-deploy@v4
+        with:
+          host: w01abbc7.kasserver.com
+          port: 22
+          username: ssh-w01abbc7
+          private_key: ${{ secrets.SSH_KEY }}
+          scp_source: README.md
+          scp_target: ~/www/htdocs/w01abbc7/dev.command-g.de/
+          before_script: |
+            df -h
+          after_script: |
+            npm install
+            npm run buld
+            composer install
