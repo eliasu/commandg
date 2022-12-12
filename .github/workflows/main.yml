@@ -1,3 +1,4 @@
+
 name: 🚀 Deploy Website to All-Inkl
 
 on:
@@ -11,25 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: 📦 Setup Node
-        uses: actions/setup-node@v3
+      - name: Jeah
+        uses: mdallasanta/ssh-scp-deploy@{version}
         with:
-          node-version: 18
-      - name: 📦 Install Composer dependencies
-        uses: php-actions/composer@v6
-      - name: SSH Server Deploy
-        uses: kostya-ten/ssh-server-deploy@v4
-        with:
-          host: w01abbc7.kasserver.com
-          port: 22
-          username: ssh-w01abbc7
-          private_key: ${{ secrets.SSH_KEY }}
-          scp_source: README.md
-          scp_target: ~/www/htdocs/w01abbc7/dev.command-g.de/
-          after_script: |
-            cd www/htdocs/w01abbc7/dev.command-g.de
-            npm install
-            npm run build
-            composer install
+          local: './'                                                  # Local file path - REQUIRED false - DEFAULT ./
+          remote: '~/www/htdocs/w01abbc7/dev.command-g.de/'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
+          host: w01abbc7.kasserver.com                                      # Remote server address - REQUIRED true
+          user: ssh-w01abbc7
+          password: ${{secrets.FTPPASS}}                              # User password - REQUIRED at least one of "password" or "key" 
+          key: ${{secrets.SSH_KEY}}                                        # Remote server private key - REQUIRED at least one of "password" or "key" 
+          pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
+          post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
+          ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+          scp_options: -v                                              # Flags to use during scp - REQUIRED false - DEFAULT ''
