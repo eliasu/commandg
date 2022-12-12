@@ -5,12 +5,17 @@ on:
     branches:
       - main
 
-steps:
-- uses: hengkx/ssh-deploy@v1.0.1
-  env:
-    HOST: w01abbc7.kasserver.com
-    USERNAME: ssh-w01abbc7
-    PASSWORD: ${{ secrets.FTPPASS }}
-    SOURCE: '/'
-    TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-    AFTER_COMMAND: 'npm install && npm run buld && composer install'
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: hengkx/ssh-deploy@v1.0.1
+      env:
+        HOST: w01abbc7.kasserver.com
+        USERNAME: ssh-w01abbc7
+        PASSWORD: ${{ secrets.FTPPASS }}
+        SOURCE: '/'
+        TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
+        AFTER_COMMAND: 'npm install && npm run buld && composer install'
