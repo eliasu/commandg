@@ -1,39 +1,30 @@
-name: 🚀 Deploy Website to All-Inkl
-
+name: Build and Deploy
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            -   master
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
-
-    - name: 📦 Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    
-    - name: 📦 Install Packages
-      run: npm install
-    
-    - name: 🔨 Build
-      run: |
-        npm run build
-    
-    - name: 📦 Install Composer dependencies
-      uses: php-actions/composer@v6
-    
-    - name: 📂 Deploy to Server
-      uses: easingthemes/ssh-deploy@main
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          REMOTE_HOST: w01abbc7.kasserver.com
-          REMOTE_USER: ssh-w01abbc7
-          TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-          EXCLUDE: "/node_modules/, /public/img/, /storage/, /public/static/, /public/storage/"
+    build:
+        name: Build and Deploy
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Repository
+                uses: actions/checkout@master
+            -   name: Setup Enviroment
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '7.4'
+            -   name: Speed up the packages installation process
+                run: composer global require hirak/prestissimo
+            -   name: Install Packages
+                run: composer install --no-dev
+            -   name: Deploy to Server
+                uses: ngocquyhoang/deploy@laravel
+                with:
+                    user: ssh-w01abbc7
+                    host: w01abbc7.kasserver.com
+                    port: 22
+                    path: /www/htdocs/w01abbc7/dev.command-g.de/
+                env:
+                    DEPLOY_KEY: ${{ secrets.SSH_KEY }}
