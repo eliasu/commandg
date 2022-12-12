@@ -1,4 +1,3 @@
-
 name: 🚀 Deploy Website to All-Inkl
 
 on:
@@ -12,19 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Jeah
-        uses: mdallasanta/ssh-scp-deploy@v1.2.0
-        with:
-          local: './'                                                  # Local file path - REQUIRED false - DEFAULT ./
-          remote: '~/www/htdocs/w01abbc7/dev.command-g.de/'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
-          host: w01abbc7.kasserver.com                                      # Remote server address - REQUIRED true
-          user: ssh-w01abbc7
-          password: ${{secrets.FTPPASS}}                              # User password - REQUIRED at least one of "password" or "key" 
-          key: ${{secrets.SSH_KEY}}                                        # Remote server private key - REQUIRED at least one of "password" or "key" 
-          pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
-          post_upload: |
-            npm install
-            npm run build
-            composer install
-          ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
-          scp_options: -v                                              # Flags to use during scp - REQUIRED false - DEFAULT ''
+    - name: 🚚 Get Latest Code
+      uses: actions/checkout@v3
+
+    - name: 📦 Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    
+    - name: 📦 Install Packages
+      run: npm install
+    
+    - name: 🔨 Build
+      run: |
+        npm run build
+    
+    - name: 📦 Install Composer dependencies
+      uses: php-actions/composer@v6
+    
+    - name: 📂 Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: w01abbc7.kasserver.com
+          REMOTE_USER: ssh-w01abbc7
+          TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
+          EXCLUDE: "/node_modules/, /public/img/, /storage/, /public/static/, /public/storage/"
