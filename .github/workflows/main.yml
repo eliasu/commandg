@@ -5,35 +5,12 @@ on:
     branches:
       - main
 
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
-
-    - name: 📦 Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    
-    - name: 📦 Install Packages
-      run: npm install
-    
-    - name: 🔨 Build
-      run: |
-        npm run build
-    
-    - name: 📦 Install Composer dependencies
-      uses: php-actions/composer@v6
-    
-    - name: 📂 Deploy to Server
-      uses: easingthemes/ssh-deploy@main
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          REMOTE_HOST: w01abbc7.kasserver.com
-          REMOTE_USER: ssh-w01abbc7
-          TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-          EXCLUDE: "/node_modules/, /public/img/, /storage/, /public/static/, /public/storage/"
+steps:
+- uses: hengkx/ssh-deploy@v1.0.1
+  env:
+    HOST: w01abbc7.kasserver.com
+    USERNAME: ssh-w01abbc7
+    PASSWORD: ${{ secrets.FTPPASS }}
+    SOURCE: '/'
+    TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
+    AFTER_COMMAND: 'npm install && npm run buld && composer install'
