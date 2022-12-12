@@ -37,7 +37,3 @@ jobs:
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
           EXCLUDE: "/node_modules/, /public/img/, /storage/, /public/static/, /public/storage/"
-          script: |
-            php artisan cache:clear
-            php artisan config:cache
-            php artisan route:cache
