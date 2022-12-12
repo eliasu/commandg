@@ -1,30 +1,24 @@
-name: Build and Deploy
-on:
-    push:
-        branches:
-            -   main
+name: Deploy
 
+# Trigger the workflow on push and 
+# pull request events on the production branch
+on:
+  push:
+    branches:
+      - main
+      
+# Authenticate to the the server via ssh 
+# and run our deployment script 
 jobs:
-    build:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout Repository
-                uses: actions/checkout@master
-            -   name: Setup Enviroment
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: '8.1'
-            -   name: Speed up the packages installation process
-                run: composer global require hirak/prestissimo
-            -   name: Install Packages
-                run: composer install --no-dev
-            -   name: Deploy to Server
-                uses: ngocquyhoang/deploy@laravel
-                with:
-                    user: ssh-w01abbc7
-                    host: w01abbc7.kasserver.com
-                    port: 22
-                    path: /www/htdocs/w01abbc7/dev.command-g.de/
-                env:
-                    DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: w01abbc7.kasserver.com
+          username: ssh-w01abbc7
+          port: 22
+          key: ${{ secrets.SSH_KEY }}
+          script: "cd /www/htdocs/w01abbc7/dev.command-g.de && ./.github/scripts/deploy.sh"
