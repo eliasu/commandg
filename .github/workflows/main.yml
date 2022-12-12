@@ -22,6 +22,9 @@ jobs:
           password: ${{secrets.FTPPASS}}                              # User password - REQUIRED at least one of "password" or "key" 
           key: ${{secrets.SSH_KEY}}                                        # Remote server private key - REQUIRED at least one of "password" or "key" 
           pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
-          post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
+          post_upload: |
+            npm install
+            npm run build
+            composer install
           ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
           scp_options: -v                                              # Flags to use during scp - REQUIRED false - DEFAULT ''
