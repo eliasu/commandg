@@ -22,8 +22,6 @@ jobs:
           private_key: ${{ secrets.SSH_KEY }}
           scp_source: README.md
           scp_target: ~/www/htdocs/w01abbc7/dev.command-g.de/
-          before_script: |
-            df -h
           after_script: |
             npm install
             npm run buld
