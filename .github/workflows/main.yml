@@ -31,13 +31,13 @@ jobs:
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
-      script: |
-        php artisan cache:clear
-        php artisan config:cache
-        php artisan route:cache
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
           EXCLUDE: "/node_modules/, /public/img/, /storage/, /vendor/, /public/vendor/statamic/, /public/static/, /public/storage/"
+          script: |
+            php artisan cache:clear
+            php artisan config:cache
+            php artisan route:cache
