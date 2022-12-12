@@ -34,11 +34,6 @@ jobs:
         php artisan cache:clear
         php artisan config:cache
         php artisan route:cache
-        php artisan statamic:stache:warm
-        php artisan queue:restart
-        php artisan statamic:search:update --all
-        php artisan statamic:static:clear
-        php artisan statamic:static:warm
     
     - name: 📂 Deploy to Server
       uses: easingthemes/ssh-deploy@main
@@ -47,4 +42,4 @@ jobs:
           REMOTE_HOST: w01abbc7.kasserver.com
           REMOTE_USER: ssh-w01abbc7
           TARGET: "/www/htdocs/w01abbc7/dev.command-g.de/"
-          EXCLUDE: "/node_modules/, /public/img/"
+          EXCLUDE: "/node_modules/, /public/img/, /storage/, /vendor/, /public/vendor/statamic/, /public/static/, /public/storage/"
