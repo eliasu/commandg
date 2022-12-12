@@ -16,9 +16,6 @@ composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 # Recreate cache
 php artisan optimize
 
-# Compile npm assets
-npm run build
-
 # Exit maintenance mode
 php artisan up
 

@@ -14,6 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: 📦 Install Packages
+        run: npm install
+      - name: 🔨 Build
+        run: |
+          npm run build
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
