@@ -21,4 +21,4 @@ jobs:
           username: ssh-w01abbc7
           port: 22
           key: ${{ secrets.SSH_KEY }}
-          script: "cd /www/htdocs/w01abbc7/dev.command-g.de && ./.scripts/deploy.sh"
+          script: "cd /www/htdocs/w01abbc7/dev.command-g.de && ./.github/scripts/deploy.sh"
