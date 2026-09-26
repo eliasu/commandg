@@ -1,4 +1,4 @@
-# baptisten_2
+# commandg
 
 Statamic 6 (Antlers), styled with **Lumos for Astro**
 (https://lumosframework.com/docs), ported to Antlers. Not Lumos for Webflow:
