@@ -13,29 +13,37 @@ work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Mensc
 contact_heading: 'Vernetzen, zusammen&shy;arbeiten oder einfach Hallo sagen.'
 noindex: false
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790604230
+updated_at: 1790606526
 hero_projects:
-  - d241433d-eb6c-4a03-a4a2-744866739cd2
-  - 5083d23e-ca56-4f54-b768-eb1b0767cea4
-  - f8c4fa51-5a4b-468f-92dd-74ba379beab7
+  - db7e5ca7-2394-48e6-8e25-4dbcec208861
+  - 0b980606-e1ea-4797-9de8-d7e5b94fa8ab
+  - 8c2c8826-8f99-482a-80ee-2f6e5ad0030e
 work_projects:
-  - 920831ff-82cd-4499-936d-ecea428cd941
-  - 768a7b6a-365a-42d5-9468-becbc40eb3cf
-  - d0b0457a-93da-4604-ba40-194c11482d73
-  - 86d9ad1f-70f7-41a5-91f4-78928c9633b2
-  - fc551ce5-bdad-4006-9fd7-0311dfb5b4a2
-  - 65599fd8-4c52-458e-b207-bfc3cf995d38
-  - 70b015f9-d373-4e02-9702-6b9fa696a86c
-  - d8e51e04-1c65-4287-b152-138ff35e53b9
-  - 404aa3b1-daef-446c-bb27-b7dea2293abf
-  - 14143f55-8555-4bfa-a8d9-9c3e1195cd95
-  - 1fa3e7e9-8096-474e-abea-a37b8cd9db89
-  - 8ad8a201-86ac-4428-a68b-90358ba46864
-  - 7bd3c9aa-0aeb-45cd-b71d-bdc4cd47670c
-  - 174f5265-119c-453f-ba28-e0df40952d72
+  - 2114f636-7c28-42f1-80f8-80cb4887c98b
+  - 3c9f6781-8198-4df4-8c61-f87ba5d9b053
+  - 4d2adb53-7a13-40a1-bd3b-265ca26f5b04
+  - ca0d88e7-669e-4bde-b595-275ccc30de1d
+  - 493e14eb-3f4c-4658-88b0-be21aacb0503
+  - b975f44e-feb3-4cbe-9407-d7a26578e82b
+  - 2893dea5-ba74-497b-8b28-78a6e9093d6b
+  - 6be7760e-3f4a-4271-8299-46ccb20d4df7
+  - fc362f61-0b77-4532-a4b0-a28745a78394
+  - 7268e460-dc62-403f-8231-1cb4aa447804
+  - 186dbf79-9893-4c0e-ab10-a9ef84798334
+  - f837d3f6-2a27-4bb4-8268-591cb0cd6852
+  - 1cbba7b1-9913-4457-a54e-9d91a2257fe1
+  - 7d98af93-3ebc-4a25-91d4-15ead8230ee0
+  - 46a452ab-f788-481b-90f7-fda7f3eee732
+  - f6410549-1945-46c6-b54e-6a17a5046115
+  - ea0622a6-64c4-4a43-a8ef-68d03c4f7231
+  - c8b0e1a5-1381-4610-8ad7-d7f8d83c105b
+  - 8dfcf24f-dabc-41fa-9dc2-95d44e73cd20
+  - f52f7eeb-6e20-466e-be0f-88a07a49fa3c
+  - f1bedd9c-7913-47f9-9ac1-8cd3e9c64867
+  - f7629a23-46cf-445c-9e9a-e1d467eccd38
 side_projects:
-  - 8ac7561c-9bff-4e25-a3e5-310b4ff524b0
-  - e8e10fb1-5f4a-4a1a-bc8f-d50a085b6388
-  - 375a3bd7-6e86-4473-8fbe-305452798ebf
-  - 71a7d4f3-bdb6-4e4f-bd3d-2207257b0dc3
+  - 479354e9-1876-4490-b95d-73084af89317
+  - 5ccfbd06-254f-4672-b90e-3dae88a45ee5
+  - 203c360b-52e9-4c10-9886-49811052d7b0
+  - 9b4bdc0e-8d2e-4ebf-9c21-e5112cf5a632
 ---

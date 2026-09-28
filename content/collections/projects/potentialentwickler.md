@@ -1,8 +1,8 @@
 ---
-id: 375a3bd7-6e86-4473-8fbe-305452798ebf
+id: 77a9df6e-dafd-4972-8007-53d60aafc091
 blueprint: project
-title: Potentialentwickler
+title: "Potentialentwickler"
 media:
   files:
-    - videos/tyfte_potentialentwickler.mp4
+    - "potentialentwickler/tyfte_potentialentwickler.mp4"
 ---
