@@ -13,7 +13,7 @@ work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Mensc
 contact_heading: 'Vernetzen, zusammen&shy;arbeiten oder einfach Hallo sagen.'
 noindex: false
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790628711
+updated_at: 1790631856
 hero_projects:
   - db7e5ca7-2394-48e6-8e25-4dbcec208861
   - 1cbba7b1-9913-4457-a54e-9d91a2257fe1
@@ -44,8 +44,8 @@ work_projects:
   - 0b980606-e1ea-4797-9de8-d7e5b94fa8ab
   - 77a9df6e-dafd-4972-8007-53d60aafc091
 side_projects:
-  - 479354e9-1876-4490-b95d-73084af89317
   - 5ccfbd06-254f-4672-b90e-3dae88a45ee5
   - 203c360b-52e9-4c10-9886-49811052d7b0
+  - 479354e9-1876-4490-b95d-73084af89317
   - 9b4bdc0e-8d2e-4ebf-9c21-e5112cf5a632
 ---
