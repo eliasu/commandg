@@ -22,7 +22,7 @@ ignore any Webflow Lumos skill. No Tailwind.
 - Blocks: none (mode A)
 - Extensions (site.css `@layer base`): text style `statement`
   (`.text-style-statement`, `--statement-*`), `--primary-semibold: 600`,
-  `--letter-spacing-tighter: -0.05em`, `--ease-out`. Eyebrow variant `label`. Font: Schibsted Grotesk replaces Inter.
+  `--letter-spacing-tighter: -0.05em`, `--ease-out`. Eyebrow variant `label`. Dark mode: `theme-dark` on `<html>` (system default, toggle in nav, `localStorage.theme`); a dark section inside it turns `--dark-800`. Changed in base.css: `--light-100/200/300` are cream (`#f5f2eb`, `#ebe7de`, `#dedad0`), `--dark-900/800/700` blue-tinted grey (`#121419`, `#1c1f26`, `#272b34`). Font: Schibsted Grotesk replaces Inter.
 - Import: website from imported/D-portfolio.html, record in IMPORT.md
 
 The three files in `resources/css/lumos/` started as verbatim copies. Tokens

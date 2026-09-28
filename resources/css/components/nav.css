@@ -75,3 +75,29 @@
     }
   }
 }
+
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nav_theme {
+  display: flex;
+  padding: var(--space-1);
+  margin: calc(var(--space-1) * -1);
+  color: var(--text-2);
+  transition: color var(--hover-duration) var(--hover-ease);
+  .icon:last-child,
+  :root.theme-dark & .icon:first-child {
+    display: none;
+  }
+  :root.theme-dark & .icon:last-child {
+    display: block;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: var(--text);
+    }
+  }
+}

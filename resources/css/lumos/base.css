@@ -1,12 +1,12 @@
 /* 1. Design tokens */
 :root {
   /* Swatches */
-  --light-100: #ffffff;
-  --light-200: #f2f2f0;
-  --light-300: #e3e3e0;
-  --dark-700: #453e42;
-  --dark-800: #2f2b2d;
-  --dark-900: #000000;
+  --light-100: #f5f2eb;
+  --light-200: #ebe7de;
+  --light-300: #dedad0;
+  --dark-700: #272b34;
+  --dark-800: #1c1f26;
+  --dark-900: #121419;
   --brand-500: #ff4f1a;
   --brand-text: var(--light-100);
 

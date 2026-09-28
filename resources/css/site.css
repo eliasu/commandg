@@ -63,6 +63,11 @@
 
 /* Extensions — additions to the Lumos system, listed in CLAUDE.md */
 @layer base {
+  .theme-dark .theme-dark {
+    --background: var(--dark-800);
+    --background-2: var(--dark-700);
+  }
+
   :root {
     --primary-semibold: 600;
     --letter-spacing-tighter: -0.05em;

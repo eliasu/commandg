@@ -16,6 +16,7 @@ noindex: false
 {{ _image = view:image ?? seo:image }}
 <meta charset="utf-8">
 <style>@layer base, patterns, components, utilities;</style>
+<script>try { const t = localStorage.getItem("theme"); if (t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.classList.add("theme-dark"); } catch {}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preload" href="{{ vite:asset src="resources/fonts/schibsted-grotesk-latin.woff2" }}" as="font" type="font/woff2" crossorigin>
 <title>{{ _page_title | sanitize }}</title>

@@ -55,3 +55,21 @@
 .home-hero_wide {
   grid-column: 1 / -1;
 }
+
+/* The word swap (home-hero.ts): the incoming word sits over the outgoing
+   one inside the same mask. */
+.home-hero_heading .motion-word {
+  position: relative;
+  /* Letters are inline-blocks: without this a line may break between them. */
+  white-space: nowrap;
+}
+
+.home-hero_next {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-hero_char {
+  display: inline-block;
+}

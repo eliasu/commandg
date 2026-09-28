@@ -17,6 +17,7 @@ navigation: main
                     {{ unless no_results }}{{ partial:components/nav-link :href="url" }}{{ title }}{{ /partial:components/nav-link }}{{ /unless }}
                 {{ /nav }}
             </ul>
+            <button class="nav_theme" type="button" aria-label="Dunkelmodus" aria-pressed="false" data-theme-toggle>{{ partial:components/icon name="moon" variant="small" }}{{ partial:components/icon name="sun" variant="small" }}</button>
         </nav>
     </div>
 </header>
