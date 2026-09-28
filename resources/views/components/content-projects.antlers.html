@@ -14,7 +14,7 @@ class: null
         {{ _projects scope="project" }}
         {{ _slot = index % 12 }}
         <li class="projects_item">
-            <{{ project:link ? 'a' : 'div' }} class="projects_card"{{ if project:link }} href="{{ project:link }}"{{ /if }}>
+            <{{ project:link ? 'a' : 'div' }} class="projects_card"{{ if project:link }} href="{{ project:link }}" target="_blank" rel="noopener"{{ /if }}>
                 {{ partial:components/media :media="project:media" :ratio="_ratios[_slot]" }}
                 <div class="projects_caption motion-up">
                     {{ partial:components/heading tag="h3" variant="h5" class="projects_title" }}{{ project:title }}{{ /partial:components/heading }}

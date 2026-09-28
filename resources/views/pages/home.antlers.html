@@ -84,7 +84,7 @@
             {{ partial:components/button element="link" variant="link" :href="_mailto" class="motion-up" }}E-Mail schreiben{{ /partial:components/button }}
             {{ /if }}
             {{ if company:linkedin }}
-            {{ partial:components/button element="link" variant="link" :href="company:linkedin" class="motion-up" }}LinkedIn{{ /partial:components/button }}
+            {{ partial:components/button element="link" variant="link" :href="company:linkedin" class="motion-up" attrs='target="_blank" rel="noopener"' }}LinkedIn{{ /partial:components/button }}
             {{ /if }}
         {{ /partial:components/button-wrapper }}
     </div>
