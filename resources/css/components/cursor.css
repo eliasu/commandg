@@ -47,12 +47,12 @@
   .cursor_wrap:is([data-state="view"], [data-state="drag"]) & {
     width: 5.5rem;
     height: 5.5rem;
+    border-color: var(--button-background);
+    background-color: var(--button-background);
     &:has(.cursor_domain:not(:empty)) {
       width: 7rem;
       height: 7rem;
     }
-    border-color: var(--button-background);
-    background-color: var(--button-background);
   }
   .cursor_wrap[data-state="drag"] & {
     width: 7rem;

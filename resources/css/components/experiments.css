@@ -22,6 +22,12 @@
 .experiments_item {
   flex: none;
   width: clamp(20rem, 50vw, 54rem);
+  @media (width < 48rem) {
+    width: 80vw;
+    .media_wrap {
+      aspect-ratio: 4/5;
+    }
+  }
 }
 
 .experiments_title {

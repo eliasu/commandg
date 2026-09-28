@@ -42,6 +42,9 @@
   display: none;
   font-size: var(--text-small);
   color: var(--text-2);
+  @media (width >= 48rem) {
+    display: inline;
+  }
 }
 
 .nav_links {
@@ -52,6 +55,9 @@
   font-weight: var(--primary-medium);
   & > li:not(:last-child) {
     display: none;
+    @media (width >= 48rem) {
+      display: list-item;
+    }
   }
 }
 
@@ -67,15 +73,5 @@
     &:hover {
       color: var(--text);
     }
-  }
-}
-
-@media (width >= 48rem) {
-  .nav_tagline {
-    display: inline;
-  }
-
-  .nav_links > li:not(:last-child) {
-    display: list-item;
   }
 }
