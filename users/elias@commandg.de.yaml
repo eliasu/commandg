@@ -1,7 +1,7 @@
 name: Elias
 super: true
 id: 47beda1f-607b-4632-9492-b86d08c71b37
-password_hash: $2y$12$1VpTGf3WgkhOgB0UUo4CC.K5ZfWMx3zU4vvafLbEntuP/5n3cbsB2
+password_hash: $2y$12$OAkP4Lon.PhFmHf9iUllpeZY/dGXKb9lTohQvKQdimDMTV6duD8wi
 preferences:
   collections:
     pages:
@@ -10,4 +10,6 @@ preferences:
     projects:
       view: list
     services:
+      view: list
+    clients:
       view: list
