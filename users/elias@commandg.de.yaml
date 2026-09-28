@@ -1,7 +1,7 @@
 name: Elias
 super: true
 id: 47beda1f-607b-4632-9492-b86d08c71b37
-password_hash: $2y$12$OAkP4Lon.PhFmHf9iUllpeZY/dGXKb9lTohQvKQdimDMTV6duD8wi
+password_hash: $2y$12$H81UbE2cIY.t1owPkcv4Zu4mVVyRmQR6VbTlyi8vhhIA13tbqQkVC
 preferences:
   collections:
     pages:
@@ -13,3 +13,21 @@ preferences:
       view: list
     clients:
       view: list
+passkeys:
+  fai_4gFzSjmTFEtL8FDuUQ:
+    name: 'Elias command-g.de passkey'
+    credential:
+      publicKeyCredentialId: fai_4gFzSjmTFEtL8FDuUQ
+      type: public-key
+      transports:
+        - internal
+        - hybrid
+      attestationType: none
+      trustPath: {}
+      aaguid: d548826e-79b4-db40-a3d8-11116f7e8349
+      credentialPublicKey: pQECAyYgASFYIGbapn1BsYI-oUuN1Ug9vLixQkjxwHDam8D59BcXQIqQIlggXpRxJoelzqhXxn6Ajn4TBvsDLJwwM0AQ1MSuNsk7Tis
+      userHandle: NDdiZWRhMWYtNjA3Yi00NjMyLTk0OTItYjg2ZDA4YzcxYjM3
+      counter: 0
+      backupEligible: true
+      backupStatus: true
+      uvInitialized: true
