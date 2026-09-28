@@ -4,6 +4,6 @@ blueprint: project
 title: 'Helmut Luck'
 category: 'Branding'
 media:
-  type: video
-  video: videos/tyfte_helmutluck.mp4
+  files:
+    - videos/tyfte_helmutluck.mp4
 ---

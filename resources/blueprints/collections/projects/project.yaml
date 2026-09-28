@@ -27,7 +27,7 @@ tabs:
             field:
               type: group
               display: Media
-              instructions: 'Bild, Video oder Slideshow der Arbeit. Das Format ergibt sich aus dem Platz im Raster. Bis etwas hochgeladen ist, erscheint ein Platzhalter.'
+              instructions: 'Bild oder Video der Arbeit, bei mehreren Dateien eine Slideshow. Das Format ergibt sich aus dem Platz im Raster. Bis etwas hochgeladen ist, erscheint ein Platzhalter.'
               fullscreen: false
               fields:
                 -

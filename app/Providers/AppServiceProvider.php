@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Statamic\Statamic::externalScript('/cp.js?v='.filemtime(public_path('cp.js')));
     }
 }

@@ -13,10 +13,12 @@ loop: true
 autoplay: true
 # Mute audio.
 muted: true
+# Statamic port: what the browser loads before playback: auto, metadata, none. Unset, the browser decides.
+preload: null
 # Fit without cropping and remove the skeleton tint.
 transparent: false
 class: null
 ---
 {{ if view:file }}
-<video src="{{ view:file:url ?? view:file }}"{{ if view:poster }} poster="{{ view:poster:url ?? view:poster }}"{{ /if }} class="video{{ if view:variant != 'custom' }} ratio-{{ view:variant }}{{ /if }}{{ if view:transparent | to_bool }} transparent{{ /if }}{{ if view:class }} {{ view:class }}{{ /if }}"{{ if view:variant == 'custom' && view:ratio }} style="aspect-ratio: {{ view:ratio }};"{{ /if }}{{ if view:loop | to_bool }} loop{{ /if }}{{ if view:autoplay | to_bool }} autoplay{{ /if }}{{ if view:muted | to_bool }} muted{{ /if }} playsinline></video>
+<video src="{{ view:file:url ?? view:file }}"{{ if view:poster }} poster="{{ view:poster:url ?? view:poster }}"{{ /if }} class="video{{ if view:variant != 'custom' }} ratio-{{ view:variant }}{{ /if }}{{ if view:transparent | to_bool }} transparent{{ /if }}{{ if view:class }} {{ view:class }}{{ /if }}"{{ if view:variant == 'custom' && view:ratio }} style="aspect-ratio: {{ view:ratio }};"{{ /if }}{{ if view:loop | to_bool }} loop{{ /if }}{{ if view:autoplay | to_bool }} autoplay{{ /if }}{{ if view:muted | to_bool }} muted{{ /if }}{{ if view:preload }} preload="{{ view:preload }}"{{ /if }} playsinline></video>
 {{ /if }}

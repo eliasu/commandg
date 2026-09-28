@@ -4,7 +4,7 @@ blueprint: project
 title: 'EDDM'
 category: 'Werkzeug nach Maß'
 media:
-  type: video
-  video: videos/tyfte_eddm.mp4
+  files:
+    - videos/tyfte_eddm.mp4
 link: 'https://www.google.de'
 ---

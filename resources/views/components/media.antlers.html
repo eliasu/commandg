@@ -1,5 +1,5 @@
 ---
-# Media from the `media` fieldset: an image, a video or a slideshow. Without content, a placeholder with `placeholder` as its label shows.
+# Media from the `media` fieldset: one image, one video, or a slideshow of several of either. Without content, a placeholder with `placeholder` as its label shows.
 media: null
 # Aspect ratio, width/height (`16/10`).
 ratio: 4/5
@@ -10,19 +10,26 @@ parallax: null
 class: null
 ---
 {{# JS: resources/js/components/media.ts (slideshow, video), motion.ts (reveal, parallax) #}}
-{{ _type = view:media:type ?? 'image' }}
+{{ _media_count = view:media:files | count }}
+{{ _media_first = view:media:files[0] }}
 <div class="media_wrap motion-clip{{ if view:class }} {{ view:class }}{{ /if }}" style="--_ratio: {{ view:ratio }};">
     <div class="media_inner"{{ if view:parallax }} data-parallax="{{ view:parallax }}"{{ /if }}>
-        {{ if _type == 'video' && view:media:video }}
-            {{ partial:components/video :file="view:media:video" :poster="view:media:poster" variant="custom" }}
-        {{ elseif _type == 'slideshow' && view:media:images }}
-            <div class="media_slides {{ view:media:transition ?? 'fade' }}" data-slideshow data-interval="{{ view:media:interval ?? 4000 }}">
-                {{ view:media:images }}
-                <div class="media_slide{{ if first }} is-active{{ /if }}">{{ partial:components/img :image="view:media:images[index]" }}</div>
-                {{ /view:media:images }}
+        {{ if _media_count > 1 }}
+            <div class="media_slides {{ view:media:transition ?? 'fade' }}" data-slideshow data-interval="{{ view:media:interval ?? 4000 }}"{{ if view:media:video_end != 'interval' }} data-video-end{{ /if }}>
+                {{ view:media:files }}
+                <div class="media_slide{{ if first }} is-active{{ /if }}">
+                    {{ if is_video }}
+                        {{ partial:components/video :file="url + '#t=0.001'" variant="custom" autoplay="false" preload="metadata" }}
+                    {{ else }}
+                        {{ partial:components/img :image="view:media:files[index]" }}
+                    {{ /if }}
+                </div>
+                {{ /view:media:files }}
             </div>
-        {{ elseif view:media:image }}
-            {{ partial:components/img :image="view:media:image" }}
+        {{ elseif _media_first:is_video }}
+            {{ partial:components/video :file="_media_first" variant="custom" }}
+        {{ elseif _media_count }}
+            {{ partial:components/img :image="_media_first" }}
         {{ else }}
             <span class="media_placeholder text-style-small">{{ view:placeholder }}</span>
         {{ /if }}

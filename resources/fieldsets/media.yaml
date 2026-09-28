@@ -1,84 +1,49 @@
 title: Media
 fields:
   -
-    handle: type
-    field:
-      type: button_group
-      display: Type
-      instructions: 'Ein Bild, ein Video (stumm, in Schleife) oder mehrere Bilder als Slideshow.'
-      options:
-        image: Image
-        video: Video
-        slideshow: Slideshow
-      default: image
-  -
-    handle: image
+    handle: files
     field:
       type: assets
-      display: Image
-      instructions: 'Das Bild. Es wird auf das Format dieses Platzes zugeschnitten; der Fokuspunkt bestimmt den Ausschnitt.'
+      display: Files
+      instructions: 'Ein Bild oder ein Video (MP4, möglichst unter 10 MB, läuft stumm in Schleife). Mehrere Dateien – Bilder und Videos gemischt – werden in dieser Reihenfolge als Slideshow gezeigt. Bilder werden auf das Format dieses Platzes zugeschnitten; der Fokuspunkt bestimmt den Ausschnitt.'
       container: assets
-      max_files: 1
       mode: grid
-      if:
-        type: 'equals image'
-  -
-    handle: video
-    field:
-      type: assets
-      display: Video
-      instructions: 'MP4-Datei, möglichst unter 10 MB. Läuft stumm und in Schleife.'
-      container: assets
-      max_files: 1
-      mode: list
       validate:
-        - 'mimes:mp4,webm'
-      if:
-        type: 'equals video'
-  -
-    handle: poster
-    field:
-      type: assets
-      display: Poster
-      instructions: 'Optional: Standbild, das erscheint, bis das Video lädt.'
-      container: assets
-      max_files: 1
-      mode: grid
-      if:
-        type: 'equals video'
-  -
-    handle: images
-    field:
-      type: assets
-      display: Images
-      instructions: 'Zwei oder mehr Bilder, in dieser Reihenfolge gezeigt.'
-      container: assets
-      min_files: 2
-      mode: grid
-      if:
-        type: 'equals slideshow'
+        - 'mimes:jpg,jpeg,png,webp,avif,gif,svg,mp4,webm'
   -
     handle: transition
     field:
       type: button_group
       display: Transition
-      instructions: 'Wie ein Bild zum nächsten wechselt.'
+      instructions: 'Wie eine Datei zur nächsten wechselt.'
       options:
         fade: Fade
-        slide: Slide
+        slide: 'Slide left'
+        slide-right: 'Slide right'
+        slide-up: 'Slide up'
+        slide-down: 'Slide down'
         none: None
       default: fade
       if:
-        type: 'equals slideshow'
+        files: 'custom multiple'
   -
     handle: interval
     field:
       type: integer
-      display: 'Milliseconds per image'
+      display: 'Milliseconds per slide'
       instructions: 'Wie lange jedes Bild stehen bleibt, in Millisekunden (1000 = 1 Sekunde). Unter 1000 wird es ein schnelles Flackern.'
       default: 4000
-      validate:
-        - 'min:100'
-        - 'max:20000'
       if:
-        type: 'equals slideshow'
+        files: 'custom multiple'
+  -
+    handle: video_end
+    field:
+      type: button_group
+      display: 'Videos in slideshow'
+      instructions: 'Ob ein Video bis zu seinem Ende läuft oder wie ein Bild nach der eingestellten Zeit wechselt.'
+      options:
+        end: 'Play to end'
+        interval: 'After interval'
+      default: end
+      if:
+        files: 'custom multiple'

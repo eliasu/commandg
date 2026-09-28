@@ -4,6 +4,6 @@ blueprint: project
 title: 'Saniye'
 category: 'Motion'
 media:
-  type: video
-  video: videos/tyfte_saniye.mp4
+  files:
+    - videos/tyfte_saniye.mp4
 ---

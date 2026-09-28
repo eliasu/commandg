@@ -4,8 +4,7 @@ blueprint: project
 title: 'Projekt 4'
 category: Branding
 media:
-  type: slideshow
-  images:
+  files:
     - logo_20.jpg
     - logo_19.jpg
   transition: slide

@@ -4,8 +4,7 @@ blueprint: project
 title: 'Projekt 7'
 category: Fotografie
 media:
-  type: slideshow
-  images:
+  files:
     - logo_20.jpg
     - logo_23.jpg
     - logo_22.jpg

@@ -4,6 +4,6 @@ blueprint: project
 title: 'Koskokraut'
 category: 'Fotografie'
 media:
-  type: video
-  video: videos/tyfte_koskokraut.mp4
+  files:
+    - videos/tyfte_koskokraut.mp4
 ---

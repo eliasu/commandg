@@ -3,8 +3,7 @@ id: f8c4fa51-5a4b-468f-92dd-74ba379beab7
 blueprint: project
 title: 'Logos (Slide)'
 media:
-  type: slideshow
-  images:
+  files:
     - logo_24.jpg
     - logo_23.jpg
     - logo_22.jpg

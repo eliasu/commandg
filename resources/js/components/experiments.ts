@@ -17,7 +17,9 @@ for (const viewport of document.querySelectorAll<HTMLElement>(".experiments_view
   const originals = [...list.children] as HTMLElement[];
   if (!originals.length) continue;
   for (const img of list.querySelectorAll("img")) img.loading = "eager";
-  for (const video of list.querySelectorAll("video")) video.preload = "auto";
+  // Slideshow videos are played one at a time by media.ts.
+  const strip = "video:not(.media_slide video)";
+  for (const video of list.querySelectorAll<HTMLVideoElement>(strip)) video.preload = "auto";
 
   const setWidth = () => {
     const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
@@ -65,7 +67,7 @@ for (const viewport of document.querySelectorAll<HTMLElement>(".experiments_view
     });
   }
 
-  const videos = list.getElementsByTagName("video");
+  const videos = list.querySelectorAll<HTMLVideoElement>(strip);
   if (reduced) for (const video of videos) video.removeAttribute("autoplay"), video.pause();
   else
     new IntersectionObserver(([entry]) => {

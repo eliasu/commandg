@@ -4,6 +4,6 @@ blueprint: project
 title: 'Modi Ventures'
 category: 'Website'
 media:
-  type: video
-  video: videos/tyfte_modiventures.mp4
+  files:
+    - videos/tyfte_modiventures.mp4
 ---

@@ -4,8 +4,7 @@ blueprint: project
 title: Detect
 category: Website
 media:
-  type: slideshow
-  images:
+  files:
     - logo_22.jpg
     - logo_21.jpg
     - logo_20.jpg

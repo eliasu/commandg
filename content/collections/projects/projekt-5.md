@@ -4,8 +4,7 @@ blueprint: project
 title: 'Projekt 5'
 category: 'Werkzeug nach Maß'
 media:
-  type: slideshow
-  images:
+  files:
     - logo_11.jpg
     - logo_10.jpg
     - logo_12.jpg

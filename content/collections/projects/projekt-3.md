@@ -4,8 +4,8 @@ blueprint: project
 title: 'Team Papenburg'
 category: Website
 media:
-  type: video
-  video: videos/tyfte_teampapenburgh.mp4
+  files:
+    - videos/tyfte_teampapenburgh.mp4
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790291858
 link: google.de

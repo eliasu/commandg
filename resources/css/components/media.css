@@ -28,12 +28,26 @@
 .media_slides {
   position: absolute;
   inset: 0;
+  --_enter: 100% 0;
+  --_leave: -100% 0;
+  &.slide-right {
+    --_enter: -100% 0;
+    --_leave: 100% 0;
+  }
+  &.slide-up {
+    --_enter: 0 100%;
+    --_leave: 0 -100%;
+  }
+  &.slide-down {
+    --_enter: 0 -100%;
+    --_leave: 0 100%;
+  }
 }
 
 .media_slide {
   position: absolute;
   inset: 0;
-  > .image {
+  > :is(.image, .video) {
     height: 100%;
   }
 
@@ -45,14 +59,14 @@
     }
   }
 
-  .media_slides.slide & {
-    translate: 100% 0;
+  .media_slides:is(.slide, .slide-right, .slide-up, .slide-down) & {
+    translate: var(--_enter);
     transition: translate var(--_duration, 1.2s) var(--ease-out);
     &.is-active {
       translate: 0 0;
     }
     &.is-leaving {
-      translate: -100% 0;
+      translate: var(--_leave);
     }
   }
 
