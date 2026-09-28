@@ -14,7 +14,7 @@
   &[data-state="hidden"] {
     opacity: 0;
   }
-  &[data-state="view"] {
+  &:is([data-state="view"], [data-state="drag"]) {
     mix-blend-mode: normal;
   }
 }
@@ -44,15 +44,19 @@
     width: 1.5rem;
     height: 1.5rem;
   }
-  .cursor_wrap[data-state="view"] & {
+  .cursor_wrap:is([data-state="view"], [data-state="drag"]) & {
     width: 5.5rem;
     height: 5.5rem;
+    border-color: var(--button-background);
+    background-color: var(--button-background);
     &:has(.cursor_domain:not(:empty)) {
       width: 7rem;
       height: 7rem;
     }
-    border-color: var(--button-background);
-    background-color: var(--button-background);
+  }
+  .cursor_wrap[data-state="drag"] & {
+    width: 7rem;
+    height: 7rem;
   }
 }
 
@@ -71,7 +75,8 @@
     opacity 0.3s var(--ease-out),
     scale 0.5s var(--ease-out);
 
-  .cursor_wrap[data-state="view"] & {
+  .cursor_wrap:is([data-state="view"], [data-state="drag"]) & {
+    white-space: nowrap;
     opacity: 1;
     scale: 1;
   }

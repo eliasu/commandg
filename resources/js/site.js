@@ -1,7 +1,7 @@
-import "./components/content-projects.ts";
 import "./components/copy.ts";
 import "./components/cursor.ts";
 import "./components/dropdown.ts";
+import "./components/experiments.ts";
 import "./components/form.ts";
 import "./components/marquee.ts";
 import "./components/media.ts";

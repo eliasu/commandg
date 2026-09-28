@@ -9,4 +9,5 @@ tags:
   - 'Design'
   - 'Umsetzung'
 price: 'ab 5.000 €'
+icon: service-website
 ---

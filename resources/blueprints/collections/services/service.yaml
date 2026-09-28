@@ -16,6 +16,17 @@ tabs:
               validate:
                 - required
           -
+            handle: icon
+            field:
+              type: select
+              display: Icon
+              instructions: 'Linien-Icon vor dem Namen.'
+              options:
+                service-website: Website
+                service-branding: Branding
+                service-media: Media
+                service-tools: Tools
+          -
             handle: subtitle
             field:
               type: text

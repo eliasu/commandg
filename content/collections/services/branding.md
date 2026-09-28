@@ -9,4 +9,5 @@ tags:
   - 'Erscheinungsbild'
   - 'Grundausstattung'
 price: 'ab 2.000 €'
+icon: service-branding
 ---

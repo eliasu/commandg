@@ -72,6 +72,16 @@ tabs:
               instructions: 'Beschriftung des Links darunter. Er führt zum Kontaktbereich.'
               character_limit: 30
       -
+        display: Promise
+        fields:
+          -
+            handle: promise_text
+            field:
+              type: textarea
+              display: Text
+              instructions: 'Großer Text zwischen Leistungen und Arbeiten: wie ihr mit Kund:innen arbeitet. Zwei bis drei Sätze.'
+              character_limit: 300
+      -
         display: Work
         instructions: 'Die Projekte selbst werden unter „Projects“ gepflegt, die Leistungen unter „Services“.'
         fields:
@@ -91,6 +101,13 @@ tabs:
               mode: stacked
               add_row: 'Add media'
               fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    instructions: 'Kleiner Titel links unter dem Medium.'
+                    character_limit: 40
                 -
                   import: media
       -

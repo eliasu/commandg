@@ -9,4 +9,5 @@ tags:
   - 'Hosting'
   - 'Updates'
 price: 'ab 35 € / Monat'
+icon: service-tools
 ---

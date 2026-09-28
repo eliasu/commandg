@@ -16,6 +16,9 @@
 .labeled_content {
   --labeled-bleed: 0;
   min-width: 0;
+  > :first-child {
+    margin-top: 0;
+  }
   @media (width >= 64rem) {
     --labeled-bleed: calc(-100% / 3 - var(--space-8));
   }

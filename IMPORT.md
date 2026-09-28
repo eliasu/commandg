@@ -55,3 +55,13 @@
   - 'Alle ansehen' link dropped until there is a projects page.
   - Impressum/Datenschutz bodies empty.
   - Control panel check of every entry pending.
+- **Changes (2026-09-28)** —
+  - Services: line icon before the title (`icon` select on the service blueprint, SVGs `resources/svg/service-*.svg`).
+  - Work: toggle and Flip removed (`content-projects.ts` deleted); all projects show, 12-position layout repeating via `nth-child(12n + k)`. Dummy projects 10–14 (Modi Ventures, Helmut Luck, EDDM, Koskokraut, Saniye) reuse existing videos.
+  - New block "Wie wir arbeiten" (`promise_text`) between Services and Work, set and spaced exactly like Info.
+  - Nebenbei: own dark section, heading, larger media (50vw), full bleed. Endless strip (`experiments.ts`): items cloned, offset = scroll drift + drag (GSAP Draggable + Inertia), wrapped to one set's width. `data-drift` removed from motion.ts.
+  - Intro: ~2 s instead of ~4 s; words tilt up from their mask, then nav and media.
+  - Hero reworked (variant b chosen, old layout removed): heading low in the first screen, one line per sentence (40–112px, the second line the longer one), text below in statement size on the content column, words brighten on load and dim again in order when scrolled away (`.motion-fade`); h1 weight 500, centred between nav and text.
+  - Strip items: optional `title` per grid row, small, static, below the media. Dummy titles set.
+  - Drag hint: cursor turns into a "← Ziehen →" circle over the strip (`data-cursor="drag"`, cursor.ts); on touch a small text line under it instead.
+  - Strip videos play whenever the strip is on screen (not per item, via experiments.ts; media.ts skips them) and its images load eagerly, so a copy sliding in never shows a black frame. Clones copy the originals' unrevealed inline clip styles (motion.ts runs first), so each clone's media gets its own `clipReveal`.

@@ -3,22 +3,18 @@
 text: null
 class: null
 ---
-{{# Loops the `projects` collection: two show, the rest (up to nine) behind a toggle. Formats follow the position, see content-projects.css. JS: resources/js/components/content-projects.ts #}}
-{{ _projects = {collection:projects limit="9"} }}
+{{# Loops the `projects` collection. Formats follow the position and repeat every twelve, see content-projects.css. #}}
+{{ _projects = {collection:projects} }}
 {{ if _projects | count }}
-{{ _ratios = ['4/5', '4/5', '4/5', '21/9', '1/1', '3/4', '3/4', '16/9', '4/5'] }}
-<div class="projects_wrap{{ if view:class }} {{ view:class }}{{ /if }}" data-projects>
-    <div class="projects_head">
-        {{ partial:components/paragraph variant="large" max_width="40" class="projects_intro" }}{{ view:text }}{{ /partial:components/paragraph }}
-        {{ if (_projects | count) > 2 }}
-        {{ partial:components/button variant="link" class="projects_toggle" attrs='aria-expanded="false" aria-controls="projects-list" data-projects-toggle' }}Alle anzeigen{{ /partial:components/button }}
-        {{ /if }}
-    </div>
-    <ul class="projects_list" id="projects-list">
+{{ _ratios = ['4/5', '4/5', '4/5', '21/9', '1/1', '3/4', '3/4', '16/9', '4/5', '16/9', '4/5', '1/1'] }}
+<div class="projects_wrap{{ if view:class }} {{ view:class }}{{ /if }}">
+    {{ partial:components/paragraph variant="large" max_width="40" class="projects_intro" }}{{ view:text }}{{ /partial:components/paragraph }}
+    <ul class="projects_list">
         {{ _projects scope="project" }}
-        <li class="projects_item"{{ if index > 1 }} data-more{{ /if }}>
+        {{ _slot = index % 12 }}
+        <li class="projects_item">
             <{{ project:link ? 'a' : 'div' }} class="projects_card"{{ if project:link }} href="{{ project:link }}"{{ /if }}>
-                {{ partial:components/media :media="project:media" :ratio="_ratios[index] ?? '4/5'" }}
+                {{ partial:components/media :media="project:media" :ratio="_ratios[_slot]" }}
                 <div class="projects_caption motion-up">
                     {{ partial:components/heading tag="h3" variant="h5" class="projects_title" }}{{ project:title }}{{ /partial:components/heading }}
                     {{ partial:components/paragraph tag="span" variant="small" class="projects_category" }}{{ project:category }}{{ /partial:components/paragraph }}

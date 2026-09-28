@@ -9,6 +9,18 @@
   @media (width >= 64rem) {
     --_columns: 4.375rem minmax(0, 1fr) minmax(0, 1.1fr) 1.75rem;
   }
+  &::details-content {
+    block-size: 0;
+    overflow: hidden;
+    content-visibility: hidden;
+    transition:
+      block-size var(--open-duration) var(--open-ease),
+      content-visibility var(--open-duration) var(--open-ease) allow-discrete;
+  }
+  &[open]::details-content {
+    block-size: auto;
+    content-visibility: visible;
+  }
 }
 
 .services_toggle,
@@ -42,6 +54,12 @@
 .services_title {
   margin-block: 0;
   transition: color var(--hover-duration) var(--hover-ease);
+  .services_symbol {
+    --_size: 0.8em;
+    display: inline-block;
+    margin-right: 0.35em;
+    vertical-align: -0.05em;
+  }
 }
 
 .services_subtitle {
@@ -83,20 +101,6 @@
   }
 }
 
-.services_item::details-content {
-  block-size: 0;
-  overflow: hidden;
-  content-visibility: hidden;
-  transition:
-    block-size var(--open-duration) var(--open-ease),
-    content-visibility var(--open-duration) var(--open-ease) allow-discrete;
-}
-
-.services_item[open]::details-content {
-  block-size: auto;
-  content-visibility: visible;
-}
-
 .services_body {
   padding-bottom: var(--space-5);
   > * {
@@ -115,11 +119,15 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-1);
-  margin-top: var(--space-3);
+  margin-top: var(--space-6);
 }
 
 .services_tags {
   display: contents;
+  &::before,
+  &::after {
+    display: none;
+  }
   > li {
     padding: 0.4em 0.65em;
     border: var(--border-width) solid var(--border);

@@ -4,51 +4,40 @@
   gap: var(--space-8);
 }
 
-.projects_head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: end;
-  gap: var(--space-4);
-}
-
 .projects_intro {
   margin-block: 0;
 }
 
+/* Placement fixed by position and repeated every twelve items: two columns
+   on tablets, three across the full container width from 64rem. Items don't
+   backfill (no `dense`), so a spanning or placed item leaves holes beside
+   it. Every media in a row shares one height, a multiple (--_k) of the
+   column width; width comes from the span, so formats still vary. */
 .projects_list {
   display: grid;
   align-items: start;
   gap: var(--space-7) var(--site-gutter);
-  @media (width >= 48rem) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-.projects_wrap:not(.is-expanded) .projects_item[data-more] {
-  display: none;
-}
-
-/* Expanded: placement fixed by position, two columns on tablets, three
-   across the full container width from 64rem. Items don't backfill (no
-   `dense`), so a spanning or placed item leaves holes beside it. Every media
-   in a row shares one height, a multiple (--_k) of the column width; width
-   comes from the span, so formats still vary. */
-.projects_wrap.is-expanded .projects_list {
   @media (width >= 48rem) {
     --_column: calc((100cqw - var(--site-gutter)) / 2);
     container-type: inline-size;
+    grid-template-columns: 1fr 1fr;
 
-    > :nth-child(-n + 2) { --_k: 1.25; }
-    > :nth-child(3) { grid-column: 1 / -1; --_k: 0.7; }
-    > :nth-child(4) { grid-column: 2; --_k: 1.1; }
-    > :nth-child(5),
-    > :nth-child(6) { --_k: 1; }
-    > :nth-child(5) { grid-column: 1; }
-    > :nth-child(7) { grid-column: 1 / -1; --_k: 0.7; }
-    > :nth-child(8) { grid-column: 1; }
-    > :nth-child(8),
-    > :nth-child(9) { --_k: 1.25; }
+    /* 1,1 | 2 | ·,1 | 1,1 | 2 | 1,1 | ·,1 | 2 | 1,· */
+    > :nth-child(12n + 1),
+    > :nth-child(12n + 2) { --_k: 1.25; }
+    > :nth-child(12n + 3) { grid-column: 1 / -1; --_k: 0.7; }
+    > :nth-child(12n + 4) { grid-column: 2; --_k: 1.1; }
+    > :nth-child(12n + 5),
+    > :nth-child(12n + 6) { --_k: 1; }
+    > :nth-child(12n + 5) { grid-column: 1; }
+    > :nth-child(12n + 7) { grid-column: 1 / -1; --_k: 0.7; }
+    > :nth-child(12n + 8) { grid-column: 1; }
+    > :nth-child(12n + 8),
+    > :nth-child(12n + 9) { --_k: 1.25; }
+    > :nth-child(12n + 10) { grid-column: 2; --_k: 1.1; }
+    > :nth-child(12n + 11) { grid-column: 1 / -1; --_k: 0.7; }
+    > :nth-child(12n + 12) { grid-column: 1; --_k: 1.1; }
 
     .media_wrap {
       aspect-ratio: auto;
@@ -56,21 +45,24 @@
     }
   }
 
+  /* 1,1,1 | 2,· | ·,1,1 | 1,2 | ·,1,· | 3 | 1,·,1 */
   @media (width >= 64rem) {
     --_column: calc((100cqw - 2 * var(--site-gutter)) / 3);
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-left: var(--labeled-bleed, 0);
 
-    > :nth-child(-n + 3) { --_k: 1.25; }
-    > :nth-child(1) { grid-column: 1; }
-    > :nth-child(2) { grid-column: 2; }
-    > :nth-child(3) { grid-column: 3; }
-    > :nth-child(4) { grid-column: 1 / span 2; --_k: 0.85; }
-    > :nth-child(5) { grid-column: 2; --_k: 1; }
-    > :nth-child(6) { grid-column: 3; --_k: 1; }
-    > :nth-child(7) { grid-column: 1; --_k: 1.1; }
-    > :nth-child(8) { grid-column: 2 / span 2; --_k: 1.1; }
-    > :nth-child(9) { grid-column: 2; --_k: 1.25; }
+    > :nth-child(12n + 1) { grid-column: 1; --_k: 1.25; }
+    > :nth-child(12n + 2) { grid-column: 2; --_k: 1.25; }
+    > :nth-child(12n + 3) { grid-column: 3; --_k: 1.25; }
+    > :nth-child(12n + 4) { grid-column: 1 / span 2; --_k: 0.85; }
+    > :nth-child(12n + 5) { grid-column: 2; --_k: 1; }
+    > :nth-child(12n + 6) { grid-column: 3; --_k: 1; }
+    > :nth-child(12n + 7) { grid-column: 1; --_k: 1.1; }
+    > :nth-child(12n + 8) { grid-column: 2 / span 2; --_k: 1.1; }
+    > :nth-child(12n + 9) { grid-column: 2; --_k: 1.25; }
+    > :nth-child(12n + 10) { grid-column: 1 / -1; --_k: 1.05; }
+    > :nth-child(12n + 11) { grid-column: 1; --_k: 1.25; }
+    > :nth-child(12n + 12) { grid-column: 3; --_k: 1.25; }
   }
 }
 
