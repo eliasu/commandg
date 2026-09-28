@@ -44,6 +44,13 @@
   transition: color var(--hover-duration) var(--hover-ease);
 }
 
+.services_title .services_symbol {
+  display: inline-block;
+  --_size: 0.8em;
+  margin-right: 0.35em;
+  vertical-align: -0.05em;
+}
+
 .services_subtitle {
   grid-column: 2;
   grid-row: 2;

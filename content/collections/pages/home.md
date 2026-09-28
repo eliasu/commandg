@@ -8,6 +8,7 @@ hero_heading: 'Wir sagen, was du brauchst.'
 hero_text: 'Websites, Design und alles dazwischen. Für kleine und mittlere Organisationen, die gut beraten werden wollen und jemanden brauchen, auf den sie sich verlassen können.'
 info_text: 'Wir sind command+g, eine Ansprechperson für Design, Websites und alles dazwischen. Wir hören zu, stellen die richtigen Fragen und setzen um, mit den Werkzeugen, die gerade am besten passen. Wenn es mehr braucht, holen wir Leute aus unserem Netzwerk dazu.'
 info_link_label: 'Lass uns sprechen'
+promise_text: 'Du musst nicht wissen, wie es geht. Dafür sind wir da. Du bringst die Frage mit, wir den Plan, und wir nehmen dich an die Hand: vom ersten Gespräch bis lange nach dem Start. Wenn es irgendwo klemmt, weißt du, wen du anrufst.'
 work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Menschen, denen gute Gestaltung wichtig ist.'
 contact_heading: 'Vernetzen, zusammenarbeiten oder einfach Hallo sagen.'
 noindex: false
@@ -58,10 +59,12 @@ updated_at: 1790291792
 experiments:
   -
     id: '-SRRIQBw__PeOW0vYniIl'
+    title: 'Keramik'
     type: video
     video: videos/tyfte_pots.mp4
   -
     id: 0Tqb-jPWGcCeYJM-23xBq
+    title: 'Logo-Sammlung'
     type: slideshow
     images:
       - logo_09.jpg
@@ -72,10 +75,12 @@ experiments:
     interval: 500
   -
     id: YfZNagV50M5oR87I3QGyU
+    title: 'Potentialentwickler'
     type: video
     video: videos/tyfte_potentialentwickler.mp4
   -
     id: TMrUSLaHxJaZuAJGinS4l
+    title: 'Haft in der DDR'
     type: video
     video: videos/tyfte_haftddr.mp4
 ---

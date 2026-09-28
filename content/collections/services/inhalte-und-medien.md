@@ -10,4 +10,5 @@ tags:
   - 'Motion'
   - 'Print'
 price: 'auf Anfrage'
+icon: service-media
 ---

@@ -14,7 +14,8 @@ const observer = new IntersectionObserver((entries) => {
   }
 });
 
-for (const video of document.querySelectorAll<HTMLVideoElement>(".media_inner > video")) {
+// Videos in the endless strip are played by experiments.ts.
+for (const video of document.querySelectorAll<HTMLVideoElement>(".media_inner > video:not(.experiments_list video)")) {
   if (reduced) {
     video.removeAttribute("autoplay");
     video.pause();

@@ -1,9 +1,11 @@
 {{# Hero #}}
 {{ partial:components/section padding_bottom="none" gap="0" class="home-hero_wrap" }}
-    <div class="home-hero_heading motion-words" id="top">
-        {{ partial:components/heading tag="h1" max_width="15" }}{{ if hero_heading_muted }}<span class="home-hero_muted motion-first">{{ hero_heading_muted }}</span> {{ /if }}{{ hero_heading }}{{ /partial:components/heading }}
+    <div class="home-hero_intro">
+        <div class="home-hero_heading motion-words" id="top">
+            {{ partial:components/heading tag="h1" }}{{ if hero_heading_muted }}<span class="home-hero_muted motion-first">{{ hero_heading_muted }}</span> {{ /if }}{{ hero_heading }}{{ /partial:components/heading }}
+        </div>
+        {{ partial:components/paragraph variant="statement" max_width="40" class="home-hero_text motion-fade" }}{{ hero_text }}{{ /partial:components/paragraph }}
     </div>
-    {{ partial:components/paragraph variant="large" max_width="46" class="home-hero_text motion-up" }}{{ hero_text }}{{ /partial:components/paragraph }}
     <div class="home-hero_media">
         {{ partial:components/media :media="hero_media[0]" ratio="16/10" placeholder="Bild folgt: Website-Mockup" parallax="-6" }}
         {{ partial:components/media :media="hero_media[1]" ratio="3/4" placeholder="Foto folgt" parallax="10" }}
@@ -30,40 +32,42 @@
     {{ /partial:components/content-labeled }}
 {{ /partial:components/section }}
 
-{{# Work #}}
-{{ partial:components/section padding_top="none" padding_bottom="large" }}
-    {{ partial:components/content-labeled label="Arbeiten" id="arbeiten" }}
-        {{ partial:components/content-projects :text="work_text" }}
-        <div class="experiments_wrap">
-            <div class="experiments_head">
-                {{ partial:components/eyebrow variant="label" }}Nebenbei{{ /partial:components/eyebrow }}
-                {{ partial:components/eyebrow variant="label" }}Experimente und Leidenschaften{{ /partial:components/eyebrow }}
-            </div>
-            <div class="experiments_viewport">
-                <ul class="experiments_list" data-drift>
-                    {{ if experiments }}
-                    {{ experiments scope="experiment" }}
-                    <li class="experiments_item">{{ partial:components/media :media="experiment" ratio="4/3" placeholder="Experiment" }}</li>
-                    {{ /experiments }}
-                    {{ else }}
-                    {{ loop times="5" }}
-                    <li class="experiments_item">{{ partial:components/media ratio="4/3" placeholder="Experiment" }}</li>
-                    {{ /loop }}
-                    {{ /if }}
-                </ul>
-            </div>
-        </div>
+{{# Promise #}}
+{{ partial:components/section padding_top="large" padding_bottom="large" }}
+    {{ partial:components/content-labeled label="Wie wir arbeiten" }}
+        {{ partial:components/paragraph variant="statement" class="motion-scrub" }}{{ promise_text }}{{ /partial:components/paragraph }}
     {{ /partial:components/content-labeled }}
 {{ /partial:components/section }}
 
-{{# Clients #}}
-{{ partial:components/section padding_top="none" padding_bottom="large" gap="4" }}
-    {{ partial:components/eyebrow variant="label" }}Gearbeitet für{{ /partial:components/eyebrow }}
-    <div class="clients_wrap">
-        {{ partial:components/marquee label="Kunden" }}
-            {{ collection:clients }}{{ unless no_results }}<span class="clients_name text-style-h1">{{ title }}</span>{{ /unless }}{{ /collection:clients }}
-        {{ /partial:components/marquee }}
+{{# Work #}}
+{{ partial:components/section padding_top="large" padding_bottom="large" }}
+    {{ partial:components/content-labeled label="Arbeiten" id="arbeiten" }}
+        {{ partial:components/content-projects :text="work_text" }}
+    {{ /partial:components/content-labeled }}
+{{ /partial:components/section }}
+
+{{# Side projects #}}
+{{ partial:components/section theme="dark" padding_top="large" padding_bottom="large" class="experiments_wrap" }}
+    {{ partial:components/content-labeled label="Nebenbei" }}
+        {{ partial:components/heading tag="h2" max_width="16" class="motion-up" }}Experimente und Leidenschaften{{ /partial:components/heading }}
+    {{ /partial:components/content-labeled }}
+    <div class="experiments_viewport" data-cursor="drag">
+        <ul class="experiments_list">
+            {{ if experiments }}
+            {{ experiments scope="experiment" }}
+            <li class="experiments_item">
+                {{ partial:components/media :media="experiment" ratio="4/3" placeholder="Experiment" }}
+                {{ if experiment:title }}<p class="experiments_title text-style-small">{{ experiment:title }}</p>{{ /if }}
+            </li>
+            {{ /experiments }}
+            {{ else }}
+            {{ loop times="5" }}
+            <li class="experiments_item">{{ partial:components/media ratio="4/3" placeholder="Experiment" }}</li>
+            {{ /loop }}
+            {{ /if }}
+        </ul>
     </div>
+    <p class="experiments_hint text-style-small" aria-hidden="true">← Zum Blättern ziehen →</p>
 {{ /partial:components/section }}
 
 {{# Contact #}}

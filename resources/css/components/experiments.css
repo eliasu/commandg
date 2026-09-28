@@ -1,17 +1,16 @@
-.experiments_wrap {
-  margin-top: var(--section-space-medium);
-}
-
-.experiments_head {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
 .experiments_viewport {
+  align-self: stretch;
   overflow: hidden;
-  margin-right: calc(var(--site-margin) * -1);
+  margin-inline: calc(var(--site-margin) * -1);
+  cursor: grab;
+  touch-action: pan-y;
+  &:active {
+    cursor: grabbing;
+  }
+  img,
+  video {
+    pointer-events: none;
+  }
 }
 
 .experiments_list {
@@ -22,5 +21,18 @@
 
 .experiments_item {
   flex: none;
-  width: clamp(13.75rem, 26vw, 26.25rem);
+  width: clamp(20rem, 50vw, 54rem);
+}
+
+.experiments_title {
+  margin-top: var(--space-3);
+  font-weight: var(--primary-semibold);
+}
+
+/* Touch only: with a mouse, the cursor says it. */
+.experiments_hint {
+  color: var(--text-2);
+  @media (hover: hover) and (pointer: fine) {
+    display: none;
+  }
 }
