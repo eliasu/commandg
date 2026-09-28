@@ -10,77 +10,32 @@ info_text: 'Wir sind command+g, eine Ansprechperson für Design, Websites und al
 info_link_label: 'Lass uns sprechen'
 promise_text: 'Du musst nicht wissen, wie es geht. Dafür sind wir da. Du bringst die Frage mit, wir den Plan, und wir nehmen dich an die Hand: vom ersten Gespräch bis lange nach dem Start. Wenn es irgendwo klemmt, weißt du, wen du anrufst.'
 work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Menschen, denen gute Gestaltung wichtig ist.'
-contact_heading: 'Vernetzen, zusammenarbeiten oder einfach Hallo sagen.'
+contact_heading: 'Vernetzen, zusammen&shy;arbeiten oder einfach Hallo sagen.'
 noindex: false
-hero_media:
-  -
-    id: bE5A4KA8DKvmQmdggNWde
-    type: video
-    video: videos/tyfte_afar.mp4
-    poster: videos/tyfte_work_afar.jpg
-  -
-    id: x-16XJ6MqLpIycOEPNBaW
-    type: slideshow
-    images:
-      - logo_01.jpg
-      - logo_02.jpg
-      - logo_03.jpg
-      - logo_04.jpg
-      - logo_05.jpg
-      - logo_06.jpg
-      - logo_07.jpg
-      - logo_08.jpg
-      - logo_09.jpg
-      - logo_10.jpg
-      - logo_11.jpg
-      - logo_12.jpg
-      - logo_13.jpg
-      - logo_14.jpg
-      - logo_15.jpg
-    transition: fade
-    interval: 500
-  -
-    id: neoqH7ES54ML4ZXTU5nf1
-    type: slideshow
-    images:
-      - logo_24.jpg
-      - logo_23.jpg
-      - logo_22.jpg
-      - logo_21.jpg
-      - logo_20.jpg
-      - logo_19.jpg
-      - logo_18.jpg
-      - logo_17.jpg
-      - logo_16.jpg
-    transition: slide
-    interval: 4000
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790291792
-experiments:
-  -
-    id: '-SRRIQBw__PeOW0vYniIl'
-    title: 'Keramik'
-    type: video
-    video: videos/tyfte_pots.mp4
-  -
-    id: 0Tqb-jPWGcCeYJM-23xBq
-    title: 'Logo-Sammlung'
-    type: slideshow
-    images:
-      - logo_09.jpg
-      - logo_07.jpg
-      - logo_05.jpg
-      - logo_04.jpg
-    transition: fade
-    interval: 500
-  -
-    id: YfZNagV50M5oR87I3QGyU
-    title: 'Potentialentwickler'
-    type: video
-    video: videos/tyfte_potentialentwickler.mp4
-  -
-    id: TMrUSLaHxJaZuAJGinS4l
-    title: 'Haft in der DDR'
-    type: video
-    video: videos/tyfte_haftddr.mp4
+updated_at: 1790604230
+hero_projects:
+  - d241433d-eb6c-4a03-a4a2-744866739cd2
+  - 5083d23e-ca56-4f54-b768-eb1b0767cea4
+  - f8c4fa51-5a4b-468f-92dd-74ba379beab7
+work_projects:
+  - 920831ff-82cd-4499-936d-ecea428cd941
+  - 768a7b6a-365a-42d5-9468-becbc40eb3cf
+  - d0b0457a-93da-4604-ba40-194c11482d73
+  - 86d9ad1f-70f7-41a5-91f4-78928c9633b2
+  - fc551ce5-bdad-4006-9fd7-0311dfb5b4a2
+  - 65599fd8-4c52-458e-b207-bfc3cf995d38
+  - 70b015f9-d373-4e02-9702-6b9fa696a86c
+  - d8e51e04-1c65-4287-b152-138ff35e53b9
+  - 404aa3b1-daef-446c-bb27-b7dea2293abf
+  - 14143f55-8555-4bfa-a8d9-9c3e1195cd95
+  - 1fa3e7e9-8096-474e-abea-a37b8cd9db89
+  - 8ad8a201-86ac-4428-a68b-90358ba46864
+  - 7bd3c9aa-0aeb-45cd-b71d-bdc4cd47670c
+  - 174f5265-119c-453f-ba28-e0df40952d72
+side_projects:
+  - 8ac7561c-9bff-4e25-a3e5-310b4ff524b0
+  - e8e10fb1-5f4a-4a1a-bc8f-d50a085b6388
+  - 375a3bd7-6e86-4473-8fbe-305452798ebf
+  - 71a7d4f3-bdb6-4e4f-bd3d-2207257b0dc3
 ---

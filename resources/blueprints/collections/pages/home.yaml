@@ -41,17 +41,15 @@ tabs:
               instructions: 'Ein bis zwei Sätze unter der Überschrift.'
               character_limit: 220
           -
-            handle: hero_media
+            handle: hero_projects
             field:
-              type: grid
-              display: Media
-              instructions: 'Drei Medien unter dem Text: zuerst breit (16:10, auf kleinen Bildschirmen quadratisch), dann hoch (3:4), dann ein Panorama über die volle Breite (21:9). Leere Plätze zeigen einen Platzhalter.'
-              max_rows: 3
-              mode: stacked
-              add_row: 'Add media'
-              fields:
-                -
-                  import: media
+              type: entries
+              display: Projects
+              instructions: 'Drei Projekte, deren Medien unter dem Text erscheinen: zuerst breit (16:10, auf kleinen Bildschirmen quadratisch), dann hoch (3:4), dann ein Panorama über die volle Breite (21:9). Leere Plätze zeigen einen Platzhalter.'
+              collections:
+                - projects
+              max_items: 3
+              mode: default
       -
         display: Info
         fields:
@@ -83,7 +81,7 @@ tabs:
               character_limit: 300
       -
         display: Work
-        instructions: 'Die Projekte selbst werden unter „Projects“ gepflegt, die Leistungen unter „Services“.'
+        instructions: 'Die Projekte selbst werden unter „Projects“ gepflegt und hier nur ausgewählt. Die Leistungen stehen unter „Services“.'
         fields:
           -
             handle: work_text
@@ -93,23 +91,26 @@ tabs:
               instructions: 'Ein Satz über den Projekten.'
               character_limit: 160
           -
-            handle: experiments
+            handle: work_projects
             field:
-              type: grid
-              display: 'Side projects'
-              instructions: 'Medien für das Band „Nebenbei – Experimente und Leidenschaften“ (Querformat 4:3). Bleibt es leer, erscheinen Platzhalter.'
-              mode: stacked
-              add_row: 'Add media'
-              fields:
-                -
-                  handle: title
-                  field:
-                    type: text
-                    display: Title
-                    instructions: 'Kleiner Titel links unter dem Medium.'
-                    character_limit: 40
-                -
-                  import: media
+              type: entries
+              display: Projects
+              instructions: 'Projekte im Bereich „Arbeiten“, in dieser Reihenfolge. Das Format ergibt sich aus dem Platz im Raster.'
+              collections:
+                - projects
+              mode: default
+      -
+        display: 'Side projects'
+        fields:
+          -
+            handle: side_projects
+            field:
+              type: entries
+              display: Projects
+              instructions: 'Projekte für das Band „Nebenbei – Experimente und Leidenschaften“ (Querformat 4:3), in dieser Reihenfolge. Bleibt es leer, erscheinen Platzhalter.'
+              collections:
+                - projects
+              mode: default
       -
         display: Contact
         instructions: 'E-Mail-Adresse und LinkedIn werden unter Globals → Company gepflegt.'

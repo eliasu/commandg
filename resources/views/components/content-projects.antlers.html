@@ -1,11 +1,12 @@
 ---
+# Entries from the `projects` collection. Formats follow the position and repeat every twelve, see content-projects.css.
+projects: null
 # Text above the projects.
 text: null
 class: null
 ---
-{{# Loops the `projects` collection. Formats follow the position and repeat every twelve, see content-projects.css. #}}
-{{ _projects = {collection:projects} }}
-{{ if _projects | count }}
+{{ _projects = view:projects }}
+{{ if _projects }}
 {{ _ratios = ['4/5', '4/5', '4/5', '21/9', '1/1', '3/4', '3/4', '16/9', '4/5', '16/9', '4/5', '1/1'] }}
 <div class="projects_wrap{{ if view:class }} {{ view:class }}{{ /if }}">
     {{ partial:components/paragraph variant="large" max_width="40" class="projects_intro" }}{{ view:text }}{{ /partial:components/paragraph }}

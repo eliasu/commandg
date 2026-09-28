@@ -1,18 +1,5 @@
 name: Elias
 super: true
-id: 47beda1f-607b-4632-9492-b86d08c71b37
-password_hash: $2y$12$H81UbE2cIY.t1owPkcv4Zu4mVVyRmQR6VbTlyi8vhhIA13tbqQkVC
-preferences:
-  collections:
-    pages:
-      view: tree
-      after_save: continue_editing
-    projects:
-      view: list
-    services:
-      view: list
-    clients:
-      view: list
 passkeys:
   fai_4gFzSjmTFEtL8FDuUQ:
     name: 'Elias command-g.de passkey'
@@ -31,3 +18,16 @@ passkeys:
       backupEligible: true
       backupStatus: true
       uvInitialized: true
+id: 47beda1f-607b-4632-9492-b86d08c71b37
+password_hash: $2y$12$H81UbE2cIY.t1owPkcv4Zu4mVVyRmQR6VbTlyi8vhhIA13tbqQkVC
+preferences:
+  collections:
+    pages:
+      view: tree
+      after_save: continue_editing
+    projects:
+      view: list
+    services:
+      view: list
+    clients:
+      view: list
