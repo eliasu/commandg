@@ -13,6 +13,7 @@ media:
   transition: slide-up
   interval: 3000
   video_end: end
+link: "https://artenscouts.de"
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790631040
 ---

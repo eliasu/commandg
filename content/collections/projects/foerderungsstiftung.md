@@ -2,6 +2,7 @@
 id: fc362f61-0b77-4532-a4b0-a28745a78394
 blueprint: project
 title: "Förderungsstiftung"
+category: "Printprodukte"
 media:
   files:
     - "forderungsstiftung/frame-13.jpg"

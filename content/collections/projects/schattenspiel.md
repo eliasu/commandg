@@ -15,4 +15,5 @@ media:
     - "schattenspiel/07_isometrisch_floating.png"
   transition: slide
   interval: 3000
+link: "https://schattenspiel.command-g.de"
 ---

@@ -10,6 +10,23 @@ import Lenis from "lenis";
 export const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const clips = new WeakMap<Element, gsap.core.Timeline>();
+// Media on screen at load joins it; created here so experiments.ts's clones can too.
+const intro = gsap.timeline({ delay: 0.05 });
+// Both axes: media above the fold or beyond the strip's edge mustn't take a stagger slot.
+const onScreen = (el: Element) => {
+  const { top, bottom, left, right } = el.getBoundingClientRect();
+  return top < innerHeight && bottom > 0 && left < innerWidth && right > 0;
+};
+let shown = 0;
+
+/* Clip reveal decided by where the element sits at load: on screen it
+   builds up once as part of the intro, below it follows the scroll. */
+export function revealClip(el: Element) {
+  const visible = onScreen(el);
+  clipReveal(el, visible);
+  // Restored mid-page, the hero isn't in view: nothing to wait for.
+  if (visible) intro.add(clips.get(el)!, scrollY > 0 ? shown++ * 0.12 : `media+=${shown++ * 0.12}`);
+}
 
 export function clipReveal(el: Element, onScreen = false) {
   // Tied to the scroll, an expo curve packs the whole build into a sliver
@@ -28,6 +45,16 @@ export function clipReveal(el: Element, onScreen = false) {
 if (!reduced) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "expo.out" });
+
+  // The browser restores the scroll position on reload only after this runs,
+  // so every "on screen?" check below would see the top of the page.
+  history.scrollRestoration = "manual";
+  const key = `scroll:${location.pathname}`;
+  addEventListener("pagehide", () => sessionStorage.setItem(key, String(scrollY)));
+  const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+  if (!location.hash && (navigation?.type === "reload" || navigation?.type === "back_forward")) {
+    scrollTo({ top: Number(sessionStorage.getItem(key)) || 0, behavior: "instant" });
+  }
 
   const lenis = new Lenis({ lerp: 0.09, anchors: { offset: -80 } });
   lenis.on("scroll", ScrollTrigger.update);
@@ -57,7 +84,6 @@ if (!reduced) {
 
   // Cinematic, but done in about two seconds: the heading tilts up out of
   // its mask, the text brightens word by word, then nav and media follow.
-  const intro = gsap.timeline({ delay: 0.05 });
   const rise = { yPercent: 105, rotate: 4, transformOrigin: "0% 100%", duration: 1.1, ease: "expo.out" };
   for (const el of document.querySelectorAll(".motion-words")) {
     const words = [...splitWords(el)];
@@ -67,7 +93,6 @@ if (!reduced) {
     intro.from(rest, { ...rise, stagger: 0.04 }, first.length ? 0.3 : 0);
   }
   intro.addLabel("chrome", Math.min(intro.duration(), 0.55));
-  const onScreen = (el: Element) => el.getBoundingClientRect().top < innerHeight;
 
   for (const el of document.querySelectorAll(".motion-scrub")) {
     gsap.fromTo(splitWords(el), { opacity: 0.15 }, {
@@ -98,12 +123,8 @@ if (!reduced) {
   intro.from(".nav_wrap", { opacity: 0, y: -12, duration: 1 }, "chrome+=0.2");
   intro.addLabel("media", "chrome+=0.35");
 
-  let shown = 0;
   for (const el of document.querySelectorAll<HTMLElement>(".motion-clip")) {
-    if (el.offsetParent === null) continue;
-    const visible = onScreen(el);
-    clipReveal(el, visible);
-    if (visible) intro.add(clips.get(el)!, `media+=${shown++ * 0.12}`);
+    if (el.offsetParent !== null) revealClip(el);
   }
 
   for (const el of document.querySelectorAll<HTMLElement>("[data-parallax]")) {

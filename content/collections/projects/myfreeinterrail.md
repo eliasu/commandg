@@ -2,7 +2,7 @@
 id: f837d3f6-2a27-4bb4-8268-591cb0cd6852
 blueprint: project
 title: "MyFreeInterrail"
-category: "Social Media"
+category: "Branding"
 media:
   files:
     - "myfreeinterrail/myfreeinterrail-insta-1_1080w_h264_muted.mp4"

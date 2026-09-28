@@ -2,7 +2,7 @@
 id: db7e5ca7-2394-48e6-8e25-4dbcec208861
 blueprint: project
 title: Detect
-category: Website
+category: "Branding"
 media:
   files:
     - detect/07_detect2026_focus_haltestelle_nacht.jpg
@@ -17,7 +17,7 @@ media:
   transition: slide
   interval: 2500
   video_end: end
-link: 'https://detect.de'
+link: "https://detectclassic.com"
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790630400
 ---

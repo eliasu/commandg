@@ -2,6 +2,7 @@
 id: 479354e9-1876-4490-b95d-73084af89317
 blueprint: project
 title: "Technomaschine"
+category: "Interaktive Installation"
 media:
   files:
     - "technomaschine/70733da7-8070-4081-8e96-2fb624effb55_608w_h264_muted.mp4"

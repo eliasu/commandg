@@ -2,6 +2,7 @@
 id: 7268e460-dc62-403f-8231-1cb4aa447804
 blueprint: project
 title: "Hanfwerk"
+category: "Branding"
 media:
   files:
     - "hanfwerk/hanfwerk_1.jpg"

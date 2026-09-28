@@ -13,6 +13,7 @@ media:
   transition: fade
   interval: 4000
   video_end: end
+link: "https://detectclassic.com/betweenmountains"
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790628921
 ---

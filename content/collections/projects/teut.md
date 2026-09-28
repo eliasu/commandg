@@ -12,6 +12,7 @@ media:
   transition: none
   interval: 1500
   video_end: end
+link: "https://teut.de"
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790627895
 ---

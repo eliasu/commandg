@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { clipReveal, reduced } from "./motion.ts";
+import { reduced, revealClip } from "./motion.ts";
 
 gsap.registerPlugin(Draggable, InertiaPlugin, ScrollTrigger);
 
@@ -36,7 +36,7 @@ for (const viewport of document.querySelectorAll<HTMLElement>(".experiments_view
       // inline styles but not its timeline, so it gets its own.
       for (const media of clone.querySelectorAll(".motion-clip")) {
         gsap.set([media, media.firstElementChild], { clearProps: "clipPath,scale" });
-        if (!reduced) clipReveal(media);
+        if (!reduced) revealClip(media);
       }
     }
   }

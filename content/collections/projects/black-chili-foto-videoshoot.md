@@ -14,4 +14,5 @@ media:
     - "black-chili-foto-&-videoshoot/slice-6.jpg"
   transition: slide-right
   interval: 2500
+link: "https://blackchilimesser.de/"
 ---

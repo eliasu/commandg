@@ -12,4 +12,5 @@ media:
     - "anwaltskanzlei-schenke/mockups_commandg_7.jpg"
   transition: slide-up
   interval: 3500
+link: "https://anwaltskanzlei-schenke.de"
 ---

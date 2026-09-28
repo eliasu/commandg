@@ -2,6 +2,7 @@
 id: 46a452ab-f788-481b-90f7-fda7f3eee732
 blueprint: project
 title: "Argus"
+category: "Produktdesign"
 media:
   files:
     - "argus/002-ipad-landscape-1.jpg"

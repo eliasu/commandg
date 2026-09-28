@@ -2,7 +2,7 @@
 id: 203c360b-52e9-4c10-9886-49811052d7b0
 blueprint: project
 title: "Rhythmusgerät"
-category: "Website"
+category: "Midi Controller"
 media:
   files:
     - "rhythmusgerat/frame-80.jpg"
