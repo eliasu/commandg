@@ -21,7 +21,7 @@ loading: lazy
 fetch_priority: auto
 class: null
 ---
-{{# Statamic port: Glide builds the srcset with the widths Astro's <Image> uses; with width and height both set it crops around the focal point. #}}
+{{# Statamic port: Glide builds the srcset with the widths Astro's <Image> uses; with width and height both set it crops around the focal point, otherwise object-position carries it to the CSS crop. #}}
 {{ if view:image }}
 {{ _classes = 'image' + (view:variant == 'densities' ? ' densities' : '') + ((view:transparent | to_bool) ? ' transparent' : '') + (view:class ? (' ' + view:class) : '') }}
 {{ _alt = view:alt ?? view:image:alt ?? '' }}
@@ -44,6 +44,6 @@ class: null
     src="{{ glide :src="view:image" :width="_dw" :height="_dh" fit="crop_focal" :quality="_q" }}"
     {{ if view:variant == 'densities' }}srcset="{{ glide :src="view:image" :width="_dw" :height="_dh" fit="crop_focal" :quality="_q" }} 1x{{ if _dw2 <= _limit }}, {{ glide :src="view:image" :width="_dw2" :height="_dh2" fit="crop_focal" :quality="_q" }} 2x{{ /if }}"
     {{ else }}srcset="{{ _breakpoints }}{{ if value < _cap }}{{ _bh = (value * _ratio) | round }}{{ glide :src="view:image" :width="value" :height="_bh" fit="crop_focal" :quality="_q" }} {{ value }}w, {{ /if }}{{ /_breakpoints }}{{ glide :src="view:image" :width="_cap" :height="_ch" fit="crop_focal" :quality="_q" }} {{ _cap }}w" sizes="{{ _sizes }}"{{ /if }}
-    alt="{{ _alt }}" class="{{ _classes }}" width="{{ _dw }}" height="{{ _dh }}" loading="{{ view:loading }}"{{ if view:fetch_priority != 'auto' }} fetchpriority="{{ view:fetch_priority }}"{{ /if }}>
+    alt="{{ _alt }}" class="{{ _classes }}"{{ if view:image:focus }} style="object-position: {{ view:image:focus_css }}"{{ /if }} width="{{ _dw }}" height="{{ _dh }}" loading="{{ view:loading }}"{{ if view:fetch_priority != 'auto' }} fetchpriority="{{ view:fetch_priority }}"{{ /if }}>
 {{ /if }}
 {{ /if }}

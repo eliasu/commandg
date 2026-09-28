@@ -26,6 +26,7 @@ tabs:
                 service-branding: Branding
                 service-media: Media
                 service-tools: Tools
+                service-hosting: Hosting
           -
             handle: subtitle
             field:

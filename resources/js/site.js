@@ -1,3 +1,4 @@
+import "./components/content-projects.ts";
 import "./components/copy.ts";
 import "./components/cursor.ts";
 import "./components/dropdown.ts";

@@ -66,17 +66,15 @@
   }
 }
 
+/* --_x and --_w are set on hover by content-projects.ts. */
 .projects_card {
   display: block;
+  width: var(--_w, 100%);
+  translate: var(--_x, 0) 0;
   text-decoration: none;
-  .image {
-    transition: scale 1.4s var(--ease-out);
-  }
-  @media (hover: hover) {
-    &:is(a):hover .image {
-      scale: 1.05;
-    }
-  }
+  transition:
+    width 0.9s var(--ease-out),
+    translate 0.9s var(--ease-out);
 }
 
 .projects_caption {

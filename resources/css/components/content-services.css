@@ -52,13 +52,15 @@
 }
 
 .services_title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
   margin-block: 0;
   transition: color var(--hover-duration) var(--hover-ease);
   .services_symbol {
     --_size: 0.8em;
-    display: inline-block;
-    margin-right: 0.35em;
-    vertical-align: -0.05em;
+    flex-shrink: 0;
+    margin-bottom: -0.05em;
   }
 }
 
