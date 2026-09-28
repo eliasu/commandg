@@ -4,5 +4,5 @@ blueprint: project
 title: "AFAR"
 media:
   files:
-    - "afar/tyfte_afar.mp4"
+    - "afar/tyfte-afar_1280w_h264_muted-2.mp4"
 ---

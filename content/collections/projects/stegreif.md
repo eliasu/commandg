@@ -4,5 +4,5 @@ blueprint: project
 title: "Stegreif"
 media:
   files:
-    - "stegreif/tyfte_stegreif.mp4"
+    - "stegreif/tyfte-stegreif_1280w_h264_muted.mp4"
 ---

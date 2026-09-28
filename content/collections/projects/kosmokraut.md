@@ -4,7 +4,7 @@ blueprint: project
 title: "Kosmokraut"
 media:
   files:
-    - "kosmokraut/tyfte_koskokraut.mp4"
+    - "kosmokraut/tyfte-koskokraut_1280w_h264_muted.mp4"
     - "kosmokraut/frame-43.png"
     - "kosmokraut/frame-44.png"
   transition: slide

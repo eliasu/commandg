@@ -5,7 +5,7 @@ title: "Anwaltskanzlei Schenke"
 category: "Website"
 media:
   files:
-    - "anwaltskanzlei-schenke/10_video_scroll-animation_5s.mp4"
+    - "anwaltskanzlei-schenke/10-video-scroll-animation-5s_1920w_h264_muted-2.mp4"
     - "anwaltskanzlei-schenke/01_browser-mockup_desktop.jpg"
     - "anwaltskanzlei-schenke/02_fullpage-uebersicht.jpg"
     - "anwaltskanzlei-schenke/03_smartphone-mockup.jpg"

@@ -4,5 +4,5 @@ blueprint: project
 title: "Standarts"
 media:
   files:
-    - "standarts/tyfte_standarts.mp4"
+    - "standarts/tyfte-standarts_1280w_h264_muted.mp4"
 ---

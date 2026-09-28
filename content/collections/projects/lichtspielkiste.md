@@ -4,8 +4,8 @@ blueprint: project
 title: "Lichtspielkiste"
 media:
   files:
-    - "lichtspielkiste/img_8987.mp4"
-    - "lichtspielkiste/img_8994.mp4"
+    - "lichtspielkiste/img-8987_608w_h264_muted.mp4"
+    - "lichtspielkiste/img-8994_608w_h264_muted.mp4"
     - "lichtspielkiste/img_8967.jpeg"
     - "lichtspielkiste/img_8968.jpeg"
     - "lichtspielkiste/img_8969.jpeg"

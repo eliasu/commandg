@@ -4,5 +4,5 @@ blueprint: project
 title: "Haft in der DDR"
 media:
   files:
-    - "haft-ddr/tyfte_haftddr.mp4"
+    - "haft-ddr/tyfte-haftddr_1280w_h264_muted.mp4"
 ---

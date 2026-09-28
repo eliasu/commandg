@@ -5,5 +5,5 @@ title: "EDDM"
 category: "Werkzeug nach Maß"
 media:
   files:
-    - "eddm/tyfte_eddm.mp4"
+    - "eddm/tyfte-eddm_1280w_h264_muted.mp4"
 ---

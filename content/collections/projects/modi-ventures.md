@@ -5,5 +5,5 @@ title: "Modi Ventures"
 category: "Website"
 media:
   files:
-    - "modi-ventures/tyfte_modiventures.mp4"
+    - "modi-ventures/tyfte-modiventures_1280w_h264_muted.mp4"
 ---

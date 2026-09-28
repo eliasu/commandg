@@ -5,8 +5,8 @@ title: "Artenscouts"
 category: "Website"
 media:
   files:
-    - "artenscouts/08_video_intro_desktop.mp4"
-    - "artenscouts/09_video_mobile_scroll.mp4"
+    - "artenscouts/08-video-intro-desktop_1920w_h264_muted-2.mp4"
+    - "artenscouts/09-video-mobile-scroll_608w_h264_muted-2.mp4"
     - "artenscouts/01_desktop_browser.png"
     - "artenscouts/02_three_pages.png"
     - "artenscouts/03_mobile_trio.png"

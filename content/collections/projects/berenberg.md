@@ -5,6 +5,6 @@ title: "Berenberg Verlag"
 category: "Website"
 media:
   files:
-    - "berenberg/tyfte_berenberg.mp4"
+    - "berenberg/tyfte-berenberg_1280w_h264_muted-2.mp4"
 link: "https://www.berenberg-verlag.de"
 ---

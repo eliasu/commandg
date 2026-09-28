@@ -5,5 +5,5 @@ title: "Team Papenburg"
 category: "Website"
 media:
   files:
-    - "team-papenburg/tyfte_teampapenburgh.mp4"
+    - "team-papenburg/tyfte-teampapenburgh_1280w_h264_muted.mp4"
 ---

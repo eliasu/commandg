@@ -135,6 +135,12 @@
 }
 
 .services_price {
-  margin-left: auto;
+  flex-basis: 100%;
+  margin-top: var(--space-3);
   font-weight: var(--primary-bold);
+  @media (width >= 64rem) {
+    flex-basis: auto;
+    margin-top: 0;
+    margin-left: auto;
+  }
 }

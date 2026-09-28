@@ -5,8 +5,8 @@ title: "MyFreeInterrail"
 category: "Social Media"
 media:
   files:
-    - "myfreeinterrail/myfreeinterrail_insta_1_.mp4"
-    - "myfreeinterrail/myfreeinterrail_insta_1_blau.mp4"
+    - "myfreeinterrail/myfreeinterrail-insta-1_1080w_h264_muted.mp4"
+    - "myfreeinterrail/myfreeinterrail-insta-1-blau_1080w_h264_muted.mp4"
     - "myfreeinterrail/slice-1.jpg"
     - "myfreeinterrail/slice-2.jpg"
     - "myfreeinterrail/slice-3.jpg"

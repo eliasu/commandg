@@ -35,4 +35,6 @@ noindex: false
 {{ if _description }}<meta name="twitter:description" content="{{ _description | sanitize }}">{{ /if }}
 {{ if _image }}<meta name="twitter:image" content="{{ glide :src="_image" width="1200" height="630" fit="crop_focal" absolute="true" }}">{{ /if }}
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">

@@ -4,5 +4,5 @@ blueprint: project
 title: "Potentialentwickler"
 media:
   files:
-    - "potentialentwickler/tyfte_potentialentwickler.mp4"
+    - "potentialentwickler/tyfte-potentialentwickler_1280w_h264_muted.mp4"
 ---

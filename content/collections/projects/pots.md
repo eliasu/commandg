@@ -4,5 +4,5 @@ blueprint: project
 title: "Pots"
 media:
   files:
-    - "pots/tyfte_pots.mp4"
+    - "pots/tyfte-pots_1280w_h264_muted.mp4"
 ---

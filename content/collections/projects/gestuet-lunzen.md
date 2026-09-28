@@ -5,7 +5,7 @@ title: "Gestüt Lunzen"
 category: "Branding"
 media:
   files:
-    - "gestut-lunzen/gestuet.mp4"
+    - "gestut-lunzen/gestuet_1680w_h264_muted.mp4"
     - "gestut-lunzen/frame-16.jpg"
     - "gestut-lunzen/free_business_cards_mockup_4-1.jpg"
   transition: fade
