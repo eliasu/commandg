@@ -6,7 +6,7 @@ import { intro, reduced } from "./motion.ts";
    of the list in .home-hero_dialog, the right replies, then the next pair.
    Each turn brings the next face from the speaker's data-faces. All of it
    steps at 8 fps for a stop-motion look: mouth frames, a jitter, the grain of
-   the #home-hero-ink filter, the words scribbled on, the slide in. */
+   the #ink filter, the words scribbled on, the slide in. */
 const mouths = document.querySelector(".home-hero_mouths");
 
 if (mouths) {
@@ -25,7 +25,7 @@ if (mouths) {
 
   if (!reduced) {
     gsap.registerPlugin(ScrollTrigger);
-    const grain = mouths.querySelector("feTurbulence")!;
+    const grain = document.querySelector("#ink feTurbulence")!;
     const lines = document.querySelectorAll(".home-hero_line");
     // Three tilts per side, one per pair.
     const tilts = [
@@ -36,6 +36,8 @@ if (mouths) {
     // the reply, the pair long enough to read.
     const talk = 8;
     const quiet = [8, 16];
+    // Then the pair comes down again, last word first, over this many.
+    const clear = 3;
     const jitter = (amount: number) => ((Math.random() - 0.5) * amount).toFixed(2);
     let turn = 0;
     let t = 0;
@@ -72,11 +74,18 @@ if (mouths) {
       // Word by word while talking.
       const shown = Math.ceil(((t + 1) / talk) * speaker.words.length);
       speaker.words.forEach((word, i) => (word.style.visibility = i < shown ? "visible" : "hidden"));
+      const clearing = who === 1 ? t - talk - quiet[1] + 1 : 0;
+      if (clearing > 0) {
+        for (const side of sides) {
+          const kept = Math.ceil((1 - clearing / clear) * side.words.length);
+          side.words.forEach((word, i) => (word.style.visibility = i < kept ? "visible" : "hidden"));
+        }
+      }
       speaker.bubble.style.visibility = "visible";
       speaker.bubble.style.rotate = `${tilt + Number(jitter(1))}deg`;
       grain.setAttribute("seed", String(frame++ % 8));
       if (hold && turn === 1 && t === talk) intro.play();
-      if (++t >= talk + quiet[who]) {
+      if (++t >= talk + quiet[who] + (who === 1 ? clear : 0)) {
         t = 0;
         turn++;
       }

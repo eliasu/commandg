@@ -4,6 +4,7 @@ import "./components/cursor.ts";
 import "./components/dropdown.ts";
 import "./components/experiments.ts";
 import "./components/form.ts";
+import "./components/home-contact.ts";
 import "./components/home-hero.ts";
 import "./components/marquee.ts";
 import "./components/media.ts";

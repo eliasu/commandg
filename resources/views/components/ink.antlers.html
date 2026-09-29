@@ -1,0 +1,25 @@
+{{# The black-and-white look of the hero heads and the hands: grainy, two
+   tones, a hard cut-out edge. Once per page (layout); .ink uses it, and
+   scripts step the grain (feTurbulence seed) for the stop-motion boil. #}}
+<svg class="ink_filters" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="ink" color-interpolation-filters="sRGB">
+        <feComponentTransfer in="SourceAlpha" result="edge">
+            <feFuncA type="discrete" tableValues="0 0 1"/>
+        </feComponentTransfer>
+        <feColorMatrix in="SourceGraphic" type="saturate" values="0"/>
+        <feComponentTransfer result="gray">
+            <feFuncR type="linear" slope="1.3" intercept="-0.12"/>
+            <feFuncG type="linear" slope="1.3" intercept="-0.12"/>
+            <feFuncB type="linear" slope="1.3" intercept="-0.12"/>
+        </feComponentTransfer>
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="0"/>
+        <feColorMatrix type="matrix" values="0.8 0 0 0 0.52  0.8 0 0 0 0.52  0.8 0 0 0 0.52  0 0 0 0 1"/>
+        <feBlend in="gray" mode="multiply"/>
+        <feComponentTransfer>
+            <feFuncR type="discrete" tableValues="0 0 1"/>
+            <feFuncG type="discrete" tableValues="0 0 1"/>
+            <feFuncB type="discrete" tableValues="0 0 1"/>
+        </feComponentTransfer>
+        <feComposite in2="edge" operator="in"/>
+    </filter>
+</svg>

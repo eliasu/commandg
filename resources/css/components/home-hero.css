@@ -33,7 +33,7 @@
   translate: 0 calc(var(--drop) * -0.6);
   pointer-events: none;
   /* One head at a time: centred in the space above it. */
-  @media (width < 40rem) {
+  @media (width < 48rem) {
     top: calc(var(--nav-height) + 15svh - var(--lines) / 2);
   }
   .heading {
@@ -75,26 +75,26 @@
 
 
 /* The mouths either side of the heading (home-hero.ts): cut off at the page
-   edge, sliding in while they speak. Side by side from 40rem; below, one at
+   edge, sliding in while they speak. Side by side from 48rem; below, one at
    a time under the heading. */
 .home-hero_wrap {
   overflow-x: clip;
   /* The heads (see .home-hero_mouths): tile width and height, nose tip in
      from the page edge when quiet, how far it comes in to speak, where the
-     eyes sit. Below 40rem one head at a time: the quiet one waits off the
+     eyes sit. Below 48rem one head at a time: the quiet one waits off the
      page, the speaker comes in to 30vw; a face (hair to chin) is about 60%
-     of the screen, the neck running off the bottom. From 40rem both, a head
+     of the screen, the neck running off the bottom. From 48rem both, a head
      about four fifths of the screen high, eyes level with the heading --
      unless that would lift the bottom of the shortest sprite (91% of a
      tile) into view: then they drop by --drop, and the heading rises by
-     some of it. 40 and 60rem are the widths the design asked for. */
+     some of it. */
   --w: 74svh;
   --h: calc(var(--w) * 688 / 432);
   --nose: calc(var(--w) * -0.14 - 4vw);
   --slide: calc(30vw - var(--nose));
   --eyes: 66%;
   --drop: 0rem;
-  @media (width >= 40rem) {
+  @media (width >= 48rem) {
     --w: min(96svh, 75vw);
     --nose: 9vw;
     --slide: 3vw;
@@ -135,7 +135,7 @@
   }
   &.is-right {
     /* Without motion, small screens show the right head, standing in. */
-    @media (width < 40rem) and (prefers-reduced-motion: reduce) {
+    @media (width < 48rem) and (prefers-reduced-motion: reduce) {
       --in: 1;
     }
     left: auto;
@@ -148,7 +148,7 @@
   aspect-ratio: 432 / 688;
   /* Three frames side by side: closed, open, round. */
   background: var(--sprite) no-repeat calc(var(--frame, 0) * 50%) 0 / 300% 100%;
-  filter: url(#home-hero-ink);
+  filter: url(#ink);
 }
 
 .home-hero_bubble {
@@ -167,8 +167,8 @@
   /* Gone within the first quarter of the heads scrolling out. */
   opacity: calc(1 - var(--out, 0) * 4);
   /* Too narrow for two: only the speaker's words, gone before its head
-     goes (below 40rem, when it leaves the page). */
-  @media (width < 60rem) {
+     goes (below 48rem, when it leaves the page). */
+  @media (width < 64rem) {
     opacity: min(1 - var(--out, 0) * 4, var(--in, 0) * 3 - 2);
   }
   .is-right & {
@@ -180,8 +180,4 @@
 
 .home-hero_says {
   display: block;
-}
-
-.home-hero_filters {
-  position: absolute;
 }

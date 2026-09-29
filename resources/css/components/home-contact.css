@@ -5,6 +5,12 @@
 .home-contact_actions {
   margin-top: var(--space-7);
   gap: var(--space-3) var(--space-5);
+  /* Beside the hand but short of room: one under the other. Stacked (below
+     48rem) they wrap as they fit. */
+  @media (48rem <= width < 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .home-contact_copy {
@@ -15,4 +21,31 @@
 .home-contact_hint {
   font-size: var(--text-small);
   opacity: 0.7;
+}
+
+/* The waving hand (home-contact.ts), cut off by the section's bottom edge:
+   the arm leaves its tile at the bottom and, low down, the left side, so
+   the lowest third stays below. Beside the text, below 48rem centred under
+   it. It swings about the forearm. */
+.home-contact_wrap {
+  position: relative;
+  overflow: clip;
+}
+
+.home-contact_hand {
+  --_w: clamp(14rem, 26vw, 28rem);
+  width: var(--_w);
+  aspect-ratio: 280 / 602;
+  /* Stacked: centred under the text. */
+  align-self: center;
+  margin: var(--space-7) auto calc(-1 * var(--section-space-large) - 0.78 * var(--_w));
+  transform-origin: 30% 85%;
+  pointer-events: none;
+  @media (width >= 48rem) {
+    position: absolute;
+    right: 18vw;
+    /* From the container, which stops short of the section's padding. */
+    bottom: calc(-1 * var(--section-space-large) - 0.78 * var(--_w));
+    margin: 0;
+  }
 }

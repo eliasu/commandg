@@ -28,6 +28,7 @@
 @import "./components/home-contact.css" layer(components);
 @import "./components/home-hero.css" layer(components);
 @import "./components/icon.css" layer(components);
+@import "./components/ink.css" layer(components);
 @import "./components/marquee.css" layer(components);
 @import "./components/media.css" layer(components);
 @import "./components/modal.css" layer(components);
