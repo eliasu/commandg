@@ -115,6 +115,8 @@
    eyes at 42% of its height. */
 .home-hero_mouth {
   position: absolute;
+  /* Its own layer: the scroll moves the filtered face without repainting it. */
+  will-change: translate;
   /* White drops out into the page on light themes, black on dark. On the
      mouth, not the face: its translate makes it the blending group. */
   mix-blend-mode: multiply;

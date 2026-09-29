@@ -42,9 +42,12 @@ if (mouths) {
     let turn = 0;
     let t = 0;
     let frame = 0;
+    // Scrolling out, the heads hold still: every step re-renders the #ink
+    // filter, which is what makes the scroll stutter on phones.
+    let leaving = false;
 
     const step = () => {
-      if (!ScrollTrigger.isInViewport(mouths)) return;
+      if (leaving || !ScrollTrigger.isInViewport(mouths)) return;
       const who = turn % 2;
       const speaker = sides[who];
       const pair = Math.floor(turn / 2);
@@ -90,8 +93,21 @@ if (mouths) {
         turn++;
       }
     };
-    // Scrolled one screen down, the heads are gone.
-    gsap.fromTo(mouths, { "--out": 0 }, { "--out": 1, ease: "none", scrollTrigger: { start: 0, end: () => innerHeight, scrub: true } });
+    // Scrolled one screen down, the heads are gone; on phones half a screen.
+    // The words go outright once faded, so no scraps are left behind.
+    gsap.fromTo(mouths, { "--out": 0 }, {
+      "--out": 1,
+      ease: "none",
+      scrollTrigger: {
+        start: 0,
+        end: () => innerHeight * (matchMedia("(min-width: 48rem)").matches ? 1 : 0.5),
+        scrub: true,
+        onUpdate: ({ progress }) => {
+          leaving = progress > 0;
+          if (progress > 0.25) for (const side of sides) side.bubble.style.visibility = "hidden";
+        },
+      },
+    });
     // The page opens with one exchange; the intro waits for it. Not when
     // the mouths are out of sight (narrow screen, restored mid-page).
     const hold = ScrollTrigger.isInViewport(mouths);
