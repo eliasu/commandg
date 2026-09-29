@@ -1,3 +1,10 @@
+{{ section:head }}
+{{ if hero_dialog }}
+<link rel="preload" href="/images/hero-mouths/face-1.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="/images/hero-mouths/face-2.webp" as="image" type="image/webp" fetchpriority="high">
+{{ /if }}
+{{ /section:head }}
+
 {{# Hero #}}
 {{ partial:components/section padding_top="none" padding_bottom="none" gap="0" class="home-hero_wrap" }}
     <div class="home-hero_stage">

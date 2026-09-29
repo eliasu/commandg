@@ -106,12 +106,23 @@ if (mouths) {
       }
       gsap.to(".nav_wrap", { opacity: 1, y: 0, duration: 1, delay: 1 });
     }
-    // On GSAP's clock, so the handover to the intro stays in step.
-    let last = -1;
-    gsap.ticker.add((time) => {
-      if (time - last < 0.125) return;
-      last = time;
-      step();
+    // The dialog (and with it the heading) starts once both first faces are
+    // decoded, at most 3s in; the other faces load behind it.
+    const load = (src: string) => {
+      const img = new Image();
+      img.src = src;
+      return img.decode().catch(() => {});
+    };
+    const firsts = Promise.all(sides.map((side) => load(side.faces[0])));
+    Promise.race([firsts, new Promise((done) => setTimeout(done, 3000))]).then(() => {
+      for (const side of sides) side.faces.slice(1).forEach(load);
+      // On GSAP's clock, so the handover to the intro stays in step.
+      let last = -1;
+      gsap.ticker.add((time) => {
+        if (time - last < 0.125) return;
+        last = time;
+        step();
+      });
     });
   }
 }

@@ -3,6 +3,7 @@
 <html lang="{{ site:short_locale }}"{{ if view:theme && view:theme != 'inherit' }} class="theme-{{ view:theme }}"{{ /if }}>
     <head>
         {{ partial:components/base-head :title="title ?? view:title" :description="meta_description" :image="og_image" :noindex="noindex || response_code >= 400" }}
+        {{ yield:head }}
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
     </head>
     <body>
