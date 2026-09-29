@@ -11,9 +11,6 @@
   align-items: center;
   justify-content: center;
   background-color: var(--background-2);
-  &:is([data-parallax]) {
-    inset: -8% 0;
-  }
   > :is(.image, .video) {
     height: 100%;
   }

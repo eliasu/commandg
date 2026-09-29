@@ -34,12 +34,33 @@ tabs:
               validate:
                 - required
           -
-            handle: hero_text
+            handle: hero_dialog
             field:
-              type: textarea
-              display: Text
-              instructions: 'Ein bis zwei Sätze unter der Überschrift.'
-              character_limit: 220
+              type: grid
+              display: Dialog
+              instructions: 'Das Gespräch der beiden Köpfe neben der Überschrift. Links sagt jemand etwas, rechts kommt die Antwort; dann folgt die nächste Zeile. Kurz halten, damit man es im Vorbeigehen lesen kann.'
+              mode: table
+              max_rows: 12
+              add_row: 'Zeile hinzufügen'
+              fields:
+                -
+                  handle: say
+                  field:
+                    type: text
+                    display: Says
+                    instructions: 'Was der linke Kopf sagt, z. B. „Wir brauchen mehr Anfragen.“'
+                    character_limit: 50
+                    validate:
+                      - required
+                -
+                  handle: reply
+                  field:
+                    type: text
+                    display: Reply
+                    instructions: 'Die Antwort des rechten Kopfs.'
+                    character_limit: 55
+                    validate:
+                      - required
           -
             handle: hero_projects
             field:
@@ -70,15 +91,47 @@ tabs:
               instructions: 'Beschriftung des Links darunter. Er führt zum Kontaktbereich.'
               character_limit: 30
       -
-        display: Promise
+        display: 'How we work'
         fields:
           -
-            handle: promise_text
+            handle: steps
             field:
-              type: textarea
-              display: Text
-              instructions: 'Großer Text zwischen Leistungen und Arbeiten: wie ihr mit Kund:innen arbeitet. Zwei bis drei Sätze.'
-              character_limit: 300
+              type: grid
+              display: Steps
+              instructions: 'Die Punkte unter „Wie wir arbeiten“, in dieser Reihenfolge. Jeder Punkt hat einen kurzen Titel und ein bis drei Sätze.'
+              mode: stacked
+              max_rows: 6
+              add_row: 'Punkt hinzufügen'
+              fields:
+                -
+                  handle: icon
+                  field:
+                    type: select
+                    display: Icon
+                    instructions: 'Linien-Icon über dem Titel.'
+                    options:
+                      step-understand: Understand
+                      step-recommend: Recommend
+                      step-build: Build
+                      step-stay: Stay
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    instructions: 'Kurzer Titel, z. B. „Erst verstehen.“'
+                    character_limit: 50
+                    validate:
+                      - required
+                -
+                  handle: text
+                  field:
+                    type: textarea
+                    display: Text
+                    instructions: 'Ein bis drei Sätze.'
+                    character_limit: 280
+                    validate:
+                      - required
       -
         display: Work
         instructions: 'Die Projekte selbst werden unter „Projects“ gepflegt und hier nur ausgewählt. Die Leistungen stehen unter „Services“.'

@@ -1,52 +1,69 @@
-/* The text sits at the bottom of the first screen, the heading centred in
-   the space between it and the nav, one sentence per line (the second the
-   longer). The text starts where the content column of the sections below
-   starts. */
+/* The first screen, below the nav: the heads and their words. */
 .home-hero_intro {
   display: grid;
-  grid-template-rows: 1fr auto;
   align-items: center;
-  gap: var(--space-7) var(--space-8);
   width: 100%;
-  min-height: 80svh;
-  @media (width >= 64rem) {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
-    > * {
-      grid-column: 1 / -1;
-    }
-    > .home-hero_text {
-      grid-column: 2;
-    }
+  margin-top: calc(-1 * var(--lines));
+  min-height: calc(100svh - var(--nav-height));
+  padding-bottom: var(--nav-height);
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+/* The heading and the heads: the heading is held centred on the screen
+   (sticky) till it reaches the bottom of this, then leaves with the page,
+   --space-8 above the first project. */
+.home-hero_stage {
+  --size: clamp(1.25rem, 2.4vw, 3.25rem);
+  --lines: calc(2 * 1.1 * var(--size));
+  width: 100%;
+}
+
+/* One sentence per line, two lines high (--lines), over the heads. The
+   heads pull up under it rather than it pulling them: a sticky element
+   keeps its margin box inside its parent, so a negative margin here would
+   let it run past the end. */
+.home-hero_heading {
+  position: sticky;
+  top: calc(50svh - var(--lines) / 2);
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  translate: 0 calc(var(--drop) * -0.6);
+  pointer-events: none;
+  /* One head at a time: centred in the space above it. */
+  @media (width < 40rem) {
+    top: calc(var(--nav-height) + 15svh - var(--lines) / 2);
   }
   .heading {
     margin-bottom: 0;
-    font-size: clamp(2.5rem, 5.4vw, 7rem);
+    font-size: var(--size);
+    line-height: 1.1;
     font-weight: var(--primary-medium);
   }
 }
 
-.home-hero_muted {
+/* One sentence per line; home-hero.ts brings forward the one being spoken. */
+.home-hero_line {
   display: block;
-  color: var(--heading-accent);
-}
-
-.home-hero_text {
-  margin-block: 0;
 }
 
 .home-hero_media {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: end;
   gap: var(--site-gutter);
   width: 100%;
-  margin-top: var(--section-space-medium);
+  margin-top: var(--space-8);
+  @media (width >= 48rem) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media (width >= 64rem) {
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
   }
-  /* Half width on smaller screens: 16:10 would be too flat there. */
+  /* Half width on tablets: 16:10 would be too flat there. */
   > :first-child {
-    @media (width < 64rem) {
+    @media (48rem <= width < 64rem) {
       aspect-ratio: 1 / 1;
     }
   }
@@ -56,20 +73,115 @@
   grid-column: 1 / -1;
 }
 
-/* The word swap (home-hero.ts): the incoming word sits over the outgoing
-   one inside the same mask. */
-.home-hero_heading .motion-word {
+
+/* The mouths either side of the heading (home-hero.ts): cut off at the page
+   edge, sliding in while they speak. Side by side from 40rem; below, one at
+   a time under the heading. */
+.home-hero_wrap {
+  overflow-x: clip;
+  /* The heads (see .home-hero_mouths): tile width and height, nose tip in
+     from the page edge when quiet, how far it comes in to speak, where the
+     eyes sit. Below 40rem one head at a time: the quiet one waits off the
+     page, the speaker comes in to 30vw; a face (hair to chin) is about 60%
+     of the screen, the neck running off the bottom. From 40rem both, a head
+     about four fifths of the screen high, eyes level with the heading --
+     unless that would lift the bottom of the shortest sprite (91% of a
+     tile) into view: then they drop by --drop, and the heading rises by
+     some of it. 40 and 60rem are the widths the design asked for. */
+  --w: 74svh;
+  --h: calc(var(--w) * 688 / 432);
+  --nose: calc(var(--w) * -0.14 - 4vw);
+  --slide: calc(30vw - var(--nose));
+  --eyes: 66%;
+  --drop: 0rem;
+  @media (width >= 40rem) {
+    --w: min(96svh, 75vw);
+    --nose: 9vw;
+    --slide: 3vw;
+    --eyes: 50%;
+    --drop: max(0rem, 50svh - var(--h) * 0.48);
+  }
+}
+
+.home-hero_mouths {
+  grid-row: 1;
+  align-self: stretch;
   position: relative;
-  /* Letters are inline-blocks: without this a line may break between them. */
-  white-space: nowrap;
+  margin-inline: calc(50% - 50vw);
+  pointer-events: none;
 }
 
-.home-hero_next {
+/* The sprites put the nose tip 14% in from the face side of a tile and the
+   eyes at 42% of its height. */
+.home-hero_mouth {
   position: absolute;
-  top: 0;
+  /* White drops out into the page on light themes, black on dark. On the
+     mouth, not the face: its translate makes it the blending group. */
+  mix-blend-mode: multiply;
+  .theme-dark & {
+    mix-blend-mode: screen;
+  }
+  top: calc(var(--eyes) + var(--drop));
   left: 0;
+  width: var(--w);
+  margin-top: calc(var(--h) * -0.42);
+  /* --out (0–1, home-hero.ts) runs with the scroll: the head leaves by the
+     side and moves down as far as the page goes up, so its bottom edge
+     never comes into view. */
+  translate: calc(var(--nose) + var(--in, 0) * var(--slide) - var(--w) * 0.86 - var(--out, 0) * 50vw) calc(var(--out, 0) * 100svh);
+  /* The faces look left: mirrored on the left, so both face the heading. */
+  &:not(.is-right) .home-hero_face {
+    scale: -1 1;
+  }
+  &.is-right {
+    /* Without motion, small screens show the right head, standing in. */
+    @media (width < 40rem) and (prefers-reduced-motion: reduce) {
+      --in: 1;
+    }
+    left: auto;
+    right: 0;
+    translate: calc(var(--w) * 0.86 - var(--nose) - var(--in, 0) * var(--slide) + var(--out, 0) * 50vw) calc(var(--out, 0) * 100svh);
+  }
 }
 
-.home-hero_char {
-  display: inline-block;
+.home-hero_face {
+  aspect-ratio: 432 / 688;
+  /* Three frames side by side: closed, open, round. */
+  background: var(--sprite) no-repeat calc(var(--frame, 0) * 50%) 0 / 300% 100%;
+  filter: url(#home-hero-ink);
+}
+
+.home-hero_bubble {
+  /* Scribbled with a marker, just above the mouth, out in front of it. */
+  position: absolute;
+  bottom: 42%;
+  left: 88%;
+  width: max-content;
+  max-width: min(12em, 100vw - var(--nose) - var(--slide) - 2 * var(--site-gutter));
+  margin: 0;
+  font-family: "Permanent Marker", var(--primary-family);
+  font-size: clamp(1.5rem, 2.66vw, 3.15rem);
+  line-height: 1.1;
+  color: var(--text);
+  visibility: hidden;
+  /* Gone within the first quarter of the heads scrolling out. */
+  opacity: calc(1 - var(--out, 0) * 4);
+  /* Too narrow for two: only the speaker's words, gone before its head
+     goes (below 40rem, when it leaves the page). */
+  @media (width < 60rem) {
+    opacity: min(1 - var(--out, 0) * 4, var(--in, 0) * 3 - 2);
+  }
+  .is-right & {
+    left: auto;
+    right: 88%;
+    text-align: end;
+  }
+}
+
+.home-hero_says {
+  display: block;
+}
+
+.home-hero_filters {
+  position: absolute;
 }

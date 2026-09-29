@@ -5,15 +5,13 @@ media: null
 ratio: 4/5
 # Placeholder label, shown while no media is set.
 placeholder: Bild folgt
-# Parallax travel in percent of the height, negative moves up. Unset, no parallax.
-parallax: null
 class: null
 ---
-{{# JS: resources/js/components/media.ts (slideshow, video), motion.ts (reveal, parallax) #}}
+{{# JS: resources/js/components/media.ts (slideshow, video), motion.ts (reveal) #}}
 {{ _media_count = view:media:files | count }}
 {{ _media_first = view:media:files[0] }}
 <div class="media_wrap motion-clip{{ if view:class }} {{ view:class }}{{ /if }}" style="--_ratio: {{ view:ratio }};">
-    <div class="media_inner"{{ if view:parallax }} data-parallax="{{ view:parallax }}"{{ /if }}>
+    <div class="media_inner">
         {{ if _media_count > 1 }}
             <div class="media_slides {{ view:media:transition ?? 'fade' }}" data-slideshow data-interval="{{ view:media:interval ?? 4000 }}"{{ if view:media:video_end != 'interval' }} data-video-end{{ /if }}>
                 {{ view:media:files }}

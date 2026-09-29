@@ -1,6 +1,6 @@
 .labeled_wrap {
   display: grid;
-  gap: var(--space-4) var(--space-8);
+  gap: var(--space-6) var(--space-8);
   width: 100%;
   @media (width >= 64rem) {
     grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);

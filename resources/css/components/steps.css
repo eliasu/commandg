@@ -1,0 +1,29 @@
+.steps_wrap {
+  display: grid;
+  gap: var(--space-8) var(--space-6);
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.steps_item {
+  > :first-child {
+    margin-top: 0;
+  }
+}
+
+.steps_head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  > .heading {
+    margin-block: 0;
+  }
+  + .text {
+    margin-top: var(--space-4);
+  }
+}
+
+.steps_symbol {
+  --_size: calc(var(--h2) * 0.8);
+}

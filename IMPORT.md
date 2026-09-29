@@ -22,7 +22,7 @@
   - Fixed in template: section labels (Info, Leistungen, Arbeiten, Gearbeitet für, Nebenbei, Experimente und Leidenschaften), copy hint Kopieren/Kopiert
 - **Components** —
   - `content-labeled` (partial): grey label beside content (3/9 ≥64rem). No Lumos layout pairs a label column with content; used 3×.
-  - `media` (partial): image in a fixed ratio, or a neutral placeholder while none is set; carries clip reveal + parallax hooks. `img` has no empty state; used in hero, projects, experiments.
+  - `media` (partial): image in a fixed ratio, or a neutral placeholder while none is set; carries the clip reveal hook. `img` has no empty state; used in hero, projects, experiments.
   - `content-services` (partial): numbered <details> list from `services`. Lumos accordion-item takes a heading string only; rows here have number, subtitle, tags, price.
   - `content-projects` (partial): intro + 4:5 project cards from `projects`, optional link with hover badge.
   - `media` now takes a `media` fieldset value (image | video | slideshow); slideshow/video script `media.ts`.
@@ -30,7 +30,7 @@
   - `content-projects`: 'Alle anzeigen' toggle, Flip 2→3 columns, position pattern expanded it bleeds to full container width (--labeled-bleed from content-labeled); rows share one height (multiple of the column width), no offset. ≥64rem 3 columns: 1,1,1 | 2,· | ·,1,1 | 1,2 | ·,1,·. 48–64rem 2 columns: 1,1 | 2 | ·,1 | 1,1 | 2 | 1,1. Below 48rem stacked. Toggle: hidden media get their scroll trigger only when shown (clipReveal/clipRemove in motion.ts); works already in view build up once; collapsing from inside the grid first scrolls back to it (Lenis). Captions: category small, one line, on the title's baseline, wraps below when there is no room; max 9 projects.
   - Class-only (used once): `home-hero`, `experiments`, `clients` (two Lumos marquees, row 2 reversed), `home-contact`.
   - Changed ported components: `nav` (text brand + tagline from `company`, no hamburger, only last link below 48rem, translucent blur bar; nav.ts removed), `footer` (one row: © left, links right; footer.ts removed), `button` (radius token, weight 600), `eyebrow` (+ variant `label`).
-- **Behaviour** — GSAP + ScrollTrigger + Lenis via npm, in `resources/js/components/motion.ts`, driven by hook classes (`motion-words`, `motion-scrub`, `motion-up`, `motion-clip`, `data-parallax`, `data-drift`); all off under prefers-reduced-motion.
+- **Behaviour** — GSAP + ScrollTrigger + Lenis via npm, in `resources/js/components/motion.ts`, driven by hook classes (`motion-words`, `motion-scrub`, `motion-up`, `motion-clip`, `data-drift`); all off under prefers-reduced-motion.
   - Accordion: native `<details name>` (one open) + CSS `::details-content` height transition instead of GSAP.
   - Client marquees: Lumos CSS marquee with pause buttons (WCAG 2.2.2) instead of GSAP; hover slow-down dropped.
   - Copy email: `copy.ts`, hint Kopieren → Kopiert, aria-live; mailto fallback.

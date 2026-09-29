@@ -6,12 +6,12 @@ import Lenis from "lenis";
    first; then .motion-fade (dims on scroll), on-screen .motion-up, the nav, on-screen media), .motion-scrub (words brighten
    while scrolling), .motion-up, .motion-clip (builds up with the scroll
    position and back down when scrolled back; media already on screen at load
-   builds up once, on its own), [data-parallax="-6"] (percent). Nothing moves for prefers-reduced-motion. */
+   builds up once, on its own). Nothing moves for prefers-reduced-motion. */
 export const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const clips = new WeakMap<Element, gsap.core.Timeline>();
 // Media on screen at load joins it; created here so experiments.ts's clones can too.
-const intro = gsap.timeline({ delay: 0.05 });
+export const intro = gsap.timeline({ delay: 0.05 });
 // Both axes: media above the fold or beyond the strip's edge mustn't take a stagger slot.
 const onScreen = (el: Element) => {
   const { top, bottom, left, right } = el.getBoundingClientRect();
@@ -20,12 +20,19 @@ const onScreen = (el: Element) => {
 let shown = 0;
 
 /* Clip reveal decided by where the element sits at load: on screen it
-   builds up once as part of the intro, below it follows the scroll. */
+   builds up once as part of the intro, below it follows the scroll. Hero
+   media below it builds up once, at its own pace, when it comes into view. */
 export function revealClip(el: Element) {
   const visible = onScreen(el);
-  clipReveal(el, visible);
+  const triggered = !visible && !!el.closest(".home-hero_wrap");
+  clipReveal(el, visible || triggered);
+  const timeline = clips.get(el)!;
   // Restored mid-page, the hero isn't in view: nothing to wait for.
-  if (visible) intro.add(clips.get(el)!, scrollY > 0 ? shown++ * 0.12 : `media+=${shown++ * 0.12}`);
+  if (visible) intro.add(timeline, scrollY > 0 ? shown++ * 0.12 : `media+=${shown++ * 0.12}`);
+  if (triggered) {
+    timeline.pause();
+    ScrollTrigger.create({ trigger: el, start: "top 85%", once: true, onEnter: () => timeline.play() });
+  }
 }
 
 export function clipReveal(el: Element, onScreen = false) {
@@ -107,11 +114,11 @@ if (!reduced) {
     if (onScreen(el)) intro.from(el, { opacity: 0, y: 16, duration: 1.1, ease: "power3.out" }, "chrome");
     else gsap.from(el, { opacity: 0, y: 20, duration: 1.2, scrollTrigger: reveal(el) });
   }
-  // .motion-fade: the words brighten one after another like .motion-scrub,
+  // .motion-fade: the words fade in one after another like .motion-scrub,
   // but on load, and dim again in the same order as the text scrolls away.
   for (const el of document.querySelectorAll(".motion-fade")) {
     const words = splitWords(el);
-    intro.fromTo(words, { opacity: 0.15 }, { opacity: 1, duration: 0.6, stagger: 0.035, ease: "power1.out" }, "chrome-=0.15");
+    intro.fromTo(words, { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.035, ease: "power1.out" }, "chrome-=0.15");
     // On the outer word spans, so it never fights the load fade inside.
     gsap.fromTo(el.querySelectorAll(".motion-word"), { opacity: 1 }, {
       opacity: 0.15,
@@ -127,13 +134,6 @@ if (!reduced) {
     if (el.offsetParent !== null) revealClip(el);
   }
 
-  for (const el of document.querySelectorAll<HTMLElement>("[data-parallax]")) {
-    gsap.to(el, {
-      yPercent: Number(el.dataset.parallax),
-      ease: "none",
-      scrollTrigger: { trigger: el.parentElement, start: "top bottom", end: "bottom top", scrub: true },
-    });
-  }
 
 
   // Opening a <details> changes the page height.

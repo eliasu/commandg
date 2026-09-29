@@ -8,8 +8,8 @@ class: null
     {{ _services scope="service" }}
     <details class="services_item motion-up" name="services"{{ if first }} open{{ /if }}>
         <summary class="services_toggle">
-            <span class="services_number text-style-small">{{ count < 10 ? '00' : '0' }}{{ count }}</span>
-            {{ partial:components/heading tag="h3" variant="h2" class="services_title" }}{{ partial:components/icon :name="service:icon" class="services_symbol" }}{{ service:title }}{{ /partial:components/heading }}
+            {{ partial:components/icon :name="service:icon" class="services_symbol" }}
+            {{ partial:components/heading tag="h3" variant="h2" class="services_title" }}{{ service:title }}{{ /partial:components/heading }}
             {{ partial:components/paragraph tag="span" variant="large" class="services_subtitle" }}{{ service:subtitle }}{{ /partial:components/paragraph }}
             <span class="services_icon" aria-hidden="true"></span>
         </summary>

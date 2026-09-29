@@ -4,16 +4,77 @@ blueprint: home
 title: Home
 template: pages/home
 hero_heading_muted: 'Du sagst, was du willst.'
-hero_heading: 'Wir sagen, was du brauchst.'
-hero_text: 'Websites, Design und alles dazwischen. Für kleine und mittlere Organisationen, die gut beraten werden wollen und jemanden brauchen, auf den sie sich verlassen können.'
-info_text: 'Wir sind command+g, eine Ansprechperson für Design, Websites und alles dazwischen. Wir hören zu, stellen die richtigen Fragen und setzen um, mit den Werkzeugen, die gerade am besten passen. Wenn es mehr braucht, holen wir Leute aus unserem Netzwerk dazu.'
+hero_heading: 'Wir finden heraus, was du brauchst.'
+hero_text: 'Websites, Design und alles dazwischen – für kleine und mittlere Unternehmen, die gut beraten sein wollen und einen Ansprechpartner suchen, auf den sie sich verlassen können.'
+info_text: 'Wir sind command+g, für kleine und mittlere Unternehmen. Wenn du eine Website, ein neues Erscheinungsbild oder eine digitale Lösung brauchst – oder erst merkst, dass etwas nicht rund läuft –, bist du bei uns richtig. Dein fester Ansprechpartner hört zu, stellt die richtigen Fragen und setzt um. Für mehr Hände holen wir Profis aus unserem Netzwerk dazu.'
 info_link_label: 'Lass uns sprechen'
-promise_text: 'Du musst nicht wissen, wie es geht. Dafür sind wir da. Du bringst die Frage mit, wir den Plan, und wir nehmen dich an die Hand: vom ersten Gespräch bis lange nach dem Start. Wenn es irgendwo klemmt, weißt du, wen du anrufst.'
+steps:
+  -
+    id: s1erstverstehen
+    icon: step-understand
+    title: 'Erst verstehen.'
+    text: 'Bevor wir etwas gestalten, wollen wir dein Problem wirklich verstehen. Oft stellt sich heraus, dass du etwas anderes brauchst, als du dachtest. Das ist kein Umweg, sondern der wichtigste Schritt.'
+  -
+    id: s2ehrlichempfeh
+    icon: step-recommend
+    title: 'Ehrlich empfehlen.'
+    text: 'Wir sagen dir offen, was sinnvoll ist und was nicht, auch wenn das eine kleinere Lösung bedeutet.'
+  -
+    id: s3werkzeugeumse
+    icon: step-build
+    title: 'Mit den richtigen Werkzeugen umsetzen.'
+    text: 'Wir kennen die aktuellen Tools und setzen ein, was zu deinem Projekt passt: bewährte Systeme, moderne Technik und KI, wo sie Zeit spart.'
+  -
+    id: s4dableibenxxxx
+    icon: step-stay
+    title: 'Da bleiben.'
+    text: 'Ein fester Ansprechpartner, auch nach dem Launch. Wir halten deine Website aktuell und sicher, entwickeln sie weiter, wenn dein Unternehmen wächst, und sind erreichbar, wenn eine Frage aufkommt.'
 work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Menschen, denen gute Gestaltung wichtig ist.'
-contact_heading: 'Vernetzen, zusammen&shy;arbeiten oder einfach Hallo sagen.'
+contact_heading: 'Erzähl uns, worum es geht.'
 noindex: false
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
 updated_at: 1790634195
+hero_dialog:
+  -
+    id: d01
+    say: 'Ich brauche eine neue Website.'
+    reply: 'Klingt nach: Inhalte, die du selbst pflegen kannst.'
+  -
+    id: d02
+    say: 'Unsere Seite sieht irgendwie alt aus.'
+    reply: 'Klingt nach Auffrischen, nicht nach Neubau.'
+  -
+    id: d03
+    say: 'Das dauert bei uns alles ewig.'
+    reply: 'Klingt nach einem kleinen Werkzeug, das genau passt.'
+  -
+    id: d04
+    say: 'Wir brauchen mehr Anfragen.'
+    reply: 'Klingt nach einer Botschaft, die man sofort versteht.'
+  -
+    id: d05
+    say: 'Wir brauchen ein neues Logo.'
+    reply: 'Oder einen Auftritt, der überall gleich aussieht?'
+  -
+    id: d06
+    say: 'Hast du Ideen für eine Kampagne?'
+    reply: 'Klar. Erst mal: Wen willst du erreichen?'
+  -
+    id: d07
+    say: 'Wir brauchen irgendwas mit KI.'
+    reply: 'Erzähl erst, wo es hakt.'
+  -
+    id: d08
+    say: 'Kannst du ein Tool bauen, mit dem ich …?'
+    reply: 'Können wir. Vielleicht gibt''s das aber schon.'
+  -
+    id: d09
+    say: 'Keiner versteht, was wir eigentlich machen.'
+    reply: 'Klingt nach: weniger erklären, besser zeigen.'
+  -
+    id: d10
+    say: 'Wir kommen auf Social Media nicht hinterher.'
+    reply: 'Klingt nach weniger Kanälen, nicht nach mehr Posts.'
 hero_projects:
   - db7e5ca7-2394-48e6-8e25-4dbcec208861
   - 1cbba7b1-9913-4457-a54e-9d91a2257fe1
