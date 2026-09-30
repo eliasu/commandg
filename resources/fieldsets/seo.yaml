@@ -1,6 +1,13 @@
 title: SEO
 fields:
   -
+    handle: meta_title
+    field:
+      type: text
+      display: 'SEO title'
+      instructions: 'Titel für Google und den Browser-Tab, „| commandg“ wird angehängt. Leer lassen, um den Seitentitel zu verwenden.'
+      character_limit: 60
+  -
     handle: meta_description
     field:
       type: textarea

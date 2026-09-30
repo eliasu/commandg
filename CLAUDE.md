@@ -105,7 +105,8 @@ Mode A: pages are hand-built templates from partials.
 - Every field has instructions; headings, eyebrows and button labels have a
   `character_limit`; Bard is limited to h2/h3, bold, italic, link and lists.
   Buttons: label + link, at most two, the first primary, the second secondary.
-  Image alt text is required in the asset blueprint.
+  Image alt text is required in the asset blueprint unless the asset is
+  toggled `decorative` (then `img` outputs `alt=""`).
 
 ## Building pages
 

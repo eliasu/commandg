@@ -1,7 +1,7 @@
 ---
 # Statamic port: `src` is reserved by the partial tag. Image source: an asset (optimized through Glide) or a path/URL (served as-is).
 image: null
-# Alt text. Omit for decorative images. Assets fall back to their own alt field.
+# Alt text. Omit for decorative images. Assets fall back to their own alt field, empty when marked decorative.
 alt: null
 # Responsive image mode: full-width, constrained, densities.
 variant: full-width
@@ -24,7 +24,7 @@ class: null
 {{# Statamic port: Glide builds the srcset with the widths and the WebP output Astro's <Image> uses; with width and height both set it crops around the focal point, otherwise object-position carries it to the CSS crop. #}}
 {{ if view:image }}
 {{ _classes = 'image' + (view:variant == 'densities' ? ' densities' : '') + ((view:transparent | to_bool) ? ' transparent' : '') + (view:class ? (' ' + view:class) : '') }}
-{{ _alt = view:alt ?? view:image:alt ?? '' }}
+{{ _alt = view:alt ?? (view:image:decorative ? '' : (view:image:alt ?? '')) }}
 {{ if !view:image:url || view:image:extension == 'svg' }}
 <img src="{{ view:image:url ?? view:image }}" alt="{{ _alt }}" class="{{ _classes }}"{{ if view:width }} width="{{ view:width }}"{{ /if }}{{ if view:height }} height="{{ view:height }}"{{ /if }} loading="{{ view:loading }}"{{ if view:fetch_priority != 'auto' }} fetchpriority="{{ view:fetch_priority }}"{{ /if }}>
 {{ else }}

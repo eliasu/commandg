@@ -1,0 +1,24 @@
+# {{ site:name }}
+
+> {{ seo:description }}
+
+{{ collection:pages slug:is="home" limit="1" }}{{ info_text }}{{ /collection:pages }}
+
+Kontakt: {{ company:email }}
+Standort: Berlin, Deutschland
+
+## Leistungen
+
+{{ collection:services }}- {{ title }}: {{ subtitle }} {{ description }}{{ if price }} ({{ price }}){{ /if }}
+{{ /collection:services }}
+
+## Arbeiten
+
+{{ collection:projects }}- {{ title }} ({{ category }}){{ if link }}: {{ link }}{{ /if }}
+{{ /collection:projects }}
+
+## Seiten
+
+- [Startseite]({{ config:app.url }})
+- [Impressum]({{ config:app.url }}/impressum)
+- [Datenschutz]({{ config:app.url }}/datenschutz)

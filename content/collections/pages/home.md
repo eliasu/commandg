@@ -2,6 +2,7 @@
 id: 049ed0c0-9796-43f7-b158-4f6129328c12
 blueprint: home
 title: Home
+meta_title: 'Websites und Design für kleine und mittlere Unternehmen'
 template: pages/home
 hero_heading_muted: 'Du sagst, was du willst.'
 hero_heading: 'Wir finden heraus, was du brauchst.'

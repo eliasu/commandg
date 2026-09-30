@@ -25,6 +25,7 @@ noindex: false
 {{ if view:noindex | to_bool }}<meta name="robots" content="noindex, nofollow">{{ /if }}
 
 <meta property="og:type" content="{{ view:type }}">
+<meta property="og:locale" content="{{ site:locale }}">
 <meta property="og:site_name" content="{{ site:name | sanitize }}">
 <meta property="og:title" content="{{ _page_title | sanitize }}">
 {{ if _description }}<meta property="og:description" content="{{ _description | sanitize }}">{{ /if }}

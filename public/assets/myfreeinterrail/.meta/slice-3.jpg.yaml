@@ -1,4 +1,5 @@
-data: {}
+data:
+  decorative: true
 size: 170344
 last_modified: 1790605966
 width: 1500

@@ -1,10 +1,19 @@
 title: Asset
 fields:
   -
+    handle: decorative
+    field:
+      type: toggle
+      display: Decorative
+      instructions: 'Aktivieren, wenn das Bild nur schmückt und nichts Eigenes zeigt (z. B. weitere Bilder einer Slideshow). Screenreader überspringen es dann.'
+      default: false
+  -
     handle: alt
     field:
       type: text
       display: 'Alt text'
       instructions: 'Beschreibt, was auf dem Bild zu sehen ist – für Menschen, die das Bild nicht sehen können, und für Suchmaschinen. Ein kurzer Satz genügt.'
+      unless:
+        decorative: true
       validate:
-        - required
+        - 'required_unless:decorative,true'

@@ -1,4 +1,29 @@
 {{ section:head }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": {{ site:name | json_ld }},
+    "alternateName": "command+g",
+    "url": "{{ current_url }}",
+    "description": {{ seo:description | json_ld }},
+    "slogan": {{ company:tagline | json_ld }},
+    "email": {{ company:email | json_ld }},
+    {{ if seo:image }}"image": "{{ glide :src="seo:image" width="1200" height="630" fit="crop_focal" absolute="true" }}",{{ /if }}
+    "founder": { "@type": "Person", "name": "Elias Suske" },
+    "address": { "@type": "PostalAddress", "streetAddress": "Grüntaler Straße 56", "addressLocality": "Berlin", "postalCode": "13359", "addressCountry": "DE" },
+    "areaServed": "DE",
+    "priceRange": "€",
+    {{ if company:linkedin }}"sameAs": [{{ company:linkedin | json_ld }}],{{ /if }}
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen",
+        "itemListElement": [{{ collection:services }}
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": {{ title | json_ld }}, "description": {{ description | json_ld }} } }{{ unless last }},{{ /unless }}{{ /collection:services }}
+        ]
+    }
+}
+</script>
 {{ if hero_dialog }}
 <script>for (const n of [1, 2]) document.head.append(Object.assign(document.createElement("link"), { rel: "preload", as: "image", fetchPriority: "high", href: `/images/hero-mouths/face-${n}-${document.documentElement.classList.contains("theme-dark") ? "dark" : "light"}.webp` }));</script>
 <link rel="preload" href="{{ vite:asset src="resources/fonts/permanent-marker-latin.woff2" }}" as="font" type="font/woff2" crossorigin>
@@ -8,7 +33,7 @@
 {{# Hero #}}
 {{ partial:components/section padding_top="none" padding_bottom="none" gap="0" class="home-hero_wrap" }}
     <div class="home-hero_stage">
-        <div class="home-hero_heading motion-words" id="top">
+        <div class="home-hero_heading motion-words">
             {{ partial:components/heading tag="h1" }}{{ if hero_heading_muted }}<span class="home-hero_line motion-first">{{ hero_heading_muted }}</span> {{ /if }}<span class="home-hero_line">{{ hero_heading }}</span>{{ /partial:components/heading }}
         </div>
         <div class="home-hero_intro">

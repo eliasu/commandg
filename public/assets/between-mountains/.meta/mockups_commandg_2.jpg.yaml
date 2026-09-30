@@ -1,4 +1,6 @@
-data: {}
+data:
+  focus: 24-49-1
+  decorative: true
 size: 1118011
 last_modified: 1790605952
 width: 1920
