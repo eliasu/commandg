@@ -31,7 +31,7 @@
   width: 100%;
   text-align: center;
   translate: 0 calc(var(--drop) * -0.6);
-  pointer-events: none;
+  /* pointer-events: none; */
   /* One head at a time: centred in the space above it. */
   @media (width < 48rem) {
     top: calc(var(--nav-height) + 15svh - var(--lines) / 2);
