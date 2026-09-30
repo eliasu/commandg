@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { reduced } from "./motion.ts";
 
 /* A dot that trails the pointer: a ring over anything clickable, a larger
-   dot over media, "Ansehen" over linked media, "Ziehen" over [data-cursor="drag"]. Mouse and
+   dot over media, "Website ↗" over linked media, "Ziehen" over [data-cursor="drag"]. Mouse and
    trackpad only. */
 if (!reduced && matchMedia("(hover: hover) and (pointer: fine)").matches) {
   const cursor = document.createElement("div");
@@ -44,6 +44,6 @@ if (!reduced && matchMedia("(hover: hover) and (pointer: fine)").matches) {
               ? "media"
               : "";
     cursor.dataset.state = state;
-    if (state === "view" || state === "drag") text.textContent = state === "drag" ? "← Ziehen →" : "Ansehen";
+    if (state === "view" || state === "drag") text.textContent = state === "drag" ? "← Ziehen →" : "Website ↗";
   });
 }

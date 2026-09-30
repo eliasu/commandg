@@ -77,4 +77,7 @@
     opacity: 1;
     scale: 1;
   }
+  .cursor_wrap[data-state="view"] & {
+    font-size: calc(var(--text-small) * 0.85);
+  }
 }

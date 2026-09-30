@@ -57,7 +57,9 @@
     <div class="home-hero_media">
         {{ _hero_ratios = ['16/10', '3/4', '21/9'] }}
         {{ hero_projects scope="project" }}
-        {{ partial:components/media :media="project:media" :ratio="_hero_ratios[index]" :class="index == 2 ? 'home-hero_wide' : ''" }}
+        <{{ project:link ? 'a' : 'div' }} class="home-hero_project{{ if index == 2 }} home-hero_wide{{ /if }}"{{ if project:link }} href="{{ project:link }}" target="_blank" rel="noopener" aria-label="{{ project:title }}"{{ /if }}>
+            {{ partial:components/media :media="project:media" :ratio="_hero_ratios[index]" }}
+        </{{ project:link ? 'a' : 'div' }}>
         {{ /hero_projects }}
     </div>
 {{ /partial:components/section }}

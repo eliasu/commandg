@@ -62,11 +62,15 @@
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
   }
   /* Half width on tablets: 16:10 would be too flat there. */
-  > :first-child {
+  > :first-child .media_wrap {
     @media (48rem <= width < 64rem) {
       aspect-ratio: 1 / 1;
     }
   }
+}
+
+.home-hero_project {
+  display: block;
 }
 
 .home-hero_wide {
