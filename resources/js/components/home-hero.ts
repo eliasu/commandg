@@ -33,7 +33,9 @@ if (mouths) {
     // Each line is said in a second; the question stays up a moment before
     // the reply, the pair long enough to read.
     const talk = 8;
-    const quiet = [8, 16];
+    // Too narrow for both bubbles (home-hero.css), each line alone: the
+    // same pause for both.
+    const quiet = matchMedia("(width < 64rem)").matches ? [12, 12] : [8, 16];
     // Then the pair comes down again, last word first, over this many.
     const clear = 3;
     const jitter = (amount: number) => ((Math.random() - 0.5) * amount).toFixed(2);
