@@ -7,7 +7,7 @@ template: pages/home
 hero_heading_muted: 'Du sagst, was du willst.'
 hero_heading: 'Wir finden heraus, was du brauchst.'
 hero_text: 'Websites, Design und alles dazwischen – für kleine und mittlere Unternehmen, die gut beraten sein wollen und einen Ansprechpartner suchen, auf den sie sich verlassen können.'
-info_text: 'Wir sind command+g, für kleine und mittlere Unternehmen. Wenn du eine Website, ein neues Erscheinungsbild oder eine digitale Lösung brauchst – oder erst merkst, dass etwas nicht rund läuft –, bist du bei uns richtig. Dein fester Ansprechpartner hört zu, stellt die richtigen Fragen und setzt um. Für mehr Hände holen wir Profis aus unserem Netzwerk dazu.'
+info_text: 'Wir sind command+g, für kleine und mittlere Unternehmen. Wenn du eine Website, ein neues Erscheinungsbild oder eine digitale Lösung brauchst, bist du bei uns richtig. Dein fester Ansprechpartner hört zu, stellt die richtigen Fragen und setzt um. Für mehr Hände holen wir Profis aus unserem Netzwerk dazu.'
 info_link_label: 'Lass uns sprechen'
 steps:
   -
@@ -34,7 +34,7 @@ work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Mensc
 contact_heading: 'Erzähl uns, worum es geht.'
 noindex: false
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790732204
+updated_at: 1790736799
 hero_dialog:
   -
     id: d01
