@@ -33,13 +33,15 @@
 }
 
 .home-contact_hand {
-  --_w: clamp(14rem, 26vw, 28rem);
+  --_w: clamp(12rem, 22vw, 24rem);
   width: var(--_w);
   aspect-ratio: 280 / 602;
   /* Stacked: centred under the text. */
   align-self: center;
   margin: var(--space-7) auto calc(-1 * var(--section-space-large) - 0.78 * var(--_w));
   transform-origin: 30% 85%;
+  /* Leaning left; home-contact.ts swings it with rotate on top of this. */
+  transform: rotate(-8deg);
   pointer-events: none;
   @media (width >= 48rem) {
     position: absolute;

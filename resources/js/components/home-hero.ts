@@ -1,19 +1,18 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { intro, reduced } from "./motion.ts";
+import { setInk } from "./ink.ts";
 
 /* The mouths either side of the heading hold a dialog: the left says a line
    of the list in .home-hero_dialog, the right replies, then the next pair.
    Each turn brings the next face from the speaker's data-faces. All of it
-   steps at 8 fps for a stop-motion look: mouth frames, a jitter, the grain of
-   the #ink filter, the words scribbled on, the slide in. */
-const mouths = document.querySelector(".home-hero_mouths");
+   steps at 8 fps for a stop-motion look: mouth frames, a jitter, the words scribbled on, the slide in. */
+const mouths = document.querySelector<HTMLElement>(".home-hero_mouths");
 
 if (mouths) {
   const sides = [...mouths.querySelectorAll<HTMLElement>(".home-hero_mouth")].map((el) => ({
     el,
-    // Absolute: a url() in a custom property resolves against the stylesheet.
-    faces: el.dataset.faces!.split(",").map((face) => new URL(face, location.href).href),
+    faces: el.dataset.faces!.split(","),
     face: el.querySelector<HTMLElement>(".home-hero_face")!,
     bubble: el.querySelector<HTMLElement>(".home-hero_bubble")!,
     says: el.querySelector<HTMLElement>(".home-hero_says")!,
@@ -21,11 +20,10 @@ if (mouths) {
     x: 0,
   }));
   const dialog = [...mouths.querySelectorAll<HTMLElement>(".home-hero_dialog li")].map((li) => [li.dataset.say!, li.dataset.reply!]);
-  for (const side of sides) side.face.style.setProperty("--sprite", `url("${side.faces[0]}")`);
+  for (const side of sides) setInk(side.face, side.faces[0]);
 
   if (!reduced) {
     gsap.registerPlugin(ScrollTrigger);
-    const grain = document.querySelector("#ink feTurbulence")!;
     const lines = document.querySelectorAll(".home-hero_line");
     // Three tilts per side, one per pair.
     const tilts = [
@@ -41,13 +39,11 @@ if (mouths) {
     const jitter = (amount: number) => ((Math.random() - 0.5) * amount).toFixed(2);
     let turn = 0;
     let t = 0;
-    let frame = 0;
-    // Scrolling out, the heads hold still: every step re-renders the #ink
-    // filter, which is what makes the scroll stutter on phones.
-    let leaving = false;
+    // Scrolled out all the way, the heads stop.
+    let gone = false;
 
     const step = () => {
-      if (leaving || !ScrollTrigger.isInViewport(mouths)) return;
+      if (gone || !ScrollTrigger.isInViewport(mouths)) return;
       const who = turn % 2;
       const speaker = sides[who];
       const pair = Math.floor(turn / 2);
@@ -55,7 +51,7 @@ if (mouths) {
       // A new face while it's still out at the edge; a new pair wipes both.
       if (t === 0) {
         const text = dialog[pair % dialog.length][who];
-        speaker.face.style.setProperty("--sprite", `url("${speaker.faces[pair % speaker.faces.length]}")`);
+        setInk(speaker.face, speaker.faces[pair % speaker.faces.length]);
         speaker.words = text.split(" ").map((word) => Object.assign(document.createElement("span"), { textContent: word }));
         speaker.says.replaceChildren(...speaker.words.flatMap((word) => [word, " "]));
         if (who === 0) sides[1].bubble.style.visibility = "hidden";
@@ -86,7 +82,6 @@ if (mouths) {
       }
       speaker.bubble.style.visibility = "visible";
       speaker.bubble.style.rotate = `${tilt + Number(jitter(1))}deg`;
-      grain.setAttribute("seed", String(frame++ % 8));
       if (hold && turn === 1 && t === talk) intro.play();
       if (++t >= talk + quiet[who] + (who === 1 ? clear : 0)) {
         t = 0;
@@ -94,17 +89,20 @@ if (mouths) {
       }
     };
     // Scrolled one screen down, the heads are gone; on phones half a screen.
-    // The words go outright once faded, so no scraps are left behind.
     gsap.fromTo(mouths, { "--out": 0 }, {
       "--out": 1,
       ease: "none",
       scrollTrigger: {
         start: 0,
-        end: () => innerHeight * (matchMedia("(min-width: 48rem)").matches ? 1 : 0.5),
+        // The heads move down as far as the page goes up (--leave): held in place.
+        end: () => {
+          const leave = innerHeight * (matchMedia("(min-width: 48rem)").matches ? 1 : 0.5);
+          mouths.style.setProperty("--leave", `${leave}px`);
+          return leave;
+        },
         scrub: true,
         onUpdate: ({ progress }) => {
-          leaving = progress > 0;
-          if (progress > 0.25) for (const side of sides) side.bubble.style.visibility = "hidden";
+          gone = progress === 1;
         },
       },
     });
@@ -123,13 +121,11 @@ if (mouths) {
       gsap.to(".nav_wrap", { opacity: 1, y: 0, duration: 1, delay: 1 });
     }
     // The dialog (and with it the heading) starts once both first faces are
-    // decoded, at most 3s in; the other faces load behind it.
-    const load = (src: string) => {
-      const img = new Image();
-      img.src = src;
-      return img.decode().catch(() => {});
-    };
-    const firsts = Promise.all(sides.map((side) => load(side.faces[0])));
+    // decoded, at most 3s in; the other faces download behind it, but only
+    // decode when shown: decoded, a sprite takes about 14 MB.
+    const theme = document.documentElement.classList.contains("theme-dark") ? "dark" : "light";
+    const load = (face: string) => Object.assign(new Image(), { src: `${face}-${theme}.webp` });
+    const firsts = Promise.all(sides.map((side) => load(side.faces[0]).decode().catch(() => {})));
     Promise.race([firsts, new Promise((done) => setTimeout(done, 3000))]).then(() => {
       for (const side of sides) side.faces.slice(1).forEach(load);
       // On GSAP's clock, so the handover to the intro stays in step.

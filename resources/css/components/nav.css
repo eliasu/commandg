@@ -101,3 +101,18 @@
     }
   }
 }
+
+.nav_current {
+  display: none;
+}
+
+.nav_logo.is-section {
+  @media (width < 48rem) {
+    .nav_brand {
+      display: none;
+    }
+    .nav_current {
+      display: inline;
+    }
+  }
+}

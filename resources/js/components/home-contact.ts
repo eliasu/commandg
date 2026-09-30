@@ -8,7 +8,6 @@ const hand = document.querySelector<HTMLElement>(".home-contact_hand");
 
 if (hand && !reduced) {
   gsap.registerPlugin(ScrollTrigger);
-  const grain = document.querySelector("#ink feTurbulence");
   // A wave: the frame and the swing (degrees) for each step; then about
   // three seconds still.
   const wave: [number, number][] = [
@@ -24,7 +23,6 @@ if (hand && !reduced) {
     const [still, swing] = wave[frame++ % cycle] ?? [0, 0];
     hand.style.setProperty("--frame", String(still));
     hand.style.rotate = `${swing + (Math.random() - 0.5) * 1.5}deg`;
-    grain?.setAttribute("seed", String(frame % 8));
   });
 }
 

@@ -33,7 +33,7 @@ work_text: 'Eine Auswahl, von der Website bis zum Werkzeug nach Maß, für Mensc
 contact_heading: 'Erzähl uns, worum es geht.'
 noindex: false
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790634195
+updated_at: 1790732204
 hero_dialog:
   -
     id: d01
@@ -66,7 +66,7 @@ hero_dialog:
   -
     id: d08
     say: 'Kannst du ein Tool bauen, mit dem ich …?'
-    reply: 'Können wir. Vielleicht gibt''s das aber schon.'
+    reply: "Können wir. Vielleicht gibt's das aber schon."
   -
     id: d09
     say: 'Keiner versteht, was wir eigentlich machen.'
@@ -89,20 +89,12 @@ work_projects:
   - b975f44e-feb3-4cbe-9407-d7a26578e82b
   - 7d98af93-3ebc-4a25-91d4-15ead8230ee0
   - c8b0e1a5-1381-4610-8ad7-d7f8d83c105b
-  - 186dbf79-9893-4c0e-ab10-a9ef84798334
   - 4d2adb53-7a13-40a1-bd3b-265ca26f5b04
-  - 2893dea5-ba74-497b-8b28-78a6e9093d6b
   - 7268e460-dc62-403f-8231-1cb4aa447804
   - 3c9f6781-8198-4df4-8c61-f87ba5d9b053
-  - 493e14eb-3f4c-4658-88b0-be21aacb0503
-  - 6be7760e-3f4a-4271-8299-46ccb20d4df7
   - 879285a3-ee18-4038-9f80-d0463b3aa348
-  - 46a452ab-f788-481b-90f7-fda7f3eee732
-  - f6410549-1945-46c6-b54e-6a17a5046115
   - 8dfcf24f-dabc-41fa-9dc2-95d44e73cd20
   - f1bedd9c-7913-47f9-9ac1-8cd3e9c64867
-  - 0b980606-e1ea-4797-9de8-d7e5b94fa8ab
-  - 77a9df6e-dafd-4972-8007-53d60aafc091
 side_projects:
   - 5ccfbd06-254f-4672-b90e-3dae88a45ee5
   - 203c360b-52e9-4c10-9886-49811052d7b0

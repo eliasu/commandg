@@ -4,11 +4,12 @@ overlap: false
 # Statamic port: links come from this Statamic navigation, not hard-coded.
 navigation: main
 ---
-{{# Statamic port: ARIA labels are German, the site language. Site: no mobile menu; below 48rem only the last link shows (IMPORT.md). #}}
+{{# Statamic port: ARIA labels are German, the site language. Site: no mobile menu; below 48rem only the last link shows, and the brand swaps to the label of the section under the nav (nav.ts, IMPORT.md). #}}
 <header class="nav_wrap{{ if view:overlap | to_bool }} overlap{{ /if }}">
     <div class="nav_inner">
         <a class="nav_logo" href="/#top">
             <span class="nav_brand">{{ site:name }}</span>
+            <span class="nav_brand nav_current" aria-hidden="true"></span>
             {{ if company:tagline }}<span class="nav_tagline">{{ company:tagline }}</span>{{ /if }}
         </a>
         <nav class="nav_menu" aria-label="Hauptnavigation">

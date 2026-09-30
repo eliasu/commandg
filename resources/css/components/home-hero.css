@@ -115,14 +115,8 @@
    eyes at 42% of its height. */
 .home-hero_mouth {
   position: absolute;
-  /* Its own layer: the scroll moves the filtered face without repainting it. */
+  /* Its own layer: the scroll moves the face without repainting it. */
   will-change: translate;
-  /* White drops out into the page on light themes, black on dark. On the
-     mouth, not the face: its translate makes it the blending group. */
-  mix-blend-mode: multiply;
-  .theme-dark & {
-    mix-blend-mode: screen;
-  }
   top: calc(var(--eyes) + var(--drop));
   left: 0;
   width: var(--w);
@@ -130,7 +124,7 @@
   /* --out (0–1, home-hero.ts) runs with the scroll: the head leaves by the
      side and moves down as far as the page goes up, so its bottom edge
      never comes into view. */
-  translate: calc(var(--nose) + var(--in, 0) * var(--slide) - var(--w) * 0.86 - var(--out, 0) * 50vw) calc(var(--out, 0) * 100svh);
+  translate: calc(var(--nose) + var(--in, 0) * var(--slide) - var(--w) * 0.86 - var(--out, 0) * 50vw) calc(var(--out, 0) * var(--leave, 100svh));
   /* The faces look left: mirrored on the left, so both face the heading. */
   &:not(.is-right) .home-hero_face {
     scale: -1 1;
@@ -142,15 +136,14 @@
     }
     left: auto;
     right: 0;
-    translate: calc(var(--w) * 0.86 - var(--nose) - var(--in, 0) * var(--slide) + var(--out, 0) * 50vw) calc(var(--out, 0) * 100svh);
+    translate: calc(var(--w) * 0.86 - var(--nose) - var(--in, 0) * var(--slide) + var(--out, 0) * 50vw) calc(var(--out, 0) * var(--leave, 100svh));
   }
 }
 
 .home-hero_face {
-  aspect-ratio: 432 / 688;
   /* Three frames side by side: closed, open, round. */
-  background: var(--sprite) no-repeat calc(var(--frame, 0) * 50%) 0 / 300% 100%;
-  filter: url(#ink);
+  --frames: 3;
+  aspect-ratio: 432 / 688;
 }
 
 .home-hero_bubble {
@@ -166,12 +159,12 @@
   line-height: 1.1;
   color: var(--text);
   visibility: hidden;
-  /* Gone within the first quarter of the heads scrolling out. */
-  opacity: calc(1 - var(--out, 0) * 4);
+  /* Gone within the first eighth of the heads scrolling out. */
+  opacity: calc(1 - var(--out, 0) * 8);
   /* Too narrow for two: only the speaker's words, gone before its head
      goes (below 48rem, when it leaves the page). */
   @media (width < 64rem) {
-    opacity: min(1 - var(--out, 0) * 4, var(--in, 0) * 3 - 2);
+    opacity: min(1 - var(--out, 0) * 8, var(--in, 0) * 3 - 2);
   }
   .is-right & {
     left: auto;

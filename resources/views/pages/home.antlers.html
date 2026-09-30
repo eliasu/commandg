@@ -1,7 +1,7 @@
 {{ section:head }}
 {{ if hero_dialog }}
-<link rel="preload" href="/images/hero-mouths/face-1.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="preload" href="/images/hero-mouths/face-2.webp" as="image" type="image/webp" fetchpriority="high">
+<script>for (const n of [1, 2]) document.head.append(Object.assign(document.createElement("link"), { rel: "preload", as: "image", fetchPriority: "high", href: `/images/hero-mouths/face-${n}-${document.documentElement.classList.contains("theme-dark") ? "dark" : "light"}.webp` }));</script>
+<link rel="preload" href="{{ vite:asset src="resources/fonts/permanent-marker-latin.woff2" }}" as="font" type="font/woff2" crossorigin>
 {{ /if }}
 {{ /section:head }}
 
@@ -14,12 +14,12 @@
         <div class="home-hero_intro">
             {{ if hero_dialog }}
             <div class="home-hero_mouths" aria-hidden="true">
-                <div class="home-hero_mouth" data-faces="/images/hero-mouths/face-1.webp,/images/hero-mouths/face-3.webp,/images/hero-mouths/face-5.webp,/images/hero-mouths/face-7.webp,/images/hero-mouths/face-9.webp">
-                    <div class="home-hero_face"></div>
+                <div class="home-hero_mouth" data-faces="/images/hero-mouths/face-1,/images/hero-mouths/face-3,/images/hero-mouths/face-5,/images/hero-mouths/face-7,/images/hero-mouths/face-9">
+                    <div class="home-hero_face ink"></div>
                     <p class="home-hero_bubble"><span class="home-hero_says"></span></p>
                 </div>
-                <div class="home-hero_mouth is-right" data-faces="/images/hero-mouths/face-2.webp,/images/hero-mouths/face-4.webp,/images/hero-mouths/face-6.webp,/images/hero-mouths/face-8.webp">
-                    <div class="home-hero_face"></div>
+                <div class="home-hero_mouth is-right" data-faces="/images/hero-mouths/face-2,/images/hero-mouths/face-4,/images/hero-mouths/face-6,/images/hero-mouths/face-8">
+                    <div class="home-hero_face ink"></div>
                     <p class="home-hero_bubble"><span class="home-hero_says"></span></p>
                 </div>
                 <ol class="home-hero_dialog" hidden>
@@ -106,7 +106,7 @@
 
 {{# Contact #}}
 {{ partial:components/section padding_top="large" padding_bottom="large" class="home-contact_wrap" }}
-    <div class="home-contact_content" id="kontakt">
+    <div class="home-contact_content" id="kontakt" data-nav-label="Kontakt">
         {{ partial:components/heading tag="h2" variant="h2" max_width="14" class="motion-up" }}{{ contact_heading }}{{ /partial:components/heading }}
         {{ partial:components/button-wrapper class="home-contact_actions" }}
             {{ if company:email }}
@@ -120,5 +120,5 @@
             {{ /if }}
         {{ /partial:components/button-wrapper }}
     </div>
-    <div class="home-contact_hand ink" aria-hidden="true" style="background-image: url('/images/hands/wave.webp'); --frames: 3"></div>
+    <div class="home-contact_hand ink" aria-hidden="true" data-ink="/images/hands/wave" style="--frames: 3"></div>
 {{ /partial:components/section }}

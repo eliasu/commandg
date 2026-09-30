@@ -6,8 +6,16 @@ for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy]")
     try {
       await navigator.clipboard.writeText(text);
     } catch {
-      location.href = `mailto:${text}`;
-      return;
+      // The Clipboard API needs HTTPS; execCommand still copies over plain HTTP.
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.append(field);
+      field.select();
+      const copied = document.execCommand("copy");
+      field.remove();
+      if (!copied) return;
     }
     if (!hint) return;
     hint.textContent = "Kopiert";

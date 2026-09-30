@@ -17,7 +17,7 @@ class: null
                 {{ view:media:files }}
                 <div class="media_slide{{ if first }} is-active{{ /if }}">
                     {{ if is_video }}
-                        {{ partial:components/video :file="url + '#t=0.001'" variant="custom" autoplay="false" preload="metadata" }}
+                        {{ partial:components/video :file="url + '#t=0.001'" variant="custom" autoplay="false" preload="none" }}
                     {{ else }}
                         {{ partial:components/img :image="view:media:files[index]" }}
                     {{ /if }}
@@ -25,7 +25,7 @@ class: null
                 {{ /view:media:files }}
             </div>
         {{ elseif _media_first:is_video }}
-            {{ partial:components/video :file="_media_first" variant="custom" }}
+            {{ partial:components/video :file="_media_first:url + '#t=0.001'" variant="custom" autoplay="false" preload="none" }}
         {{ elseif _media_count }}
             {{ partial:components/img :image="_media_first" }}
         {{ else }}

@@ -1,21 +1,9 @@
-/* A sprite through the #ink filter (partial ink): frames side by side in
-   the background image (set it in the style attribute: a url() in a custom
-   property would resolve against this stylesheet), --frames of them,
-   --frame (from 0) showing. White drops out into
-   the page on light themes, black on dark. The blend needs the page behind
-   it: an ancestor with a transform would cut it off, so put any translate on
-   this element itself. */
+/* A sprite in the ink look (grainy, two tones, a hard edge), baked by
+   resources/ink/bake.sh: --frames frames side by side, --frame (from 0)
+   showing. Dark ink on transparent, light ink on dark themes. ink.ts sets the images from data-ink. */
 .ink {
-  background-repeat: no-repeat;
-  background-position: calc(var(--frame, 0) * 100% / (var(--frames) - 1)) 0;
-  background-size: calc(var(--frames) * 100%) 100%;
-  filter: url(#ink);
-  mix-blend-mode: multiply;
+  background: var(--ink-light) no-repeat calc(var(--frame, 0) * 100% / (var(--frames) - 1)) 0 / calc(var(--frames) * 100%) 100%;
   .theme-dark & {
-    mix-blend-mode: screen;
+    background-image: var(--ink-dark);
   }
-}
-
-.ink_filters {
-  position: absolute;
 }

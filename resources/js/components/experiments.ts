@@ -10,22 +10,32 @@ gsap.registerPlugin(Draggable, InertiaPlugin, ScrollTrigger);
    without a gap. Its offset is the scroll drift plus the drag, wrapped to
    one set's width. Runs before media.ts, so the clones' slideshows start
    like the originals. A copy sliding in must already show a picture, so
-   images load eagerly and every video plays while the strip is on screen
-   (media.ts would only start it once it is in view: a black frame). */
+   a screen before the strip arrives, images load eagerly and videos
+   preload in full. Not with the page: that holds up its load. */
 for (const viewport of document.querySelectorAll<HTMLElement>(".experiments_viewport")) {
   const list = viewport.querySelector<HTMLElement>(".experiments_list")!;
   const originals = [...list.children] as HTMLElement[];
   if (!originals.length) continue;
-  for (const img of list.querySelectorAll("img")) img.loading = "eager";
   // Slideshow videos are played one at a time by media.ts.
   const strip = "video:not(.media_slide video)";
-  for (const video of list.querySelectorAll<HTMLVideoElement>(strip)) video.preload = "auto";
+  ScrollTrigger.create({
+    trigger: viewport,
+    start: "top bottom+=100%",
+    end: "max",
+    once: true,
+    onEnter: () => {
+      for (const img of list.querySelectorAll("img")) img.loading = "eager";
+      for (const video of list.querySelectorAll<HTMLVideoElement>(strip)) video.preload = "auto";
+    },
+  });
 
   const setWidth = () => {
     const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
     return originals.reduce((sum, item) => sum + item.offsetWidth + gap, 0);
   };
   const copies = Math.ceil(viewport.clientWidth / setWidth()) + 1;
+  // media.ts keeps the copies of one item in step by this key.
+  originals.forEach((item, i) => (item.dataset.copy = String(i)));
   for (let i = 0; i < copies; i++) {
     for (const item of originals) {
       const clone = item.cloneNode(true) as HTMLElement;
@@ -66,13 +76,6 @@ for (const viewport of document.querySelectorAll<HTMLElement>(".experiments_view
       },
     });
   }
-
-  const videos = list.querySelectorAll<HTMLVideoElement>(strip);
-  if (reduced) for (const video of videos) video.removeAttribute("autoplay"), video.pause();
-  else
-    new IntersectionObserver(([entry]) => {
-      for (const video of videos) entry.isIntersecting ? video.play().catch(() => {}) : video.pause();
-    }).observe(viewport);
 
   addEventListener("resize", () => {
     width = setWidth();
