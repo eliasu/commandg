@@ -9,8 +9,7 @@ tags:
   - Konzept
   - Design
   - Umsetzung
-price: 'ab 5.000 €'
 icon: service-website
 updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
-updated_at: 1790631096
+updated_at: 1790843270
 ---

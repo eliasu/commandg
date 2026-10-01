@@ -29,5 +29,6 @@ preferences:
       view: list
     services:
       view: list
+      after_save: listing
     clients:
       view: list

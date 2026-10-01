@@ -4,10 +4,11 @@ blueprint: service
 title: Branding
 subtitle: 'Klarheit, die man wiedererkennt.'
 description: 'Vom Arbeitstitel zur Marke: Logo, Farben, Schrift und alles, was du im Alltag brauchst, damit dein Auftritt überall gleich klingt.'
-tags: 
-  - 'Logo'
-  - 'Erscheinungsbild'
-  - 'Grundausstattung'
-price: 'ab 2.000 €'
+tags:
+  - Logo
+  - Erscheinungsbild
+  - Grundausstattung
 icon: service-branding
+updated_by: 47beda1f-607b-4632-9492-b86d08c71b37
+updated_at: 1790843275
 ---
